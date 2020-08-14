@@ -15,7 +15,7 @@ permet de se rendre compte de la quantité de travail que ces projets repésente
 ### 2. l'utilisateur doit s'inscrire pour voir tous les projets en cours
 il peut ensuite remplir son profil afin d'ajouter des informations à son propos, par exemple des compétences de dev, il peut se proposer en tant que développeur, en financer, et/ou proposer un projet
 
-### 3. BDD : des Users (le developpeur, financeur, porteur de projet) et des Projets, tout ça en relation NN
+### 3. BDD : des Users (le developpeur, financeur, porteur de projet) et des Projets, tout ça en relation NN
    Front : un thème sympa de bootstrap
    Backend : API : mango Pay ou autre
 
