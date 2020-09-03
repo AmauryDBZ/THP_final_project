@@ -12,5 +12,25 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require jquery.min.js
+//= require bootstrap.bundle.min.js
+//= require jquery.fancybox.min.js
+//= require aos.js
+//= require choices.min.js
+//= require countUp.min.js
+//= require dropzone.min.js
+//= require flickity.pkgd.min.js
+//= require flickity-fade.js
+//= require highlight.pack.min.js
+//= require imagesloaded.pkgd.min.js
+//= require isotope.pkgd.min.js
+//= require jarallax.min.js
+//= require jarallax-video.min.js
+//= require jarallax-element.min.js
+//= require quill.min.js
+//= require smooth-scroll.min.js
+//= require typed.min.js
+//= require theme.min.js
+//= require bootstrap

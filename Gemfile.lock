@@ -246,9 +246,6 @@ GEM
     tilt (2.0.10)
     time_difference (0.7.0)
       activesupport (~> 5.1)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
@@ -298,7 +295,6 @@ DEPENDENCIES
   stripe
   table_print
   time_difference
-  turbolinks (~> 5)
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
 
