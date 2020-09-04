@@ -30,8 +30,8 @@ end
   project = Project.create(
     user_id: rand(1..10),
     name: Faker::Beer.name,
-    pitch: Faker::Lorem.sentence(word_count: 7),
-    functionalities: Faker::Lorem.sentence(word_count: 60),
+    pitch: Faker::Lorem.sentence(word_count: 4),
+    functionalities: Faker::Lorem.sentence(word_count: 30),
     value_of_project: rand(110..600),
     number_of_developers_on_project: rand(2..10),
     daily_time_spent_on_project_per_developer: rand(2..8)
