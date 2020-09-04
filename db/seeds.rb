@@ -56,7 +56,7 @@ end
 
 15.times do
   donation = Donation.create(
-    project_id: Project.all.sample,
+    project_id: Project.all.sample.id,
     stripe_customer_id: Faker::Lorem.word,
     stripe_email: User.all.sample.email,
     amount: rand(5..200)
