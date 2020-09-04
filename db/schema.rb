@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_155937) do
+ActiveRecord::Schema.define(version: 2020_09_04_151447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.bigint "project_id"
+    t.string "stripe_customer_id"
+    t.string "stripe_email"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_donations_on_project_id"
+  end
+
+  create_table "project_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_project_categories_on_category_id"
+    t.index ["project_id"], name: "index_project_categories_on_project_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.text "pitch"
+    t.text "functionalities"
+    t.bigint "clicks"
+    t.bigint "value_of_project"
+    t.bigint "money_earned"
+    t.integer "number_of_developers_on_project"
+    t.integer "daily_time_spent_on_project_per_developer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +63,13 @@ ActiveRecord::Schema.define(version: 2020_09_03_155937) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "date_of_birth"
+    t.text "personal_description"
+    t.text "professional_background"
+    t.string "link_of_github"
+    t.string "link_of_linkedin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
