@@ -1,0 +1,31 @@
+.alert-error {
+  background-color: #E74C3C;
+  border-color: #d6e9c6;
+  color: #ffffff;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: #E74C3C;
+  border-color: #d6e9c6;
+  color: #ffffff;
+  text-align: left;
+}
+
+.alert-success {
+  background-color: #4EBD8C;
+  border-color: #d6e9c6;
+  color: #ffffff;
+  text-align: left;
+}
+
+.alert-notice {
+  background-color: #4EBD8C;
+  border-color: #d6e9c6;
+  color: #ffffff;
+  text-align: left;
+}
+
+.alert {
+  z-index: 1
+}
