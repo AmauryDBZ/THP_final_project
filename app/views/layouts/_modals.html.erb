@@ -1,0 +1,147 @@
+      <!-- MODALS
+      ================================================== -->
+      <!-- Signup: -->
+      <div class="modal fade" id="modalSignupVertical" tabindex="-1" role="dialog" aria-labelledby="modalSignupVerticalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="card">
+
+              <!-- Close -->
+              <button type="button" class="modal-close close text-white" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+
+              <!-- Image -->
+              <%= image_tag "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", alt:"...", class:"card-img-top"%>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
+                  <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-0 font-weight-bold text-center" id="modalSignupVerticalTitle">
+                  S'inscrire
+                </h2>
+
+                <!-- Text -->
+                <p class="mb-6 text-center text-muted">
+                  Présentez vos projets OpenSources, et trouvez du soutiens financier. 
+                </p>
+
+                <!-- Form -->
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+
+                  <!-- Email -->
+                  <div class="field m-5">
+                    <%= f.label :adresse_email %><br />
+                    <%= f.email_field :email, autofocus: true, placeholder: "email" %>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="field m-5">
+                    <%= f.label :mot_de_passe %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, placeholder: "mot de passe" %>
+                  </div>
+
+                  <!--Password confirmation-->
+                  <div class="field m-5">
+                  <%= f.label :confirmez_votre_mot_de_passe %><br />
+                  <%= f.password_field :password_confirmation, placeholder: "mot de passe" %>
+                </div>
+
+                  <!-- Submit -->
+                  <div class="actions m-5">
+                    <%= f.submit "S'inscrire", class: "btn btn-block btn-primary", title: "Confirmer l'inscription" %>
+                  </div>
+
+                <%end%>
+                <%= render "devise/shared/links" %>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signin -->
+      <div class="modal fade" id="modalSigninVertical" tabindex="-1" role="dialog" aria-labelledby="modalSigninVerticalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="card">
+
+              <!-- Close -->
+              <button type="button" class="modal-close close text-white" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+
+              <!-- Image -->
+              <%= image_tag "https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1011&q=80", alt:"...", class:"card-img-top", title: "Connexion"%>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
+                  <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-0 font-weight-bold text-center" id="modalSigninVerticalTitle">
+                  Se connecter
+                </h2>
+
+                <!-- Text -->
+                <p class="mb-6 text-center text-muted">
+                  Présentez vos projets OpenSources, et trouvez du soutiens financier.
+                </p>
+
+                <!-- Form -->
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                  <!-- Email -->
+                  <div class="field m-5">
+                    <%= f.label :adresse_email %><br />
+                    <%= f.email_field :email, autofocus: true, placeholder: "email" %>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="field m-5">
+                    <%= f.label :mot_de_passe %><br />
+                    <%= f.password_field :password, placeholder: "mot de passe" %>
+                  </div>
+
+                  <!-- Remember me -->
+                  <% if devise_mapping.rememberable? %>
+                    <div class="field m-5">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :se_souvenir_de_moi %>
+                    </div>
+                  <% end %>
+
+                  <!-- Submit -->
+                  <div class="actions m-5">
+                    <%= f.submit "Connexion", class: "btn btn-block btn-primary"%>
+                  </div>
+
+                <%end%>
+                <%= render "devise/shared/links" %>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
