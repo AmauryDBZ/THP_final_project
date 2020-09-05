@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-
-  devise_for :users
+  
   root 'projects#index'
+
+  localized do
+    devise_for :users
+    resources :projects, only: [:index, :show, :new], param: :slug
+    resources :categories, only: [:index, :show], param: :slug
+  end
+  
+
+
 end
