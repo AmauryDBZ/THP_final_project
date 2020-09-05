@@ -50,7 +50,7 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.8.6.3)
       execjs
-    bcrypt (3.1.15)
+    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
@@ -185,6 +185,10 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    route_translator (8.0.0)
+      actionpack (>= 5.0.0.1, < 6.1)
+      activesupport (>= 5.0.0.1, < 6.1)
+      addressable (~> 2.7)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -287,6 +291,7 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.3)
   rails-erd
   rename
+  route_translator
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver

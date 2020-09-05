@@ -71,6 +71,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'stripe'
+gem 'route_translator'
 
 
 
