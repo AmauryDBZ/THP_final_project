@@ -12,6 +12,313 @@
   </head>
 
   <body>
+    <header>
+      <!-- MODALS
+      ================================================== -->
+      <!-- Signup: -->
+      <div class="modal fade" id="modalSignupVertical" tabindex="-1" role="dialog" aria-labelledby="modalSignupVerticalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="card">
+
+              <!-- Close -->
+              <button type="button" class="modal-close close text-white" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+
+              <!-- Image -->
+              <%= image_tag "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", alt:"...", class:"card-img-top"%>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
+                  <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-0 font-weight-bold text-center" id="modalSignupVerticalTitle">
+                  S'inscrire
+                </h2>
+
+                <!-- Text -->
+                <p class="mb-6 text-center text-muted">
+                  Présentez vos projets OpenSources, et trouvez du soutiens financier. 
+                </p>
+
+                <!-- Form -->
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+
+                  <!-- Email -->
+                  <div class="field m-5">
+                    <%= f.label :adresse_email %><br />
+                    <%= f.email_field :email, autofocus: true, placeholder: "email" %>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="field m-5">
+                    <%= f.label :mot_de_passe %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, placeholder: "mot de passe" %>
+                  </div>
+
+                  <!--Password confirmation-->
+                  <div class="field m-5">
+                  <%= f.label :confirmez_votre_mot_de_passe %><br />
+                  <%= f.password_field :password_confirmation, placeholder: "mot de passe" %>
+                </div>
+
+                  <!-- Submit -->
+                  <div class="actions m-5">
+                    <%= f.submit "S'inscrire", class: "btn btn-block btn-primary", title: "Confirmer l'inscription" %>
+                  </div>
+
+                <%end%>
+                <%= render "devise/shared/links" %>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signin -->
+      <div class="modal fade" id="modalSigninVertical" tabindex="-1" role="dialog" aria-labelledby="modalSigninVerticalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="card">
+
+              <!-- Close -->
+              <button type="button" class="modal-close close text-white" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+
+              <!-- Image -->
+              <%= image_tag "https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1011&q=80", alt:"...", class:"card-img-top", title: "Connexion"%>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
+                  <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h2 class="mb-0 font-weight-bold text-center" id="modalSigninVerticalTitle">
+                  Se connecter
+                </h2>
+
+                <!-- Text -->
+                <p class="mb-6 text-center text-muted">
+                  Présentez vos projets OpenSources, et trouvez du soutiens financier.
+                </p>
+
+                <!-- Form -->
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                  <!-- Email -->
+                  <div class="field m-5">
+                    <%= f.label :adresse_email %><br />
+                    <%= f.email_field :email, autofocus: true, placeholder: "email" %>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="field m-5">
+                    <%= f.label :mot_de_passe %><br />
+                    <%= f.password_field :password, placeholder: "mot de passe" %>
+                  </div>
+
+                  <!-- Remember me -->
+                  <% if devise_mapping.rememberable? %>
+                    <div class="field m-5">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :se_souvenir_de_moi %>
+                    </div>
+                  <% end %>
+
+                  <!-- Submit -->
+                  <div class="actions m-5">
+                    <%= f.submit "Connexion", class: "btn btn-block btn-primary"%>
+                  </div>
+
+                <%end%>
+                <%= render "devise/shared/links" %>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NAVBAR
+      ================================================== -->
+      <nav class="navbar navbar-expand-lg fixed-top mb-3">
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html">
+          <img src="../assets/img/brand.svg" class="navbar-brand-img" alt="...">
+        </a>
+
+        <!-- Toggler -->
+        <button class="navbar-toggler btn-rounded-circle btn-lg" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+        
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse">
+
+          <!-- Navigation -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown mr-2">
+              <a class="nav-link dropdown-toggle" id="navbarLandings" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-plus"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-xl p-0" aria-labelledby="navbarLandings">
+                <div class="row no-gutters">
+                  <div class="col-12 col-lg-6">
+                    <div class="dropdown-img-left" style="background-image: url(https://images.unsplash.com/photo-1492551557933-34265f7af79e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+
+                      <!-- Heading -->
+                      <h4 class="font-weight-bold text-white mb-0">
+                        Vous voulez proposer un projet?
+                      </h4>
+
+                      <!-- Text -->
+                      <p class="font-size-sm text-white">
+                        Créez un compte et trouvez des financements auprès de particuliers.
+                      </p>
+
+                      
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <div class="dropdown-body">
+                      <div class="row no-gutters">
+                        <div class="col-6">
+
+                          <!-- Heading -->
+                          <h6 class="dropdown-header">
+                            Utilisateurs
+                          </h6>
+
+                          <!-- List -->
+                          <a class="dropdown-item" data-toggle="modal" href="#modalSignupVertical">
+                            S'inscrire
+                          </a>
+                          <a class="dropdown-item" data-toggle="modal" href="#modalSigninVertical">
+                            Se connecter
+                          </a>
+                          <a class="dropdown-item mb-5" href="../job.html">
+                            Déconnection
+                          </a>
+
+                        </div>
+                      </div> <!-- / .row -->
+                    </div>
+                  </div>
+                </div> <!-- / .row -->
+              </div>
+            </li>
+            <li class="nav-item dropdown mr-5">
+              <span class="badge badge-pill badge-primary-soft badge-lg nav-link dropdown-toggle mr-5 mt-1" id="navbarDocumentation" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                À propos   <i class="far fa-question-circle"></i>
+              </span>
+              <div class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDocumentation">
+                <div class="list-group list-group-flush">
+                  <a class="list-group-item" href="../docs/index.html">
+                    
+                    <!-- Icon -->
+                    <div class="icon icon-sm text-primary">
+                      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M8 3v.5A1.5 1.5 0 009.5 5h5A1.5 1.5 0 0016 3.5V3h2a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h2z" fill="#335EEA" opacity=".3"/><path d="M11 2a1 1 0 012 0h1.5a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-5a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5H11z" fill="#335EEA"/><rect fill="#335EEA" opacity=".3" x="7" y="10" width="5" height="2" rx="1"/><rect fill="#335EEA" opacity=".3" x="7" y="14" width="9" height="2" rx="1"/></g></svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="ml-4">
+
+                      <!-- Heading -->
+                      <h6 class="font-weight-bold text-uppercase text-primary mb-0">
+                        Manifeste
+                      </h6>
+
+                      <!-- Text -->
+                      <p class="font-size-sm text-gray-700 mb-0">
+                        Vos données
+                      </p>
+
+                    </div>
+
+                  </a>
+                  <a class="list-group-item" href="../docs/alerts.html">
+                    
+                    <!-- Icon -->
+                    <div class="icon icon-sm text-primary">
+                      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><rect fill="#335EEA" x="4" y="4" width="7" height="7" rx="1.5"/><path d="M5.5 13h4a1.5 1.5 0 011.5 1.5v4A1.5 1.5 0 019.5 20h-4A1.5 1.5 0 014 18.5v-4A1.5 1.5 0 015.5 13zm9-9h4A1.5 1.5 0 0120 5.5v4a1.5 1.5 0 01-1.5 1.5h-4A1.5 1.5 0 0113 9.5v-4A1.5 1.5 0 0114.5 4zm0 9h4a1.5 1.5 0 011.5 1.5v4a1.5 1.5 0 01-1.5 1.5h-4a1.5 1.5 0 01-1.5-1.5v-4a1.5 1.5 0 011.5-1.5z" fill="#335EEA" opacity=".3"/></g></svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="ml-4">
+                      
+                      <!-- Heading -->
+                      <h6 class="font-weight-bold text-uppercase text-primary mb-0">
+                        Notre équipe
+                      </h6>
+
+                      <!-- Text -->
+                      <p class="font-size-sm text-gray-700 mb-0">
+                        + sur le projet
+                      </p>
+
+                    </div>
+
+                  </a>
+                  <a class="list-group-item" href="../docs/changelog.html">
+                    
+                    <!-- Icon -->
+                    <div class="icon icon-sm text-primary">
+                      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M5.857 2h7.88a1.5 1.5 0 01.968.355l4.764 4.029A1.5 1.5 0 0120 7.529v12.554c0 1.79-.02 1.917-1.857 1.917H5.857C4.02 22 4 21.874 4 20.083V3.917C4 2.127 4.02 2 5.857 2z" fill="#335EEA" opacity=".3"/><rect fill="#335EEA" x="6" y="11" width="9" height="2" rx="1"/><rect fill="#335EEA" x="6" y="15" width="5" height="2" rx="1"/></g></svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="ml-4">
+                      
+                      <!-- Heading -->
+                      <h6 class="font-weight-bold text-uppercase text-primary mb-0">
+                        Licence
+                      </h6>
+
+                      <!-- Text -->
+                      <p class="font-size-sm text-gray-700 mb-0">
+                        Licence Bootstrap
+                      </p>
+
+                    </div>
+                      
+                    <!-- Badge -->
+                    <span class="badge badge-pill badge-primary-soft ml-auto">
+                      1.0
+                    </span>
+
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+        
+      </nav>    
+    </header>
 
 
 

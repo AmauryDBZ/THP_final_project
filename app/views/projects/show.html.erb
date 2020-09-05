@@ -152,7 +152,7 @@
 
     <!-- NAVBAR
     ================================================== -->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top mb-3">
+    <nav class="navbar navbar-expand-lg fixed-top mb-3">
 
                   <!-- Brand -->
                   <a class="navbar-brand" href="index.html">
@@ -160,8 +160,8 @@
                   </a>
 
                   <!-- Toggler -->
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                  <button class="navbar-toggler btn-rounded-circle btn-lg" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-ellipsis-v"></i>
                   </button>
                   
                   <!-- Collapse -->
@@ -169,29 +169,25 @@
 
                     <!-- Navigation -->
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item dropdown">
+                      <li class="nav-item dropdown mr-2">
                         <a class="nav-link dropdown-toggle" id="navbarLandings" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-                          Landings
+                          <i class="fas fa-user-plus"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-xl p-0" aria-labelledby="navbarLandings">
                           <div class="row no-gutters">
                             <div class="col-12 col-lg-6">
-                              <div class="dropdown-img-left" style="background-image: url(../assets/img/photos/photo-3.jpg);">
+                              <div class="dropdown-img-left" style="background-image: url(https://images.unsplash.com/photo-1492551557933-34265f7af79e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
 
                                 <!-- Heading -->
                                 <h4 class="font-weight-bold text-white mb-0">
-                                  Want to see an overview?
+                                  Vous voulez proposer un projet?
                                 </h4>
 
                                 <!-- Text -->
                                 <p class="font-size-sm text-white">
-                                  See all the pages at once.
+                                  Créez un compte et trouvez des financements auprès de particuliers.
                                 </p>
 
-                                <!-- Button -->
-                                <a href="../overview.html" class="btn btn-sm btn-white shadow-dark fonFt-size-sm">
-                                  View all pages
-                                </a>
                                 
                               </div>
                             </div>
@@ -202,53 +198,18 @@
 
                                     <!-- Heading -->
                                     <h6 class="dropdown-header">
-                                      Services
+                                      Utilisateurs
                                     </h6>
 
                                     <!-- List -->
-                                    <a class="dropdown-item" href="../coworking.html">
-                                      Coworking
+                                    <a class="dropdown-item" data-toggle="modal" href="#modalSignupVertical">
+                                      S'inscrire
                                     </a>
-                                    <a class="dropdown-item" href="../rental.html">
-                                      Rental
+                                    <a class="dropdown-item" data-toggle="modal" href="#modalSigninVertical">
+                                      Se connecter
                                     </a>
                                     <a class="dropdown-item mb-5" href="../job.html">
-                                      Job Listing
-                                    </a>
-
-                                    <!-- Heading -->
-                                    <h6 class="dropdown-header">
-                                      Apps
-                                    </h6>
-
-                                    <!-- List -->
-                                    <a class="dropdown-item" href="../desktop-app.html">
-                                      Desktop
-                                    </a>
-                                    <a class="dropdown-item" href="../mobile-app.html">
-                                      Mobile
-                                    </a>
-
-                                  </div>
-                                  <div class="col-6">
-                                    
-                                    <!-- Heading -->
-                                    <h6 class="dropdown-header">
-                                      Web 
-                                    </h6>
-
-                                    <!-- List -->
-                                    <a class="dropdown-item" href="../index.html">
-                                      Basic
-                                    </a>
-                                    <a class="dropdown-item" href="../enterprise.html">
-                                      Enterprise
-                                    </a>
-                                    <a class="dropdown-item" href="../service.html">
-                                      Service
-                                    </a>
-                                    <a class="dropdown-item" href="../cloud.html">
-                                      Cloud Hosting
+                                      Déconnection
                                     </a>
 
                                   </div>
@@ -258,168 +219,10 @@
                           </div> <!-- / .row -->
                         </div>
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarPages" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-                          Pages
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="navbarPages">
-                          <div class="row no-gutters">
-                            <div class="col-6 col-lg-4">
-                              
-                              <!-- Heading -->
-                              <h6 class="dropdown-header">
-                                Career
-                              </h6>
-
-                              <!-- List -->
-                              <a class="dropdown-item" href="../careers.html">
-                                Listing
-                              </a>
-                              <a class="dropdown-item mb-5" href="../career-single.html">
-                                Opening
-                              </a>
-
-                              <!-- Heading -->
-                              <h6 class="dropdown-header">
-                                Company
-                              </h6>
-
-                              <!-- List -->
-                              <a class="dropdown-item" href="../about.html">
-                                About
-                              </a>
-                              <a class="dropdown-item" href="../pricing.html">
-                                Pricing
-                              </a>
-                              <a class="dropdown-item mb-5 mb-lg-0" href="../terms-of-service.html">
-                                Terms
-                              </a>             
-
-                            </div>
-                            <div class="col-6 col-lg-4">
-                              
-                              <!-- Heading -->
-                              <h6 class="dropdown-header">
-                                Help center
-                              </h6>
-
-                              <!-- List -->
-                              <a class="dropdown-item" href="../help-center.html">
-                                Overview
-                              </a>
-                              <a class="dropdown-item mb-5" href="../help-center-article.html">
-                                Article
-                              </a>
-
-                              <!-- Heading -->
-                              <h6 class="dropdown-header">
-                                Contact
-                              </h6>
-
-                              <!-- List -->
-                              <a class="dropdown-item" href="../contact.html">
-                                Basic
-                              </a>
-                              <a class="dropdown-item" href="../contact-alt.html">
-                                Cover
-                              </a>          
-
-                            </div>
-                            <div class="col-6 col-lg-4">
-                              
-                              <!-- Heading -->
-                              <h6 class="dropdown-header">
-                                Blog
-                              </h6>
-
-                              <!-- List -->
-                              <a class="dropdown-item" href="../blog.html">
-                                Rich View
-                              </a>
-                              <a class="dropdown-item" href="../blog-post.html">
-                                Article
-                              </a>
-                              <a class="dropdown-item" href="../blog-showcase.html">
-                                Showcase
-                              </a>
-                              <a class="dropdown-item" href="../blog-search.html">
-                                Search
-                              </a>            
-
-                            </div>
-                          </div>
-                        </div> <!-- / .row -->
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarAccount" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-                          Connexion/Inscription
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarAccount">
-                          <li class="dropdown-item dropright">
-                            <a class="dropdown-link dropdown-toggle" data-toggle="dropdown" href="#modalSignin">
-                              Se connecter
-                            </a>
-                          </li>
-                          <li class="dropdown-item dropright">
-                            <a class="dropdown-link dropdown-toggle" data-toggle="dropdown" href="#">
-                              Sign Up
-                            </a>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="signup-cover.html">
-                                Side Cover
-                              </a>
-                              <a class="dropdown-item" href="signup-illustration.html">
-                                Illustration
-                              </a>
-                              <a class="dropdown-item" href="signup.html">
-                                Basic
-                              </a>
-                              <a class="dropdown-item" data-toggle="modal" href="#modalSignupHorizontal">
-                                Modal Horizontal
-                              </a>
-                              <a class="dropdown-item" data-toggle="modal" href="#modalSignupVertical">
-                                Modal Vertical
-                              </a>
-                            </div>
-                          </li>
-                          <li class="dropdown-item dropright">
-                            <a class="dropdown-link dropdown-toggle" data-toggle="dropdown" href="#">
-                              Password Reset
-                            </a>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="password-reset-cover.html">
-                                Side Cover
-                              </a>
-                              <a class="dropdown-item" href="password-reset-illustration.html">
-                                Illustration
-                              </a>
-                              <a class="dropdown-item" href="password-reset.html">
-                                Basic
-                              </a>
-                            </div>
-                          </li>
-                          <li class="dropdown-item dropright">
-                            <a class="dropdown-link dropdown-toggle" data-toggle="dropdown" href="#">
-                              Error
-                            </a>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="error-cover.html">
-                                Side Cover
-                              </a>
-                              <a class="dropdown-item" href="error-illustration.html">
-                                Illustration
-                              </a>
-                              <a class="dropdown-item" href="error.html">
-                                Basic
-                              </a>
-                            </div>
-                          </li>
-                        </ul>
-                      </li>
                       <li class="nav-item dropdown mr-5">
-                        <a class="nav-link dropdown-toggle" id="navbarDocumentation" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-                          À propos
-                        </a>
+                        <span class="badge badge-pill badge-primary-soft badge-lg nav-link dropdown-toggle mr-5 mt-1" id="navbarDocumentation" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                          À propos   <i class="far fa-question-circle"></i>
+                        </span>
                         <div class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDocumentation">
                           <div class="list-group list-group-flush">
                             <a class="list-group-item" href="../docs/index.html">
@@ -485,7 +288,7 @@
 
                                 <!-- Text -->
                                 <p class="font-size-sm text-gray-700 mb-0">
-                                  Licence Boostrap
+                                  Licence Bootstrap
                                 </p>
 
                               </div>
@@ -503,261 +306,43 @@
 
                   </div>
                   
-                </nav>
+                </nav>    
 
-
-    <!-- BREADCRUMB
+                
+    <!-- WELCOME
     ================================================== -->
-    <nav class="d-lg-none bg-gray-800">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col">
+    <section data-jarallax data-speed=".8" class="pt-12 pt-md-14 pb-12 pb-md-15 overlay overlay-black overlay-60 bg-cover jarallax" data-jarallax="" data.speed=".8" style="margin-top: -100px; background-image: url(https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80);">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8 text-center">
             
-            <!-- Breadcrumb -->
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <span class="text-white">
-                  Docs
-                </span>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                <span class="text-white">
-                  Navbar
-                </span>
-              </li>
-            </ol>
+            <!-- Heading -->
+            <h1 class="display-2 text-white">
+              Want to work with us?
+            </h1>
 
-          </div>
-          <div class="col-auto">
-            
-            <!-- Toggler -->
-            <div class="navbar-dark">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenavCollapse" aria-controls="sidenavCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
+            <!-- Text -->
+            <p class="lead text-white-75 mb-6">
+              We're always looking to hire talented folks to join our ever-growing team of designers, engineers, and support staff.
+            </p>
+
+            <!-- Button -->
+            <a href="#!" class="btn btn-primary lift">
+              View open positions <i class="fe fe-arrow-right ml-3"></i>
+            </a>
 
           </div>
         </div> <!-- / .row -->
       </div> <!-- / .container -->
-    </nav>
+    </section>
 
-    <!-- CONTENT
+    <!-- SHAPE
     ================================================== -->
-    <section>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 col-lg-3 col-xl-2 px-lg-0 border-bottom border-bottom-lg-0 border-right-lg border-gray-300 sidenav sidenav-left">
-            
-            <div class="collapse d-lg-block" id="sidenavCollapse">
-              <div class="py-7 py-lg-9 px-lg-7">
-
-                <!-- Heading -->
-                <h6 class="text-uppercase font-weight-bold">
-                  Getting started
-                </h6>
-
-                <!-- Links -->
-                <ul class="list mb-6">
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/index.html">Introduction</a>
-                  </li>
-                  <li class="list-item d-flex">
-                    <a class="list-link" href="../docs/changelog.html">Changelog</a> <span class="badge badge-pill badge-primary-soft ml-auto align-self-center">1.2.0</span>
-                  </li>
-                </ul>
-
-                <!-- Heading -->
-                <h6 class="text-uppercase font-weight-bold">
-                  Components
-                </h6>
-
-                <!-- Links -->
-                <ul class="list mb-6">
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/alerts.html">Alerts</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/avatars.html">Avatars</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/badges.html">Badges</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/breadcrumb.html">Breadcrumb</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/buttons.html">Buttons</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/cards.html">Cards</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/devices.html">Devices</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/dropdowns.html">Dropdowns</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/forms.html">Forms</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/icons.html">Icons</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/lists.html">Lists</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/modal.html">Modal</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/navbar.html">Navbar</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/navs.html">Navs</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/pagination.html">Pagination</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/popovers.html">Popovers</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/progress.html">Progress</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/screenshot.html">Screenshot</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/shapes.html">Shapes</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/spinners.html">Spinners</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/switches.html">Switches</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/tables.html">Tables</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/toasts.html">Toasts</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/tooltips.html">Tooltips</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/typography.html">Typography</a>
-                  </li>
-                </ul>
-
-                <!-- Heading -->
-                <h6 class="text-uppercase font-weight-bold">
-                  Plugins
-                </h6>
-
-                <!-- Links -->
-                <ul class="list mb-6">
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/aos.html">AOS</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/choices.html">Choices</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/countup.html">Count up</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/dropzone.html">Dropzone</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/fancybox.html">Fancybox</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/flickity.html">Flickity</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/isotope.html">Isotope</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/jarallax.html">Jarallax</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/map.html">Map</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/quill.html">Quill</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/smooth-scroll.html">Smooth scroll</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/typed.html">Typed</a>
-                  </li>
-                </ul>
-
-
-                <!-- Heading -->
-                <h6 class="text-uppercase font-weight-bold">
-                  Utilities
-                </h6>
-
-                <!-- List -->
-                <ul class="list mb-6">
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/background.html">Background</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/borders.html">Borders</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/images.html">Images</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/lift.html">Lift</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/overlay.html">Overlay</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/position.html">Position</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/shadows.html">Shadows</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/sizing.html">Sizing</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/type.html">Type</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/visibility.html">Visibility</a>
-                  </li>
-                </ul>
-
-                <!-- Heading -->
-                <h6 class="text-uppercase font-weight-bold">
-                  Design
-                </h6>
-
-                <!-- Links -->
-                <ul class="list mb-0">
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/figma.html">Figma</a>
-                  </li>
-                  <li class="list-item">
-                    <a class="list-link" href="../docs/illustrations.html">Illustrations</a>
-                  </li>
-                </ul>
-
-              </div>
-            </div>
-
-
-          </div>
-        </div> <!-- / .row -->
+    <div class="position-relative">
+      <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
       </div>
-    </section>      
+    </div> 
+
   </body>
 </html>
