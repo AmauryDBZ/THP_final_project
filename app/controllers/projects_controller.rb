@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project = Project.find_by_slug(params[:slug])
   end
 
   def new
@@ -16,7 +17,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(
       user_id: current_user.id,
       name: params[:name],
-      pitch: params[:pitch], 
+      pitch: params[:pitch],
       functionalities: params[:functionalities],
       value_of_project: params[:value_of_project],
       number_of_developers_on_project: params[:number_of_developers_on_project],
@@ -30,7 +31,7 @@ class ProjectsController < ApplicationController
       end
   end
 
-  private 
+  private
 
   def set_project
     @project = Project.friendly.find_by_slug(params[:slug])

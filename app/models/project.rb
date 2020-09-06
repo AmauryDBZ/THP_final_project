@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -17,4 +17,5 @@ class Project < ApplicationRecord
   validates :number_of_developers_on_project, presence: true
   validates :daily_time_spent_on_project_per_developer, presence: true
 
+  has_one_attached :cover, dependent: :destroy
 end
