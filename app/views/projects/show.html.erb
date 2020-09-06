@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-=======
 <!-- if ADMIN or PROJECT HOLDER this section appears -->
 <% if current_user == @project_holder %>
   <%= render "show_admin" %>
 <% end %>
 <!-- CONTENT
 ================================================== -->
->>>>>>> 12de7e1844f03ccba3396155a38ad054bfeedba3
 <section class="pt-8 pt-md-11">
   <div class="container">
     <div class="row align-items-center">
@@ -178,18 +175,3 @@
       </div> <!-- / .row -->
     </div> <!-- / .container -->
   </section>
-=======
-<h1>Page de projet</h1>
-<p>Page du projet nommé <strong> <%= @project.name %> </strong></p>
-<h4>Photo de couverture</h4>
-<% if @project.cover.attached? %>
-<%= image_tag @project.cover, alt: 'cover' %>
-<% else %>
-<p>=== Il n'y a pas encore de couverture liée à ce projet ===</p>
-<%end%>
-
-<h4>Changer de cover ? </h4>
-<%= form_tag project_cover_index_fr_path(@project), multipart: true do %>
-<%= file_field_tag :cover %>
-<%= submit_tag "mettre à jour" %>
-<% end %>
