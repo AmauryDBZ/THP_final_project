@@ -12,12 +12,9 @@ class ProjectsController < ApplicationController
     
   end
 
-<<<<<<< HEAD
-=======
   private 
 
   def set_project
     @project = Project.friendly.find_by_slug(params[:slug])
   end
->>>>>>> origin
 end

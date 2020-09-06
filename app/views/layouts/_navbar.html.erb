@@ -1,10 +1,10 @@
      <!-- NAVBAR
       ================================================== -->
-      <nav class="navbar navbar-expand-lg fixed-top mb-3">
+      <nav class="navbar navbar-expand-lg fixed-top">
 
         <!-- Brand -->
         <%= link_to root_path, style: "text-decoration:none" do%>
-            <h2 class="ml-5 mt-2 text-gray-700 lift">
+            <h2 class="ml-5 mt-2 text-gray-700">
               <i class="fab fa-osi"></i>PenS<i class="fab fa-osi"></i>urce
             </h2>
         <%end%>
@@ -63,12 +63,8 @@
                               <small>Déconnection</small>
                             <%end%>
                           <%else%>
-                            <a class="dropdown-item" data-toggle="modal" href="#modalSignupVertical">
-                              S'inscrire
-                            </a>
-                            <a class="dropdown-item" data-toggle="modal" href="#modalSigninVertical">
-                              Se connecter
-                            </a>
+                            <%=link_to "S'inscrire", new_user_registration_fr_path, class:"dropdown-item"%>
+                            <%=link_to "Se connecter", new_user_session_fr_path, class:"dropdown-item"%>
                           <%end%>
                         </div>
                       </div> <!-- / .row -->
