@@ -1,1 +1,177 @@
-coucou
+<!-- if ADMIN or PROJECT HOLDER this section appears -->
+<% if current_user == @project_holder %>
+  <%= render "show_admin" %>
+<% end %>
+<!-- CONTENT
+================================================== -->
+<section class="pt-8 pt-md-11">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md">
+
+        <!-- Link -->
+        <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none mb-5" do %>
+        <i class="fas fa-arrow-left mr-3"></i>
+        Tous les projets
+        <% end %>
+
+        <!-- Heading -->
+        <h1 class="display-4 my-2">
+          <%= @project.name %>
+        </h1>
+
+      </div>
+      <div class="col-auto">
+
+        <!-- Buttons -->
+        <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
+
+      </div>
+    </div> <!-- / .row -->
+    <div class="row">
+      <div class="col-12">
+
+        <!-- Divider -->
+        <hr class="my-6 my-md-8 border-gray-300">
+
+      </div>
+    </div> <!-- / .row -->
+    <div class="row">
+      <div class="col-12 col-md-8">
+
+        <!-- Heading -->
+        <h3>
+          Présentation du projet
+        </h3>
+
+        <!-- Text -->
+        <p class="text-gray-800 mb-6 mb-md-8">
+          <%= @project.pitch %>
+        </p>
+
+        <!-- Heading -->
+        <h3>
+          Fonctionnalités
+        </h3>
+
+        <!-- Text -->
+        <p class="text-gray-800 mb-5">
+          <%= @project.functionalities %>
+        </p>
+
+      </div>
+      <div class="col-12 col-md-4">
+
+        <!-- Card -->
+        <div class="card shadow-light-lg mb-5">
+          <div class="card-body">
+
+            <!-- Heading -->
+            <h4>
+              Quelques chiffres
+            </h4>
+
+            <!-- Heading -->
+            <h6 class="font-weight-bold text-uppercase text-gray-700 mb-1">
+              Objectif de financement
+            </h6>
+
+            <!-- Text -->
+            <p class="font-size-sm mb-3">
+              <%= @project.value_of_project %> € / mois
+            </p>
+
+            <!-- Heading -->
+            <h6 class="font-weight-bold text-uppercase text-gray-700 mb-1">
+              Financements déjà acquis
+            </h6>
+
+            <!-- Text -->
+            <p class="font-size-sm mb-3">
+              <%= @project.money_earned %> € / mois
+            </p>
+
+            <!-- Heading -->
+            <h6 class="font-weight-bold text-uppercase text-gray-700 mb-1">
+              Temps de travail quotidien
+            </h6>
+
+            <!-- Text -->
+            <p class="font-size-sm mb-3">
+              <%= @project.daily_time_spent_on_project_per_developer %> H / Jour
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="card shadow-light-lg">
+          <div class="card-body">
+
+            <!-- Heading -->
+            <h4>
+              Porteur du projet
+            </h4>
+
+            <!-- different Heading -->
+            <h6 class="font-weight-bold text-uppercase text-gray-700 my-2">
+              <%= "#{@project_holder.first_name} #{@project_holder.last_name}" %>
+            </h6>
+
+            <!-- Text -->
+            <p class="font-size-sm text-gray-800">
+              <%= @project_holder.professional_background %>
+            </p>
+
+            <!-- Heading -->
+            <%= link_to user_fr_path(@project_holder), :class => "font-weight-bold font-size-sm text-decoration-none" do %>
+            <%= @project_holder.first_name %>
+            <i class="fas fa-arrow-right ml-3"></i>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <!-- Buttons -->
+        <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>
+
+<section class="pt-8 pt-md-11">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md">
+        <!-- Divider -->
+        <hr class="mb-6 border-gray-300">
+
+        <!-- Card -->
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-md-3">
+
+                <!-- iPhone -->
+                <div class="device device-iphonex">
+                  <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnickmomrik.files.wordpress.com%2F2017%2F12%2Fimg_0226.jpg&f=1&nofb=1", class: "device-screen", alt: "..." %>
+                  <%= image_tag "screenshots/devices/iphonex.svg", class: "img-fluid", alt: "..." %>
+                </div>
+
+              </div>
+              <div class="col-12 col-md-9">
+
+                <!-- Macbook -->
+                <div class="device device-macbook">
+                  <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fqph.fs.quoracdn.net%2Fmain-qimg-024a7070f2e691550175f412786f31db&f=1&nofb=1", class: "device-screen", alt: "..." %>
+                  <%= image_tag "screenshots/devices/macbook.svg", class: "img-fluid", alt: "..." %>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- / .row -->
+    </div> <!-- / .container -->
+  </section>

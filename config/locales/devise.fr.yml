@@ -282,6 +282,7 @@ fr:
     pm: pm
 
   routes:
+    admin: administrateur
     projects: projets
     new: nouveau
     edit: modifier
