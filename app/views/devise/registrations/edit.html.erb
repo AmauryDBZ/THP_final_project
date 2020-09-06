@@ -42,6 +42,16 @@
             <%= f.text_field :link_of_linkedin, placeholder: "Votre lien Linkedin", class: "form-control form-control-flush" %>
           </div>
 
+          <div class="form-group mb-5">
+            <%= f.label "Description personelle" %><br />
+            <%= f.text_area :personal_description, placeholder: "Votre description personnelle", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label "Parcours professionnel" %><br />
+            <%= f.text_area :professional_background, placeholder: "Votre parcours professionnel", class: "form-control form-control-flush" %>
+          </div>
+
 
           <div class="form-group mb-5">
             <%= f.label "Mot de passe" %><em><% if @minimum_password_length %><%= " (#{@minimum_password_length} caractères minimum)" %><%end%></em><br />
