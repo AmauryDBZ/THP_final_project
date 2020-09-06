@@ -1,43 +1,72 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<section class="section-border border-primary">
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+      <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
+        
+        <!-- Heading -->
+        <h1 class="mb-0 font-weight-bold text-center">
+          Editer votre compte
+        </h1>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <!-- Text -->
+        <p class="mb-6 text-center text-muted">
+          Remplissez uniquement les champs que vous souhaitez modifier
+        </p>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+          <div class="form-group mb-5">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label "Prénom" %><br />
+            <%= f.text_field :first_name, placeholder: "Votre prénom", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label "Nom" %><br />
+            <%= f.text_field :last_name, placeholder: "Votre nom ", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label "Lien Github" %><br />
+            <%= f.text_field :link_of_github, placeholder: "Votre lien Github", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label "Lien Linkedin" %><br />
+            <%= f.text_field :link_of_linkedin, placeholder: "Votre lien Linkedin", class: "form-control form-control-flush" %>
+          </div>
+
+
+          <div class="form-group mb-5">
+            <%= f.label "Mot de passe" %><em><% if @minimum_password_length %><%= " (#{@minimum_password_length} caractères minimum)" %><%end%></em><br />
+            <%= f.password_field :password, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
+            
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label "Confirmation de votre mot de passe" %><br />
+            <%= f.password_field :password_confirmation, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label "Mot de passe actuel" %><br />
+            <%= f.password_field :current_password, placeholder: "Votre mot de passe actuel", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="actions mb-5">
+            <%= f.submit "Modifier mon compte", class: "btn btn-primary btn-block" %>
+          </div>
+        <% end %>
+
+        <p class="text-center mt-5">Tu veux nous <span class="text-danger"> quitter </span> ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Es-tu sûr ?" }, class: "btn btn-block btn-danger",method: :delete %></p>
+      </div>
+    </div>
   </div>
+</section>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
