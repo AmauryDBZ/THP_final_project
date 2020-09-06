@@ -6,7 +6,10 @@
       <div class="col-12 col-md">
 
         <!-- Link -->
-        <%= link_to "Tous les projets", root_path, class: "fe fe-arrow-left mr-3 font-weight-bold font-size-sm text-decoration-none mb-3" %>
+        <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none mb-3" do %>
+          <i class="fas fa-arrow-left mr-3"></i>
+          Tous les projets
+        <% end %>
 
         <!-- Heading -->
         <h1 class="display-4 mb-2">
@@ -113,13 +116,14 @@
 
             <!-- Text -->
             <p class="font-size-sm text-gray-800">
-              Do you feel like you belong working with Good Themes, but we just don’t have your dream job posted? No problem, just reach out.
+              <%= @project_holder.professional_background %>
             </p>
 
             <!-- Heading -->
-            <a href="#!" class="font-weight-bold font-size-sm text-decoration-none">
-              Let us know <i class="fe fe-arrow-right ml-3"></i>
-            </a>
+            <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none" do %>
+              <%= @project_holder.first_name %>
+              <i class="fas fa-arrow-right ml-3"></i>
+            <% end %>
 
           </div>
         </div>
