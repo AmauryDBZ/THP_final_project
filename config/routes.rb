@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :show, :new, :create, :edit], param: :slug
     resources :categories, only: [:index, :show], param: :slug
     resources :users, only: [:show]
+    resources :static_pages, only: [:index]
   end
   
 
