@@ -117,7 +117,7 @@
                       <li class="list-group-item">
                         <!-- Heading -->
                         <h6 class="d-flex mb-3 text-uppercase">
-                          Date de naissance <span class="ml-auto"><%= @user.date_of_birth %></span>
+                          Date de naissance <span class="ml-auto"><%= @user.date_of_birth.strftime('%d/%m/%Y') %></span>
                         </h6>
                       </li>
                     </ul>
