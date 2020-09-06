@@ -1,3 +1,7 @@
+<!-- if ADMIN or PROJECT HOLDER this section appears -->
+<% if current_user == @project_holder %>
+  <%= render "show_admin" %>
+<% end %>
 <!-- CONTENT
 ================================================== -->
 <section class="pt-8 pt-md-11">
@@ -6,13 +10,13 @@
       <div class="col-12 col-md">
 
         <!-- Link -->
-        <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none mb-3" do %>
+        <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none mb-5" do %>
         <i class="fas fa-arrow-left mr-3"></i>
         Tous les projets
         <% end %>
 
         <!-- Heading -->
-        <h1 class="display-4 mb-2">
+        <h1 class="display-4 my-2">
           <%= @project.name %>
         </h1>
 

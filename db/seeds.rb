@@ -26,6 +26,7 @@ functionalities_array = ["Un visiteur arrive sur le site qui lui explique qu’i
     personal_description: Faker::Lorem.sentence,
     professional_background: Faker::Job.title
   )
+  user.update(email: user.first_name + "@yopmail.com")
   puts "Seeding User #{user.first_name} #{user.last_name}"
 end
 
