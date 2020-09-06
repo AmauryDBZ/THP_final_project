@@ -56,12 +56,8 @@
                       <!-- List -->
                       <% if user_signed_in? %>
                         <%=link_to "Mon profil", user_fr_path(current_user), class:"dropdown-item my-2"%>
-                        <a class="dropdown-item my-2">
-                            Proposer un projet
-                        </a>
-                        <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete do %>
-                          Déconnexion
-                        <%end%>
+                        <%=link_to "Créér un projet", new_project_fr_path, class:"dropdown-item my-2"%>
+                        <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete  %>
                       <%else%>
                         <%=link_to "S'inscrire", new_user_registration_fr_path, class:"dropdown-item"%>
                         <%=link_to "Se connecter", new_user_session_fr_path, class:"dropdown-item"%>
