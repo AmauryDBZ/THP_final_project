@@ -9,13 +9,10 @@ Rails.application.routes.draw do
     end
     resources :categories, only: [:index, :show], param: :slug
     resources :users, only: [:show]
-<<<<<<< HEAD
     resources :static_pages, only: [:index]
-=======
     resources :admin, only: [:index]
     namespace :admin do
       resources :projects
     end
->>>>>>> origin
   end
 end
