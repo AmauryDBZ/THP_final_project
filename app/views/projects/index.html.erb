@@ -20,8 +20,6 @@
             <a><%= link_to new_project_path, :class => "btn btn-primary lift" do  %>
               Créez votre projet <i class="fas fa-arrow-right"></i>
               <% end %>
-             
-
             </a>
 
           </div>
@@ -102,9 +100,11 @@
                 
                 <!-- Author -->
                 <% if project.user.first_name && project.user.last_name %>
-                <h6 class="text-uppercase text-muted mr-2 mb-0">
-                  <%= project.user.first_name + ' ' + project.user.last_name  %>
-                </h6>
+                  <%= link_to user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil" do %>
+                    <%= project.user.first_name + ' ' + project.user.last_name  %>
+                  <%end%>
+                <%else%>
+                  <%=link_to "Voir le développeur", user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil"%>
                 <% end %>
                 
                 <!-- Date -->
@@ -119,7 +119,7 @@
           </div>
           
           <%end%>
-          </section>
+      </section>
     
     
 

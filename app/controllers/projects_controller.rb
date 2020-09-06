@@ -33,4 +33,8 @@ class ProjectsController < ApplicationController
   def set_project
     @project = Project.friendly.find_by_slug(params[:slug])
   end
+
+  def edit
+
+  end
 end
