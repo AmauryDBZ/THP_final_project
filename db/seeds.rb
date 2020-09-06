@@ -12,6 +12,10 @@ ProjectCategory.destroy_all
 ProjectCategory.reset_pk_sequence
 puts "Database reset done!"
 
+name_array = ["d i g i t a l e s . g g ('good game')","UPSTR","Argo Athletic","Happy Minute","La bonne auberge","BeMyPartner","The Street4Fit Manager","Feedward","SpotiTube !","Alerte Ciné","Save time, ask me"]
+pitch_array = ["","","","","","","","","","",""]
+functionalities_array = ["","","","","","","","","","",""]
+
 
 10.times do
   user = User.create(
