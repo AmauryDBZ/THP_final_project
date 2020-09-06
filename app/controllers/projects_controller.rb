@@ -1,12 +1,13 @@
 class ProjectsController < ApplicationController
   before_action :set_project
-
+  before_action :authenticate_user!, only: [:new, :create]
   def index
     @projects = Project.all
   end
 
   def show
-    @project = Project.find_by_slug(params[:slug])
+    @project.clicks += 1
+    @project_holder = User.find(@project.user_id)
   end
 
   def new
