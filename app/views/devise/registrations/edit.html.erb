@@ -52,16 +52,19 @@
             <%= f.text_area :professional_background, placeholder: "Votre parcours professionnel", class: "form-control form-control-flush" %>
           </div>
 
+          <div class="form-group mb-5">
+            <%= f.label "Date de naissance" %> <i class="fas fa-calendar input-prefix" tabindex=0></i><br />
+            <%= f.datetime_select(:date_of_birth, {start_year: 1900, end_year: 2100}) %>
+          </div>
 
           <div class="form-group mb-5">
             <%= f.label "Mot de passe" %><em><% if @minimum_password_length %><%= " (#{@minimum_password_length} caractères minimum)" %><%end%></em><br />
             <%= f.password_field :password, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
-            
           </div>
 
           <div class="form-group mb-5">
             <%= f.label "Confirmation de votre mot de passe" %><br />
-            <%= f.password_field :password_confirmation, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
+            <%= f.password_field :password_confirmation,  placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
           </div>
 
           <div class="form-group mb-5">
