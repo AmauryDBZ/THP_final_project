@@ -55,9 +55,7 @@
 
                       <!-- List -->
                       <% if user_signed_in? %>
-                        <a class="dropdown-item my-2">
-                          Mon profil
-                        </a>
+                        <%=link_to "Mon profil", user_fr_path(current_user), class:"dropdown-item my-2"%>
                         <a class="dropdown-item my-2">
                             Proposer un projet
                         </a>
