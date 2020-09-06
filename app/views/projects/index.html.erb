@@ -58,14 +58,15 @@
         </div> <!-- / .row -->
         <div class="row">
         <% @projects.each do |project| %>
+        
           <div class="col-12 col-md-6 d-flex">
             
             <!-- Card -->
             <div class="card mb-6 shadow-light-lg lift lift-lg">
 
               <!-- Image -->
-              <a class="card-img-top" href="#!">
-
+              
+                <%= link_to project_path(project), style: "text-decoration: none" do %>
                 <!-- Image -->
                 <img src="https://images.unsplash.com/photo-1481887328591-3e277f9473dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1060&q=80" alt="..." class="card-img-top">
 
@@ -76,10 +77,10 @@
                   </div>
                 </div>
 
-              </a>
+              
 
               <!-- Body -->
-              <a class="card-body" href="#!">
+              <div class="card-body">
 
                 <!-- Heading -->
                 <h3>
@@ -88,88 +89,40 @@
 
                 <!-- Text -->
                 <p class="mb-0 text-muted">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec condimentum quam. Fusce pellentesque faucibus lorem at viverra. Integer at feugiat odio. In placerat euismod risus proin erat purus.
+                  <%= project.pitch %>
                 </p>
 
-              </a>
+              </div>
                 
               <!-- Meta -->
-              <a class="card-meta mt-auto" href="#!">
+              <div class="card-meta mt-auto">
 
                 <!-- Divider -->
                 <hr class="card-meta-divider">
                 
                 <!-- Author -->
+                <% if project.user.first_name && project.user.last_name %>
                 <h6 class="text-uppercase text-muted mr-2 mb-0">
-                  Ab Hadley
+                  <%= project.user.first_name + ' ' + project.user.last_name  %>
                 </h6>
+                <% end %>
                 
                 <!-- Date -->
                 <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-                  <time datetime="2019-05-02">May 02</time>
+                  <%= project.created_at.strftime('%d/%m/%Y')  %>
                 </p>
-
-              </a>
-
+              
+              </div>
+              <%end%>
             </div>
 
           </div>
+          
           <%end%>
           </section>
     
     
-<!-- CONTENT
-================================================== -->
-<section>
-  <% @projects.each do |project| %>
-  <div class="row mb-5 mt-10">
-    <div class="col-12 col-xl-4 d-flex">
-      
-      
-      <!-- Card -->
-      <div class="card mb-6 mb-xl-0 shadow-light-lg lift lift-lg">
-      
-        <!-- Image -->
-        <a class="card-img-top" href="#!">
-          <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bluecross.org.uk%2Fsites%2Fdefault%2Ffiles%2Fd8%2Fassets%2Fimages%2F124044lpr.jpg&f=1&nofb=1", alt: "...", class: "img-fluid" %>
-        </a>
 
-        <!-- Shape -->
-        <div class="position-relative">
-          <div class="shape shape-fluid-x shape-bottom svg-shim text-white">
-            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
-          </div>
-        </div>
-
-        <!-- Body -->
-        <a class="card-body" href="#!">
-
-          <!-- Divider -->
-          <hr class="card-meta-divider">
-
-          <!-- Text -->
-          <p class="mb-0 text-muted">
-            <%= project.pitch %>
-          </p>
-
-        </a>
-
-        <!-- Meta -->
-        <a class="card-meta" href="#!">
-
-          <!-- Ajouter au panier -->
-          <p class="h6 text-uppercase text-muted mb-2 ml-auto">
-            <%= link_to project_path(project), class: "btn btn-xs btn-rounded-circle btn-secondary ml-1", title: "Voir plus" do %>
-              <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn1.iconfinder.com%2Fdata%2Ficons%2Ftrycons%2F32%2Fsearch-512.png&f=1&nofb=1"%>
-            <%end%>
-          </p>
-        </a>
-      </div>
-      
-    </div>
-  </div> <!-- / .row -->
-  <%end%>
-</section>
 
 <!-- SHAPE
 ================================================== -->
