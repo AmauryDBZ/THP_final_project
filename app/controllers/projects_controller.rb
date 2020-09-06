@@ -6,13 +6,14 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project_holder = User.find(@project.user_id)
   end
 
   def new
-    
+
   end
 
-  private 
+  private
 
   def set_project
     @project = Project.friendly.find_by_slug(params[:slug])
