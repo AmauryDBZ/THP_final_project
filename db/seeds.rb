@@ -41,14 +41,15 @@ i = 0
     number_of_developers_on_project: rand(2..10),
     daily_time_spent_on_project_per_developer: rand(2..8),
     money_earned: rand(0..100),
-    clicks: 0
+    clicks: 0,
+    validated: [true, false].sample
   )
   puts "Seeding Project #{project.id} #{project.name}"
   i+=1
 end
 
 3.times do
- cat = Category.create(
+  cat = Category.create(
     name: Faker::Coffee.blend_name
   )
   puts "Seeding Category #{cat.name}"
