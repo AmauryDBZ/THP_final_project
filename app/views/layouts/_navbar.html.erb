@@ -1,0 +1,116 @@
+<!-- NAVBAR
+================================================== -->
+<header id="header">
+
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+
+    <!-- Brand -->
+    <%= link_to root_path, :class => "navbar-brand" , style: "text-decoration:none" do%>
+      <h2 class="ml-5 mt-2 text-gray-700">
+        G<i class="fab fa-osi"></i> <i class="fab fa-osi"></i>Pen S<i class="fab fa-osi"></i>urce
+      </h2>
+    <%end%>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler btn-rounded-circle btn-lg" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-ellipsis-v"></i>
+    </button>
+    
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+      <!-- Navigation -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown mr-2">
+          <a class="nav-link dropdown-toggle text-gray-700" id="navbarLandings" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-plus"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-xl p-0" aria-labelledby="navbarLandings">
+            <div class="row no-gutters">
+              <div class="col-12 col-lg-6">
+                <div class="dropdown-img-left" style="background-image: url(https://images.unsplash.com/photo-1492551557933-34265f7af79e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+
+                  <!-- Heading -->
+                  <h4 class="font-weight-bold text-white mb-0">
+                    Vous voulez proposer un projet?
+                  </h4>
+
+                  <!-- Text -->
+                  <p class="font-size-sm text-white">
+                    Créez un compte et trouvez des financements auprès de particuliers.
+                  </p>
+
+                  
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="dropdown-body mr-5">
+                  <div class="row no-gutters">
+                    <div class="col-6">
+
+                      <!-- Heading -->
+                      <h6 class="dropdown-header">
+                        Utilisateurs
+                      </h6>
+
+                      <!-- List -->
+                      <% if user_signed_in? %>
+                        <a class="dropdown-item my-2">
+                          Mon profil
+                        </a>
+                        <a class="dropdown-item my-2">
+                            Proposer un projet
+                        </a>
+                        <%= link_to destroy_user_session_path, method: :delete do %>
+                          Déconnexion
+                        <%end%>
+                      <%else%>
+                        <%=link_to "S'inscrire", new_user_registration_fr_path, class:"dropdown-item"%>
+                        <%=link_to "Se connecter", new_user_session_fr_path, class:"dropdown-item"%>
+                      <%end%>
+                    </div>
+                  </div> <!-- / .row -->
+                </div>
+              </div>
+            </div> <!-- / .row -->
+          </div>
+        </li>
+        <li class="nav-item dropdown mr-5">
+          <span class="badge badge-pill badge-primary-soft badge-lg nav-link dropdown-toggle mr-5 mt-1 text-gray-700" id="navbarDocumentation" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+            À propos   <i class="far fa-question-circle"></i>
+          </span>
+          <div class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDocumentation">
+            <div class="list-group list-group-flush">
+              <a class="list-group-item" href="../docs/alerts.html">
+                
+                <!-- Icon -->
+                <div class="icon icon-sm text-primary">
+                  <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><rect fill="#335EEA" x="4" y="4" width="7" height="7" rx="1.5"/><path d="M5.5 13h4a1.5 1.5 0 011.5 1.5v4A1.5 1.5 0 019.5 20h-4A1.5 1.5 0 014 18.5v-4A1.5 1.5 0 015.5 13zm9-9h4A1.5 1.5 0 0120 5.5v4a1.5 1.5 0 01-1.5 1.5h-4A1.5 1.5 0 0113 9.5v-4A1.5 1.5 0 0114.5 4zm0 9h4a1.5 1.5 0 011.5 1.5v4a1.5 1.5 0 01-1.5 1.5h-4a1.5 1.5 0 01-1.5-1.5v-4a1.5 1.5 0 011.5-1.5z" fill="#335EEA" opacity=".3"/></g></svg>
+                </div>
+                
+                <!-- Content -->
+                <div class="ml-4">
+                  
+                  <!-- Heading -->
+                  <h6 class="font-weight-bold text-uppercase text-primary mb-0">
+                    Notre équipe
+                  </h6>
+
+                  <!-- Text -->
+                  <p class="font-size-sm text-gray-700 mb-0">
+                    + sur le projet
+                  </p>
+
+                </div>
+
+              </a>
+            
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    
+  </nav> 
+</header>

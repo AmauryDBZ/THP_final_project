@@ -101,9 +101,11 @@
                 <hr class="card-meta-divider">
                 
                 <!-- Author -->
+                <% if project.user.first_name && project.user.last_name %>
                 <h6 class="text-uppercase text-muted mr-2 mb-0">
                   <%= project.user.first_name + ' ' + project.user.last_name  %>
                 </h6>
+                <% end %>
                 
                 <!-- Date -->
                 <p class="h6 text-uppercase text-muted mb-0 ml-auto">
