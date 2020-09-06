@@ -72,6 +72,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'stripe'
 gem 'route_translator'
-
-
-
+gem 'active_storage_validations'
+gem 'image_processing'
+gem 'dotenv-rails'
+gem 'aws-sdk-s3'
