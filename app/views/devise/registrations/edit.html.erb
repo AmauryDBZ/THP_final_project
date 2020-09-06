@@ -24,29 +24,39 @@
 
           <div class="form-group mb-5">
             <%= f.label "Prénom" %><br />
-            <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control form-control-flush" %>
+            <%= f.text_field :first_name, placeholder: "Votre prénom", class: "form-control form-control-flush" %>
           </div>
 
           <div class="form-group mb-5">
             <%= f.label "Nom" %><br />
-            <%= f.text_field :last_name, autocomplete: "last_name", class: "form-control form-control-flush" %>
+            <%= f.text_field :last_name, placeholder: "Votre nom ", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label "Lien Github" %><br />
+            <%= f.text_field :link_of_github, placeholder: "Votre lien Github", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label "Lien Linkedin" %><br />
+            <%= f.text_field :link_of_linkedin, placeholder: "Votre lien Linkedin", class: "form-control form-control-flush" %>
           </div>
 
 
           <div class="form-group mb-5">
             <%= f.label "Mot de passe" %><em><% if @minimum_password_length %><%= " (#{@minimum_password_length} caractères minimum)" %><%end%></em><br />
-            <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-flush" %>
+            <%= f.password_field :password, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
             
           </div>
 
           <div class="form-group mb-5">
             <%= f.label "Confirmation de votre mot de passe" %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-flush" %>
+            <%= f.password_field :password_confirmation, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
           </div>
 
           <div class="form-group mb-5">
             <%= f.label "Mot de passe actuel" %><br />
-            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control form-control-flush" %>
+            <%= f.password_field :current_password, placeholder: "Votre mot de passe actuel", class: "form-control form-control-flush" %>
           </div>
 
           <div class="actions mb-5">
