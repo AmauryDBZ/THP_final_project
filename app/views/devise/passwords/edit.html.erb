@@ -1,25 +1,45 @@
-<h2>Change your password</h2>
+<%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+<section class="section-border border-primary">
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+      <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+        <!-- Heading -->
+        <h1 class="mb-0 font-weight-bold text-center">
+          Réinitialiser votre mot de passe !
+        </h1>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <!-- Text -->
+        <p class="mb-6 text-center text-muted">
+          Entrez votre nouveau mot de passe
+        </p>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+        <!-- Form -->
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, :class => 'mb-5'}) do |f| %>
 
-<%= render "devise/shared/links" %>
+          <%= f.hidden_field :reset_password_token %>
+
+          <div class="form-group mb-5">
+            <%= f.label :password, "Votre nouveau mot de passe" %><br />
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> caractères minimum)</em><br />
+            <% end %>
+            <%= f.password_field :password, autofocus: true, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= f.label :password_confirmation, "Confirmez votre mot de passe" %><br />
+            <%= f.password_field :password_confirmation, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Changer mon mot de passe", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+      <%= render "devise/shared/links" %>
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>

@@ -1,16 +1,18 @@
 <%= devise_error_messages! %>
-<section>
+
+<section class="section-border border-primary">
   <div class="container d-flex flex-column">
-    <div class="row align-items-center justify-content-center no-gutters">
-      <div class="col-12 col-md-6 col-lg-4 py-8 py-md-11">
+    <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+      <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
+        
         <!-- Heading -->
-        <h1 class="mb-0 font-weight-bold">
+        <h1 class="mb-0 font-weight-bold text-center">
           S'inscrire
         </h1>
 
         <!-- Text -->
-        <p class="mb-6 text-muted">
-          Présentez vos projets OpenSources, et trouvez du soutiens financier.
+        <p class="mb-6 text-center text-muted">
+          Présentez vos projets OpenSources, et trouvez du soutien financier.
         </p>
 
         <!-- Form -->
@@ -28,7 +30,7 @@
 
           <!-- Confirm password -->
           <div class="form-group mb-5">
-            <%= f.password_field :password_confirmation, placeholder: "Confirmer votre mot de passe", class: "form-control form-control-flush"%>
+            <%= f.password_field :password_confirmation, placeholder: "Confirmez votre mot de passe", class: "form-control form-control-flush"%>
           </div>
 
           <!-- Submit -->
@@ -39,7 +41,6 @@
 
         <%= render "devise/shared/links" %>
       </div>
+    </div>
   </div>
 </section>
-
-
