@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     resources :categories, only: [:index, :show], param: :slug
     resources :users, only: [:show]
+    resources :static_pages, only: [:index]
     resources :admin, only: [:index]
     namespace :admin do
       resources :projects

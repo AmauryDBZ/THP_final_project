@@ -59,7 +59,7 @@
                         <a class="dropdown-item my-2">
                             Proposer un projet
                         </a>
-                        <%= link_to destroy_user_session_path, method: :delete do %>
+                        <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete do %>
                           Déconnexion
                         <%end%>
                       <%else%>
@@ -79,7 +79,7 @@
           </span>
           <div class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDocumentation">
             <div class="list-group list-group-flush">
-              <a class="list-group-item" href="../docs/alerts.html">
+              <%=link_to static_pages_fr_path, class:"list-group-item" do%>
                 
                 <!-- Icon -->
                 <div class="icon icon-sm text-primary">
@@ -90,9 +90,7 @@
                 <div class="ml-4">
                   
                   <!-- Heading -->
-                  <h6 class="font-weight-bold text-uppercase text-primary mb-0">
-                    Notre équipe
-                  </h6>
+                  <p class="font-weight-bold text-uppercase text-primary mb-0">Notre équipe</p>
 
                   <!-- Text -->
                   <p class="font-size-sm text-gray-700 mb-0">
@@ -100,8 +98,7 @@
                   </p>
 
                 </div>
-
-              </a>
+              <%end%>
             
             </div>
           </div>
