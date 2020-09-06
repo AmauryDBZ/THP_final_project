@@ -39,7 +39,9 @@ i = 0
     functionalities: functionalities_array[i],
     value_of_project: rand(110..600),
     number_of_developers_on_project: rand(2..10),
-    daily_time_spent_on_project_per_developer: rand(2..8)
+    daily_time_spent_on_project_per_developer: rand(2..8),
+    money_earned: rand(0..100),
+    clicks: 0
   )
   puts "Seeding Project #{project.id} #{project.name}"
   i+=1

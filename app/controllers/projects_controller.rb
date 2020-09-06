@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project.clicks += 1
     @project_holder = User.find(@project.user_id)
   end
 
