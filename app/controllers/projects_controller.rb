@@ -22,8 +22,10 @@ class ProjectsController < ApplicationController
       number_of_developers_on_project: params[:number_of_developers_on_project],
       daily_time_spent_on_project_per_developer: params[:daily_time_spent_on_project_per_developer])
       if @project.save
+        flash[:success] = "Merci ! Nous allons vérifier les informations de votre projet"
         redirect_to :controller => 'projects', :action => 'index'
       else
+        flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@project.errors.full_messages.each {|message| message}.join('')}"
         render :action => 'new'
       end
   end
@@ -32,9 +34,5 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.friendly.find_by_slug(params[:slug])
-  end
-
-  def edit
-
   end
 end
