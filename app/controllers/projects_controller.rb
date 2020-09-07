@@ -22,7 +22,10 @@ class ProjectsController < ApplicationController
       functionalities: params[:functionalities],
       value_of_project: params[:value_of_project],
       number_of_developers_on_project: params[:number_of_developers_on_project],
-      daily_time_spent_on_project_per_developer: params[:daily_time_spent_on_project_per_developer])
+      daily_time_spent_on_project_per_developer: params[:daily_time_spent_on_project_per_developer],
+      clicks: 0,
+      money_earned: 0,
+      )
       if @project.save
         flash[:success] = "Merci ! Nous allons vérifier les informations de votre projet"
         redirect_to :controller => 'projects', :action => 'index'
