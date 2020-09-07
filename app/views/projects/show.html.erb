@@ -32,21 +32,12 @@
       <div class="col-auto">
         <!-- Buttons -->
         <% if current_user %>
-<<<<<<< HEAD
-          <% if current_user == @project_holder || current_user.is_admin? %>
-            <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
-            <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
-          <% end %>
-        <%else%>
-          <%= link_to "Financer", root_path(@project), class: "btn btn-primary" %>
-=======
           <% if current_user.is_admin %>
             <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
             <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
-          <% elsif current_user.is_admin || current_user == @project_holder %>
-            <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+          <% elsif current_user == @project_holder %>
+            <%= link_to "Supprimer le projet", project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
           <% end %>
->>>>>>> origin
         <% end %>
           <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary" %>
       </div>
@@ -150,8 +141,8 @@
 
             <!-- Heading -->
             <%= link_to user_fr_path(@project_holder), :class => "font-weight-bold font-size-sm text-decoration-none" do %>
-            <%= @project_holder.first_name %>
-            <i class="fas fa-arrow-right ml-3"></i>
+              <%= @project_holder.first_name %>
+              <i class="fas fa-arrow-right ml-3"></i>
             <% end %>
 
           </div>

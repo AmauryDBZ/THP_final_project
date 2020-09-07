@@ -36,6 +36,12 @@ class ProjectsController < ApplicationController
       end
   end
 
+  def destroy
+    @project = Project.friendly.find_by_slug(params[:id])
+    @project.delete
+    redirect_to root_path
+  end
+
   private
 
   def set_project
