@@ -7,6 +7,7 @@ class Donation < ApplicationRecord
 
   def donation_confirm
     DonationMailer.donation_confirm(self).deliver_now
+    DonationMailer.donation_notification(self).deliver_now
   end
 
 end
