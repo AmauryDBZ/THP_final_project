@@ -28,12 +28,18 @@
         <!-- Buttons -->
         <% if current_user %>
         <% if current_user == @project_holder || current_user.is_admin? %>
-        <%= link_to "Supprimer le projet", root_path(@project), class: "btn btn-outline-primary" %>
+        <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-primary", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
         <% else %>
         <%= link_to "Financer", root_path(@project), class: "btn btn-primary" %>
         <% end %>
         <% end %>
-
+      </div>
+      <div id="modal-delete" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!-- content here -->
+          </div>
+        </div>
       </div>
     </div> <!-- / .row -->
     <div class="row">
@@ -143,9 +149,9 @@
       <div class="col-auto">
         <!-- Button if not admin or project holder -->
         <% if current_user %>
-          <% if current_user != @project_holder && current_user.is_admin == false %>
-            <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
-          <% end %>
+        <% if current_user != @project_holder && current_user.is_admin == false %>
+        <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
+        <% end %>
         <% end %>
       </div>
     </div> <!-- / .row -->

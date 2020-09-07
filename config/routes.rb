@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   localized do
     devise_for :users
     resources :projects, only: [:index, :show, :new, :create, :edit], param: :slug do
-      resources :cover, only: [:create, :delete]
+      resources :cover, only: [:create, :destroy]
     end
     resources :categories, only: [:index, :show], param: :slug
     resources :users, only: [:show]
