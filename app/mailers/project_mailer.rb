@@ -15,4 +15,12 @@ class ProjectMailer < ApplicationMailer
     mail(to: @project_holder.email, subject: 'Votre projet a été validé')
   end
 
+  def project_refused(project)
+    @project = project
+    @url = "https://go-os-develop.herokuapp.com/fr/projets/#{@project.slug}"
+    @project_holder = @project.user
+    mail(to: @project_holder.email, subject: 'Votre projet a été validé')
+  end
+
+
 end
