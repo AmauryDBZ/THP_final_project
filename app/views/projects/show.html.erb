@@ -16,11 +16,23 @@
 <section class="pt-8 pt-md-11">
   <div class="container">
     <div class="row align-items-center">
+        <!-- Badge -->
+        <%if @project.validated == nil%>
+          <span class="badge badge-warning badge-pill badge-float badge-float-outside">
+            En attente de validation
+          </span>
+        <%elsif @project.validated == false%>
+          <span class="badge badge-danger badge-pill badge-float badge-float-outside">
+            Refusé par l'administration
+          </span>
+        <%end%>
+        
       <div class="col-12 col-md">
+
         <!-- Link -->
         <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none mb-5" do %>
-        <i class="fas fa-arrow-left mr-3"></i>
-        Tous les projets
+          <i class="fas fa-arrow-left mr-3"></i>
+          Tous les projets
         <% end %>
 
         <!-- Heading -->
@@ -30,6 +42,7 @@
 
       </div>
       <div class="col-auto">
+        
         <!-- Buttons -->
         <% if current_user %>
           <% if current_user.is_admin %>
