@@ -1,14 +1,14 @@
 <!-- if ADMIN or PROJECT HOLDER this section appears -->
 <% if current_user %>
-<% if current_user == @project_holder || current_user.is_admin? %>
-<%= render "show_admin" %>
-<% end %>
+  <% if current_user == @project_holder || current_user.is_admin %>
+    <%= render "show_admin" %>
+  <% end %>
 
-<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content"></div>
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
   </div>
-</div>
 <% end %>
 
 <!-- CONTENT
@@ -33,12 +33,12 @@
 
         <!-- Buttons -->
         <% if current_user %>
-        <% if current_user == @project_holder || current_user.is_admin? %>
-        <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
-        <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
-        <% else %>
-        <%= link_to "Financer", root_path(@project), class: "btn btn-primary" %>
-        <% end %>
+          <% if current_user.is_admin %>
+            <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
+          <% elsif current_user.is_admin || current_user == @project_holder %>
+            <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+            <%= link_to "Financer", root_path(@project), class: "btn btn-primary" %>
+          <% end %>
         <% end %>
       </div>
       <div id="modal-delete" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
