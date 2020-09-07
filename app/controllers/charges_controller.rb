@@ -1,11 +1,18 @@
 class ChargesController < ApplicationController
 
   def index
+    set_project
+    
   end
 
 
   def new
-   
+    set_project
+    respond_to do |format|
+      format.html {@amount = params[:amount]
+      puts "amount : #{@amount}" }
+      format.js { }
+    end
   end
 
   def create

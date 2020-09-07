@@ -283,7 +283,7 @@ fr:
 
   routes:
     admin: administrateur
-    charges: paiements
+    charges: paiement
     projects: projets
     new: nouveau
     edit: modifier
