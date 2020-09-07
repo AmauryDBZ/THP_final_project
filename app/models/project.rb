@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-
+  after_create :admin_new_project
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -18,4 +18,8 @@ class Project < ApplicationRecord
   validates :daily_time_spent_on_project_per_developer, presence: true
 
   has_one_attached :cover, dependent: :destroy
+
+  def admin_new_project
+    ProjectMailer.admin_new_project(self).deliver_now
+  end
 end
