@@ -1,5 +1,5 @@
 <!-- if ADMIN or PROJECT HOLDER this section appears -->
-<% if current_user == @project_holder %>
+<% if current_user == @project_holder || current_user.is_admin? %>
   <%= render "show_admin" %>
 <% end %>
 <!-- CONTENT
@@ -24,7 +24,11 @@
       <div class="col-auto">
 
         <!-- Buttons -->
-        <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
+        <% if current_user == @project_holder || current_user.is_admin? %>
+        <%= link_to "Supprimer le projet", root_path(@project), class: "btn btn-outline-primary" %>
+        <% else %>
+        <%= link_to "Financer", root_path(@project), class: "btn btn-primary" %>
+        <% end %>
 
       </div>
     </div> <!-- / .row -->
@@ -133,8 +137,10 @@
         </div>
       </div>
       <div class="col-auto">
-        <!-- Buttons -->
-        <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
+        <!-- Button if not admin or project holder -->
+        <% if current_user != @project_holder && current_user.is_admin == false %>
+          <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div> <!-- / .row -->
   </div> <!-- / .container -->

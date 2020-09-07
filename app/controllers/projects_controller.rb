@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   def show
     @project.update(clicks: @project.clicks += 1)
     @project_holder = User.find(@project.user_id)
+    @donations = Donation.where(project_id: @project.id)
   end
 
   def new
