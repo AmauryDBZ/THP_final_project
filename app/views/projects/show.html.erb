@@ -34,7 +34,7 @@
         <!-- Buttons -->
         <% if current_user %>
         <% if current_user == @project_holder || current_user.is_admin? %>
-        <%= link_to "Éditer", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
+        <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
         <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
         <% else %>
         <%= link_to "Financer", root_path(@project), class: "btn btn-primary" %>

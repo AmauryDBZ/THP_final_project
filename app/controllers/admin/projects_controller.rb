@@ -12,15 +12,18 @@ class Admin::ProjectsController < ApplicationController
   def edit
     @project = Project.friendly.find_by_slug(params[:id])
     respond_to do |format|
-        format.js
-      end
+      format.js
+    end
   end
 
   def update
     @project = Project.friendly.find_by_slug(params[:id])
-    puts "********************************************"
-    puts @project
-    redirect_to admin_project_fr_path(@project)
+    if params[:status_project] == "true"
+      @project.update(validated: true)
+    elsif params[:status_project] == "false"
+      @project.update(validated: false)
+    end
+    redirect_to project_fr_path(@project)
   end
 
   def destroy

@@ -3,18 +3,8 @@
   <button type="button" class="close" data-dismiss="modal"><i class="far fa-times-circle"></i></button>
 </div>
 <div class="modal-body">
-  <div class="row">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="statusProject">Projet à</label>
-      </div>
-      <select class="custom-select" id="statusProject">
-        <option value="denied">Refuser</option>
-        <option value="accepted">Valider</option>
-      </select>
-    </div>
+  <div class="col">
+    <%= link_to "Valider", admin_project_fr_path(@project, :status_project => "true"), class: "btn btn-outline-success", :method => "put", data: {confirm: "Êtes-vous sûr de vouloir valider le projet ?"} %>
+    <%= link_to "Refuser", admin_project_fr_path(@project, :status_project => "false"), class: "btn btn-outline-danger", :method => "put", data: {confirm: "Êtes-vous sûr de vouloir refuser le projet ?"} %>
   </div>
-</div>
-<div class="modal-footer">
-  <%= link_to "Enregistrer", admin_project_fr_path, :method => "patch", class: "btn btn-primary" %>
 </div>
