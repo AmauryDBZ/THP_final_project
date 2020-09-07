@@ -30,16 +30,16 @@
 
       </div>
       <div class="col-auto">
-
         <!-- Buttons -->
         <% if current_user %>
           <% if current_user.is_admin %>
             <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
+            <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
           <% elsif current_user.is_admin || current_user == @project_holder %>
             <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
-            <%= link_to "Financer", root_path(@project), class: "btn btn-primary" %>
           <% end %>
         <% end %>
+          <%= link_to "Financer", root_path(@project), class: "btn btn-primary" %>
       </div>
       <div id="modal-delete" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -138,11 +138,6 @@
             <h6 class="font-weight-bold text-uppercase text-gray-700 my-2">
               <%= "#{@project_holder.first_name} #{@project_holder.last_name}" %>
             </h6>
-
-            <!-- Text -->
-            <p class="font-size-sm text-gray-800">
-              <%= @project_holder.professional_background %>
-            </p>
 
             <!-- Heading -->
             <%= link_to user_fr_path(@project_holder), :class => "font-weight-bold font-size-sm text-decoration-none" do %>
