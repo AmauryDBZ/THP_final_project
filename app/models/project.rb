@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   after_create :admin_new_project
+  after_update :project_validated
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -21,5 +22,11 @@ class Project < ApplicationRecord
 
   def admin_new_project
     ProjectMailer.admin_new_project(self).deliver_now
+  end
+
+  def project_validated
+    if self.validated_changed
+      ProjectMailer.project_validated(self).deliver_now
+    end
   end
 end
