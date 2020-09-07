@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+  <button type="button" class="close" data-dismiss="modal"><i class="far fa-times-circle"></i></button>
+</div>
+<div class="modal-body">
+  <div class="col">
+    <%= link_to "Valider", admin_project_fr_path(@project, :status_project => "true"), class: "btn btn-outline-success", :method => "put", data: {confirm: "Êtes-vous sûr de vouloir valider le projet ?"} %>
+    <%= link_to "Refuser", admin_project_fr_path(@project, :status_project => "false"), class: "btn btn-outline-danger", :method => "put", data: {confirm: "Êtes-vous sûr de vouloir refuser le projet ?"} %>
+  </div>
+</div>
