@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'kitties_project@protonmail.com'
+  default from: 'goopensource@protonmail.com'
   layout 'mailer'
 end
