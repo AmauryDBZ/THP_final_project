@@ -6,13 +6,13 @@
     </div>
   <% end %>
   <label class="amount">
-    <span>Montant: <%= @total_price%> €</span>
+    <span>Montant: 5 €</span>
   </label>
 </article>
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
         data-description="Finalisation de votre commande"
-        data-amount=<%= @total_price * 100%>
+        data-amount=500
         data-locale="fr"
         data-currency="EUR"
         data-panel-label="Payer"
