@@ -18,8 +18,19 @@ class ChargesController < ApplicationController
       currency: 'eur',
     })
     @project.update(money_earned: @project.money_earned += (@amount/100))
-    flash[:success] = "Merci pour votre don !"
-    redirect_to root_path
+    @donation = Donation.new(
+      project_id: @project.id,
+      stripe_customer_id: customer.id,
+      stripe_email: params[:stripeEmail],
+      amount: (@amount/100)
+    )
+    if @donation.save
+      flash[:success] = "Merci pour votre don !"
+      redirect_to root_path
+    else
+      flash[:danger] = "Erreur(s) à rectifier pour valider votre don : #{@donation.errors.full_messages.each {|message| message}.join('')}"
+      render :action => 'new'
+    end
     
 
     rescue Stripe::CardError => e
