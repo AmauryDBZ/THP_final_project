@@ -15,7 +15,7 @@
     <button class="navbar-toggler btn-rounded-circle btn-lg" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-ellipsis-v"></i>
     </button>
-    
+
     <!-- Collapse -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
 
@@ -40,7 +40,7 @@
                     Créez un compte et trouvez des financements auprès de particuliers.
                   </p>
 
-                  
+
                 </div>
               </div>
               <div class="col-12 col-lg-6">
@@ -56,7 +56,7 @@
                       <!-- List -->
                       <% if user_signed_in? %>
                         <%=link_to "Mon profil", user_fr_path(current_user), class:"dropdown-item my-2"%>
-                        <%=link_to "Créér un projet", new_project_fr_path, class:"dropdown-item my-2"%>
+                        <%=link_to "Créer un projet", new_project_fr_path, class:"dropdown-item my-2"%>
                         <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete  %>
                       <%else%>
                         <%=link_to "S'inscrire", new_user_registration_fr_path, class:"dropdown-item"%>
@@ -76,15 +76,15 @@
           <div class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDocumentation">
             <div class="list-group list-group-flush">
               <%=link_to static_pages_fr_path, class:"list-group-item" do%>
-                
+
                 <!-- Icon -->
                 <div class="icon icon-sm text-primary">
                   <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><rect fill="#335EEA" x="4" y="4" width="7" height="7" rx="1.5"/><path d="M5.5 13h4a1.5 1.5 0 011.5 1.5v4A1.5 1.5 0 019.5 20h-4A1.5 1.5 0 014 18.5v-4A1.5 1.5 0 015.5 13zm9-9h4A1.5 1.5 0 0120 5.5v4a1.5 1.5 0 01-1.5 1.5h-4A1.5 1.5 0 0113 9.5v-4A1.5 1.5 0 0114.5 4zm0 9h4a1.5 1.5 0 011.5 1.5v4a1.5 1.5 0 01-1.5 1.5h-4a1.5 1.5 0 01-1.5-1.5v-4a1.5 1.5 0 011.5-1.5z" fill="#335EEA" opacity=".3"/></g></svg>
                 </div>
-                
+
                 <!-- Content -->
                 <div class="ml-4">
-                  
+
                   <!-- Heading -->
                   <p class="font-weight-bold text-uppercase text-primary mb-0">Notre équipe</p>
 
@@ -95,13 +95,13 @@
 
                 </div>
               <%end%>
-            
+
             </div>
           </div>
         </li>
       </ul>
 
     </div>
-    
-  </nav> 
+
+  </nav>
 </header>

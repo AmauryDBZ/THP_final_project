@@ -29,8 +29,18 @@ functionalities_array = ["Un visiteur arrive sur le site qui lui explique qu’i
   user.update(email: user.first_name + "@yopmail.com")
   puts "Seeding User #{user.first_name} #{user.last_name}"
 end
-#add an admin to avoid error when seeding (with the mailer)
-User.find(1).update(is_admin: true)
+
+# Let's create an admin account
+admin = User.create(
+  first_name: 'Moussaillon',
+  last_name: 'Administrator',
+  email: 'moussaillon@yopmail.com',
+  password: 'Azerty',
+  personal_description: Faker::Lorem.sentence,
+  professional_background: Faker::Job.title,
+  is_admin: true
+)
+puts "Seeding admin : #{admin.email}."
 
 i = 0
 11.times do
@@ -44,7 +54,7 @@ i = 0
     daily_time_spent_on_project_per_developer: rand(2..8),
     money_earned: rand(0..100),
     clicks: 0,
-    validated: [true, false].sample
+    validated: [true, nil].sample
   )
   puts "Seeding Project #{project.id} #{project.name}"
   i+=1

@@ -9,6 +9,16 @@ class ProjectsController < ApplicationController
   def show
     @project.update(clicks: @project.clicks += 1)
     @project_holder = User.find(@project.user_id)
+    @donations = Donation.where(project_id: @project.id)
+    if current_user 
+      if !@project.validated && current_user != @project.user && !current_user.is_admin 
+        flash[:danger] = "Vous ne pouvez pas accéder à cette page"
+        redirect_to root_path
+      end
+    elsif !@project.validated
+      flash[:danger] = "Vous ne pouvez pas accéder à cette page"
+      redirect_to root_path
+    end
   end
 
   def new
@@ -27,6 +37,12 @@ class ProjectsController < ApplicationController
         flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@project.errors.full_messages.each {|message| message}.join('')}"
         render :action => 'new'
       end
+  end
+
+  def destroy
+    @project = Project.friendly.find_by_slug(params[:id])
+    @project.delete
+    redirect_to root_path
   end
 
   private
