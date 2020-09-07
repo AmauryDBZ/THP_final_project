@@ -1,0 +1,20 @@
+<%= form_tag project_charges_path(@project), method: :post do %>
+<article>
+  <% if flash[:error].present? %>
+    <div id="error_explanation">
+      <p><%= flash[:error] %></p>
+    </div>
+  <% end %>
+  <label class="amount">
+    <span>Montant: 5 €</span>
+  </label>
+</article>
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="Finalisation de votre commande"
+        data-amount=500
+        data-locale="fr"
+        data-currency="EUR"
+        data-panel-label="Faire une donation"
+        data-label="Payer par carte"></script>
+<% end %>

@@ -14,5 +14,8 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :projects
     end
+    resources :projects do
+        resources :charges, only: [:new, :create]
+    end
   end
 end
