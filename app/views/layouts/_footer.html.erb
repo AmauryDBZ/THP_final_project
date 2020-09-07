@@ -94,21 +94,22 @@
         </ul>
 
       </div>
+      <% if user_signed_in? %>
+        <% if current_user.is_admin? %>
+          <div class="col-6 col-md-4 col-lg-2">
+        
+            <!-- Heading -->
+            <h6 class="font-weight-bold text-uppercase text-gray-700">
+              Administration
+            </h6>
 
-      <% if current_user.is_admin? %>
-        <div class="col-6 col-md-4 col-lg-2">
-      
-          <!-- Heading -->
-          <h6 class="font-weight-bold text-uppercase text-gray-700">
-            Administration
-          </h6>
+            <!-- List -->
+            <ul class="list-unstyled text-muted mb-0">
+              <%= link_to "Gérer les projets", admin_index_fr_path , class: "text-reset"  %>
+            </ul>
 
-          <!-- List -->
-          <ul class="list-unstyled text-muted mb-0">
-            <%= link_to "Gérer les projets", admin_index_fr_path , class: "text-reset"  %>
-          </ul>
-
-        </div>
+          </div>
+        <%end%>
       <%end%>
     </div> <!-- / .row -->
   </div> <!-- / .container -->
