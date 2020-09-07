@@ -19,8 +19,6 @@ class ProjectMailer < ApplicationMailer
     @project = project
     @url = "https://go-os-develop.herokuapp.com/fr/projets/#{@project.slug}"
     @project_holder = @project.user
-    mail(to: @project_holder.email, subject: 'Votre projet a été validé')
+    mail(to: @project_holder.email, subject: 'Votre projet a été refusé')
   end
-
-
 end
