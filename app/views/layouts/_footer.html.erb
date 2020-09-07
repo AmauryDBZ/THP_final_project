@@ -1,0 +1,116 @@
+<!-- SHAPE
+    ================================================== -->
+<div class="position-relative mt-10">
+  <div class="shape shape-bottom shape-fluid-x svg-shim text-dark">
+    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
+  </div>
+</div>
+
+<!-- FOOTER
+================================================== -->
+
+<footer class="py-8 py-md-11 bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3 ">
+    
+        <!-- Brand -->
+        <div class="text-light text-center">
+          G<i class="fab fa-osi"></i> <i class="fab fa-osi"></i>Pen S<i class="fab fa-osi"></i>urce
+        </div>
+
+        <!-- Text -->
+        <p class="text-gray-700 mb-2 text-center">
+          L'open source à la française.
+        </p>
+
+        <!-- Social -->
+        <ul class="list-unstyled list-inline list-social mb-6 mb-md-0 text-center mt-3">
+          <li class="list-inline-item list-social-item mr-3">
+            <%= image_tag "icons/social/facebook.svg", class: "footer-brand img-fluid mb-2", alt: "footer_brand" %>
+          </li>
+          <li class="list-inline-item list-social-item mr-3">
+            <%= image_tag "icons/social/instagram.svg", class: "footer-brand img-fluid mb-2", alt: "footer_brand" %>
+          </li>
+          <li class="list-inline-item list-social-item mr-3">
+            <%= image_tag "icons/social/twitter.svg", class: "footer-brand img-fluid mb-2", alt: "footer_brand" %>
+          </li>
+          <li class="list-inline-item list-social-item mr-3">
+            <%= image_tag "icons/social/linkedin.svg", class: "footer-brand img-fluid mb-2", alt: "footer_brand" %>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+    
+        <!-- Heading -->
+        <h6 class="font-weight-bold text-uppercase text-gray-700">
+          Mon compte
+        </h6>
+
+        <!-- List -->
+        <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+          <li class="mb-3">
+            <%= link_to "S'inscrire", new_user_registration_fr_path, class: "text-reset"  %>
+          </li>
+          <li class="mb-3">
+            <%= link_to "Se connecter", new_user_session_fr_path, class: "text-reset"  %>
+          </li>
+          <% if user_signed_in? %>
+            <li class="mb-3">
+              <%= link_to "Mon profil", user_fr_path(current_user), class: "text-reset"  %>
+            </li>
+          <%end%>
+        </ul>
+
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+    
+        <!-- Heading -->
+        <h6 class="font-weight-bold text-uppercase text-gray-700">
+          Les projets
+        </h6>
+
+        <!-- List -->
+        <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+          <li class="mb-3">
+            <%= link_to "Voir les projets", projects_fr_path, class: "text-reset"  %>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-6 col-md-4 offset-md-4 col-lg-2 offset-lg-0">
+    
+        <!-- Heading -->
+        <h6 class="font-weight-bold text-uppercase text-gray-700">
+          À propos
+        </h6>
+
+        <!-- List -->
+        <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+          <li class="mb-3">
+            <%= link_to "L'équipe", static_pages_fr_path, class: "text-reset"  %>
+          </li>
+        </ul>
+
+      </div>
+      <% if user_signed_in? %>
+        <% if current_user.is_admin? %>
+          <div class="col-6 col-md-4 col-lg-2">
+        
+            <!-- Heading -->
+            <h6 class="font-weight-bold text-uppercase text-gray-700">
+              Administration
+            </h6>
+
+            <!-- List -->
+            <ul class="list-unstyled text-muted mb-0">
+              <%= link_to "Gérer les projets", admin_index_fr_path , class: "text-reset"  %>
+            </ul>
+
+          </div>
+        <%end%>
+      <%end%>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</footer>
