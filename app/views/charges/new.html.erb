@@ -1,20 +1,80 @@
-<%= form_tag project_charges_path(@project), method: :post do %>
-<article>
-  <% if flash[:error].present? %>
-    <div id="error_explanation">
-      <p><%= flash[:error] %></p>
-    </div>
-  <% end %>
-  <label class="amount">
-    <span>Montant: 5 €</span>
-  </label>
-</article>
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-description="Finalisation de votre commande"
-        data-amount=500
-        data-locale="fr"
-        data-currency="EUR"
-        data-panel-label="Faire une donation"
-        data-label="Payer par carte"></script>
-<% end %>
+<section class="section-border border-primary">
+      <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+          <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
+            
+            <!-- Heading -->
+            <h1 class="mb-0 font-weight-bold text-center">
+              Don pour le projet <%= @project.name %>
+            </h1>
+
+            <!-- Text -->
+            <p class="mb-6 text-center text-muted">
+              Saisissez le montant de votre don.
+            </p>
+
+            <!-- Form -->
+            <form class="mb-6">
+            <!-- Value of project  -->
+              <div class="form-group mb-5">
+                <input type="number" class="form-control" id="amount" name='amount'>
+              </div>
+            </form>
+                <div id="validate-amount">
+                <button class="btn btn-block btn-primary" >
+                Valider ce montant
+                </button>
+                </div>
+              </div>
+            
+
+              <!-- Submit -->
+              <div class="container d-flex flex-column">
+              <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+              <div class= "text-center align-items-center justify-content-center">
+                <%= form_tag project_charges_path(@project), method: :post do %>
+                  <article>
+                    <% if flash[:error].present? %>
+                      <div id="error_explanation">
+                        <p><%= flash[:error] %></p>
+                      </div>
+                    <% end %>
+                  </article>
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description="Finalisation de votre commande"
+                          data-amount=500
+                          data-locale="fr"
+                          data-currency="EUR"
+                          data-panel-label="Faire une donation"
+                          data-label="Payer par carte"></script>
+                  <% end %>
+            
+            </div>
+           
+
+          
+
+          
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+
+    <script>
+    // 1. Find and store the element we want to listen to events on.
+    var clickerButton = document.getElementById("validate-amount");
+    // 2. Define the function that will respond to the event.
+    // callback 
+    var onButtonClick = function() {
+        clickerButton.textContent = "Oh wow, you clicked me!";
+    };
+    // 3. Add the event listener for the element and function
+    // anonymous "inline"
+    clickerButton.addEventListener("click", onButtonClick);
+    
+    clickerButton.addEventListener("click", function() {
+        clickerButton.innerHTML = "<div class='container d-flex flex-column'><div class=row align-items-center justify-content-center no-gutters min-vh-100’><div class= 'text-center align-items-center justify-content-center'><%= form_tag project_charges_path(@project), method: :post do %><article><% if flash[:error].present? %><div id=‘error_explanation’><p><%= flash[:error] %></p></div><% end %></article><script src=‘https://checkout.stripe.com/checkout.js’ class=‘stripe-button’ data-key=‘<%= Rails.configuration.stripe[:publishable_key] %>‘ data-description=‘Finalisation de votre commande’ data-amount=500data-locale=‘fr’ data-currency=‘EUR’data-panel-label=‘Faire une donation’ data-label=‘Payer par carte’></script><% end %>";});
+    </script>
+
+
+

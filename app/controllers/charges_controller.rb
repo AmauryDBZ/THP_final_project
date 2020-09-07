@@ -1,10 +1,14 @@
 class ChargesController < ApplicationController
+
+  def index
+  end
+
+
   def new
-    @project = Project.friendly.find_by_slug(params[:project_id])
+   
   end
 
   def create
-    @project = Project.friendly.find_by_slug(params[:project_id])
     @amount = 500
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -36,6 +40,12 @@ class ChargesController < ApplicationController
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
+  end
+
+  private 
+
+  def set_project
+    @project = Project.friendly.find_by_slug(params[:project_id])
   end
     
 end
