@@ -25,7 +25,7 @@ class Project < ApplicationRecord
   end
 
   def project_validated
-    if self.validated_changed
+    if self.validated_changed?
       ProjectMailer.project_validated(self).deliver_now
     end
   end
