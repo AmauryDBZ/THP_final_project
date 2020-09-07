@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   def new
-    @project = Project.friendly.find_by_slug(params[:slug])
+    @project = Project.friendly.find_by_slug(params[:project_id])
   end
 
   def create
