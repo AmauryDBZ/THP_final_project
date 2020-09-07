@@ -27,6 +27,7 @@ class Project < ApplicationRecord
   def project_validated
     puts self.validated_changed?
     if self.validated_changed?
+      self.update(validated: true)
       ProjectMailer.project_validated(self).deliver_now
     end
   end
