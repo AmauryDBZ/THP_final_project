@@ -29,6 +29,8 @@ functionalities_array = ["Un visiteur arrive sur le site qui lui explique qu’i
   user.update(email: user.first_name + "@yopmail.com")
   puts "Seeding User #{user.first_name} #{user.last_name}"
 end
+#add an admin to avoid error when seeding (with the mailer)
+User.find(1).update(is_admin: true)
 
 i = 0
 11.times do
