@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resources :projects
     end
     resources :projects do
-        resources :charges, only: [:new, :create]
+        resources :charges, only: [:index, :new, :create]
     end
   end
 end

@@ -32,7 +32,6 @@
       <div class="col-auto">
 
         <!-- Buttons -->
-<<<<<<< HEAD
         <% if current_user %>
         <% if current_user == @project_holder || current_user.is_admin? %>
         <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
@@ -48,10 +47,6 @@
             <!-- content here -->
           </div>
         </div>
-=======
-        <%= link_to "Financer", new_project_charge_path(@project), class: "btn btn-primary" %>
-
->>>>>>> bff48fcc9988d6ce36c15de403a4fcb0306295bc
       </div>
     </div> <!-- / .row -->
     <div class="row">
@@ -159,17 +154,12 @@
         </div>
       </div>
       <div class="col-auto">
-<<<<<<< HEAD
         <!-- Button if not admin or project holder -->
         <% if current_user %>
-        <% if current_user != @project_holder && current_user.is_admin == false %>
-        <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
+          <% if current_user != @project_holder && current_user.is_admin == false %>
+            <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
+          <% end %>
         <% end %>
-        <% end %>
-=======
-        <!-- Buttons -->
-        <%= link_to "Financer", new_project_charge_path(@project), class: "btn btn-primary" %>
->>>>>>> bff48fcc9988d6ce36c15de403a4fcb0306295bc
       </div>
     </div> <!-- / .row -->
   </div> <!-- / .container -->
