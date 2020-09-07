@@ -32,6 +32,18 @@ end
 #add an admin to avoid error when seeding (with the mailer)
 User.find(1).update(is_admin: true)
 
+# Let's create an admin account
+admin = User.create(
+  first_name: 'Moussaillon',
+  last_name: 'Administrator',
+  email: 'moussaillon@yopmail.com',
+  password: 'Azerty',
+  personal_description: Faker::Lorem.sentence,
+  professional_background: Faker::Job.title,
+  is_admin: true
+)
+puts "Seeding admin : #{admin.email}."
+
 i = 0
 11.times do
   project = Project.create(
