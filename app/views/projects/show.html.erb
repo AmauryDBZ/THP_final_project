@@ -1,14 +1,14 @@
 <!-- if ADMIN or PROJECT HOLDER this section appears -->
 <% if current_user %>
-<% if current_user == @project_holder || current_user.is_admin? %>
-<%= render "show_admin" %>
-<% end %>
+  <% if current_user == @project_holder || current_user.is_admin %>
+    <%= render "show_admin" %>
+  <% end %>
 
-<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content"></div>
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
   </div>
-</div>
 <% end %>
 
 <!-- CONTENT
@@ -30,16 +30,25 @@
 
       </div>
       <div class="col-auto">
-
         <!-- Buttons -->
         <% if current_user %>
+<<<<<<< HEAD
           <% if current_user == @project_holder || current_user.is_admin? %>
             <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
             <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
           <% end %>
         <%else%>
           <%= link_to "Financer", root_path(@project), class: "btn btn-primary" %>
+=======
+          <% if current_user.is_admin %>
+            <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
+            <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+          <% elsif current_user.is_admin || current_user == @project_holder %>
+            <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+          <% end %>
+>>>>>>> origin
         <% end %>
+          <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary" %>
       </div>
       <div id="modal-delete" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -139,11 +148,6 @@
               <%= "#{@project_holder.first_name} #{@project_holder.last_name}" %>
             </h6>
 
-            <!-- Text -->
-            <p class="font-size-sm text-gray-800">
-              <%= @project_holder.professional_background %>
-            </p>
-
             <!-- Heading -->
             <%= link_to user_fr_path(@project_holder), :class => "font-weight-bold font-size-sm text-decoration-none" do %>
             <%= @project_holder.first_name %>
@@ -155,11 +159,7 @@
       </div>
       <div class="col-auto">
         <!-- Button if not admin or project holder -->
-        <% if current_user %>
-          <% if current_user != @project_holder && current_user.is_admin == false %>
-            <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
-          <% end %>
-        <% end %>
+            <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary" %>
       </div>
     </div> <!-- / .row -->
   </div> <!-- / .container -->
