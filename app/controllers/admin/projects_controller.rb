@@ -10,9 +10,17 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def edit
+    @project = Project.friendly.find_by_slug(params[:id])
+    respond_to do |format|
+        format.js
+      end
   end
 
   def update
+    @project = Project.friendly.find_by_slug(params[:id])
+    puts "********************************************"
+    puts @project
+    redirect_to admin_project_fr_path(@project)
   end
 
   def destroy

@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+  <button type="button" class="close" data-dismiss="modal"><i class="far fa-times-circle"></i></button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="statusProject">Projet à</label>
+      </div>
+      <select class="custom-select" id="statusProject">
+        <option value="denied">Refuser</option>
+        <option value="accepted">Valider</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <%= link_to "Enregistrer", admin_project_fr_path, :method => "patch", class: "btn btn-primary" %>
+</div>
