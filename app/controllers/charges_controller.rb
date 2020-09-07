@@ -8,8 +8,9 @@ class ChargesController < ApplicationController
 
   def new
     set_project
+    @amount = params[:amount]
     respond_to do |format|
-      format.html {@amount = params[:amount]}
+      format.html {}
       format.js { }
     end
   end
@@ -47,7 +48,7 @@ class ChargesController < ApplicationController
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to new_charge_path
+      redirect_to project_charges_path
   end
 
   private 

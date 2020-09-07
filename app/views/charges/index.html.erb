@@ -1,6 +1,6 @@
 <section class="section-border border-primary">
       <div class="container d-flex flex-column">
-        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+        <div class="row align-items-center justify-content-center no-gutters min-vh-50" id= "validate-amount">
           <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
             
             <!-- Heading -->
@@ -19,15 +19,15 @@
 
             <!-- Value of project  -->
               <div class="form-group mb-5">
-                <input type="number" class="form-control" id="amount" name='amount'>
+                <input type="number" class="form-control" id="amount" name='amount' placeholder="Montant de votre don en euros">
               </div>
-                <div id="validate-amount">
+                <div>
                 <button class="btn btn-block btn-primary" type="submit">
                 Valider ces informations
                 </button>
-                </div>
-              
+              </div>
             <% end %>
+
         </div> <!-- / .row -->
       </div> <!-- / .container -->
     </section>
