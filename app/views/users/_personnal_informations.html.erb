@@ -230,6 +230,22 @@
             <!-- Card -->
             <div class="card mb-6 shadow-light-lg lift lift-lg">
 
+            <% if project.validated %> 
+              <!-- Badge -->
+              <span class="badge badge-success badge-pill badge-float badge-float-outside">
+                Validé
+              </span>
+            <%elsif project.validated == nil%>
+              <span class="badge badge-warning badge-pill badge-float badge-float-outside">
+                En attente de validation
+              </span>
+            <%else%>
+              <span class="badge badge-danger badge-pill badge-float badge-float-outside">
+                Refusé par l'administration
+              </span>
+            <%end%>
+
+
               <!-- Image -->
               
                 <%= link_to project_path(project), style: "text-decoration: none" do %>

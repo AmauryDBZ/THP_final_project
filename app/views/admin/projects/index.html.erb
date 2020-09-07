@@ -27,12 +27,22 @@
     </div> <!-- / .row -->
     <div class="row">
     <% @projects.each do |project| %>
-      <% if !(project.validated) %>
+      <% if project.validated != true %>
 
         <div class="col-12 col-md-6 d-flex">
 
           <!-- Card -->
           <div class="card mb-6 shadow-light-lg lift lift-lg">
+
+          <%if project.validated == nil %>
+            <span class="badge badge-warning badge-pill badge-float badge-float-outside">
+              En attente de validation
+            </span>
+          <%elsif project.validated == false %>
+            <span class="badge badge-danger badge-pill badge-float badge-float-outside">
+              Refusé par l'administration
+            </span>
+          <%end%>
 
             <!-- Image -->
 
