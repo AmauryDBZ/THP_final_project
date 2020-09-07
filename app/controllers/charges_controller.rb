@@ -9,14 +9,15 @@ class ChargesController < ApplicationController
   def new
     set_project
     respond_to do |format|
-      format.html {@amount = params[:amount]
-      puts "amount : #{@amount}" }
+      format.html {@amount = params[:amount]}
       format.js { }
     end
   end
 
   def create
-    @amount = 500
+    set_project
+    @amount = params[:amount]
+    @amount = @amount.to_i * 100
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
       source: params[:stripeToken],
