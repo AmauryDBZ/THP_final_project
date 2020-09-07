@@ -30,6 +30,18 @@ functionalities_array = ["Un visiteur arrive sur le site qui lui explique qu’i
   puts "Seeding User #{user.first_name} #{user.last_name}"
 end
 
+# Let's create an admin account
+admin = User.create(
+  first_name: 'Moussaillon',
+  last_name: 'Administrator',
+  email: 'moussaillon@yopmail.com',
+  password: 'Azerty',
+  personal_description: Faker::Lorem.sentence,
+  professional_background: Faker::Job.title,
+  is_admin: true
+)
+puts "Seeding admin : #{admin.email}."
+
 i = 0
 11.times do
   project = Project.create(
