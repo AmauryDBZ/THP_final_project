@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   after_create :admin_new_project
-  after_update :project_validated
+  around_update :project_validated
   extend FriendlyId
   friendly_id :name, use: :slugged
 
