@@ -18,8 +18,13 @@ class Project < ApplicationRecord
   validates :number_of_developers_on_project, presence: true
   validates :daily_time_spent_on_project_per_developer, presence: true
 
+  # The cover picture is displayed on the cards and as a cover on the project page (project/show).
   has_one_attached :cover, dependent: :destroy
-  
+  validates :cover,
+    content_type: [:png, :jpg, :jpeg],
+    size: { less_than: 2.megabytes, message: "le fichier est trop lourd : 2Mo maximum." },
+    aspect_ratio: :landscape
+
   def admin_new_project
     ProjectMailer.admin_new_project(self).deliver_now
   end
