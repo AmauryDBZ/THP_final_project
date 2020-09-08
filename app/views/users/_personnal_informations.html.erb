@@ -266,7 +266,7 @@
 
                 <!-- Heading -->
                 <h3>
-                  <%= project.name %> <%=link_to edit_project_fr_path(project), class:"ml-5 text-gray-700", title:"Editer le projet" do%><i class="fas fa-edit"></i><%end%>
+                  <%= project.name %> <%=link_to edit_project_fr_path(project), class:"ml-5 text-gray-700", title:"Editer le projet", data: {confirm: "Êtes-vous sûr ?\nSi le projet a été validé, il ne sera plus en ligne, ne recevra plus de dons et sera renvoyé à l'administration pour valider vos informations."} do%><i class="fas fa-edit"></i><%end%>
                 </h3>
 
                 <!-- Text -->

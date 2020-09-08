@@ -1,8 +1,7 @@
 <!-- if ADMIN or PROJECT HOLDER this section appears -->
-<% if current_user %>
-  <% if current_user == @project_holder || current_user.is_admin %>
-    <%= render "show_admin" %>
-  <% end %>
+
+<% if current_user && (current_user == @project_holder || current_user.is_admin) %>
+  <%= render "show_admin" %>
 
   <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -37,20 +36,22 @@
 
         <!-- Heading -->
         <h1 class="display-4 my-2">
+
           <%= @project.name %>
+          <% if current_user && (current_user.is_admin || current_user == @project_holder) %>
+            <%=link_to edit_project_fr_path(@project), class:"ml-5 text-gray-700", title:"Editer le projet", data: {confirm: "Êtes-vous sûr ?\nSi le projet a été validé, il ne sera plus en ligne, ne recevra plus de dons et sera renvoyé à l'administration pour valider vos informations."} do%><i class="fas fa-edit"></i><%end%>
+          <% end %>
         </h1>
 
       </div>
       <div class="col-auto">
         
         <!-- Buttons -->
-        <% if current_user %>
-          <% if current_user.is_admin %>
-            <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
-            <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
-          <% elsif current_user == @project_holder %>
-            <%= link_to "Supprimer le projet", project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
-          <% end %>
+        <% if current_user && current_user.is_admin %>
+          <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
+          <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+        <% elsif current_user && current_user == @project_holder %>
+          <%= link_to "Supprimer le projet", project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
         <% end %>
           <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary" %>
       </div>
