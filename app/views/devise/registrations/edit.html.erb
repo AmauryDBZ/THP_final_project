@@ -66,9 +66,11 @@
             <%= f.label "Confirmation de votre mot de passe" %><br />
             <%= f.password_field :password_confirmation,  placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
           </div>
-
+          <br>
+          <hr>
+          <small class="text-muted">Confirmer votre mot de passe pour sauvegarder les modifications</small>
           <div class="form-group mb-5">
-            <%= f.label "Mot de passe actuel" %><br />
+            <%= f.label "Mot de passe" %><br />
             <%= f.password_field :current_password, placeholder: "Votre mot de passe actuel", class: "form-control form-control-flush" %>
           </div>
 
