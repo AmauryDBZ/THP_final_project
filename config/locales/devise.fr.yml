@@ -284,6 +284,7 @@ fr:
   routes:
     admin: administrateur
     charges: paiement
+    donations: dons
     projects: projets
     new: nouveau
     edit: modifier

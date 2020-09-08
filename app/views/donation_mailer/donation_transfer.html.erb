@@ -1,0 +1,13 @@
+<h2>Bonjour,</h2>
+<p>Merci d'effectuer le virement suivant :</p>
+<p>Utilisateur : <%= @project_holder.first_name %> <%= @project_holder.last_name %> <%= @project_holder.email %> </p>
+<p>Montant : <%= @donation.amount %> €</p>
+<p>Date : <%= @donation.created_at.strftime('%d/%m/%Y') %></p>
+<p>IBAN : <%= @donation.project.user.bank_details.last.iban %></p>
+<p>Nom de la banque : <%= @donation.project.user.bank_details.last.bank_name %></p>
+<p>Code guichet : <%= @donation.project.user.bank_details.last.branch_code %></p>
+<p>Code de la banque : <%= @donation.project.user.bank_details.last.bank_code %></p>
+<p>Numéro de compte : <%= @donation.project.user.bank_details.last.account_number %></p>
+<p>Clé : <%= @donation.project.user.bank_details.last.key %></p>
+
+
