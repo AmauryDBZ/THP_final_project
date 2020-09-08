@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  include ProjectsHelper
   before_action :cannot_see_before_validation, only: [:show]
   before_action :cannot_edit_others_projects, only: [:edit]
   before_action :set_project

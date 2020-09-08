@@ -8,7 +8,11 @@
             
             <!-- Heading -->
             <h1 class="mb-0 font-weight-bold">
-              Editer votre projet
+              <% if !current_user.is_admin %>
+                Editer votre projet
+              <%else%>
+                Editer le projet
+              <%end%>
             </h1>
 
             <!-- Text -->
