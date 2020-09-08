@@ -20,7 +20,7 @@ class Project < ApplicationRecord
 
   # The cover picture is displayed on the cards and as a cover on the project page (project/show).
   has_one_attached :cover, dependent: :destroy
-  validates :cover, attached: true,
+  validates :cover,
     content_type: [:png, :jpg, :jpeg],
     size: { less_than: 2.megabytes, message: "le fichier est trop lourd : 2Mo maximum." },
     aspect_ratio: :landscape,
