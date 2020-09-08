@@ -212,6 +212,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    rmagick (4.1.2)
     route_translator (8.0.0)
       actionpack (>= 5.0.0.1, < 6.1)
       activesupport (>= 5.0.0.1, < 6.1)
@@ -325,6 +326,7 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.3)
   rails-erd
   rename
+  rmagick
   route_translator
   rspec-rails
   sass-rails (~> 5.0)
