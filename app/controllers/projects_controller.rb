@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project
   before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @projects = Project.all
   end
@@ -25,17 +26,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(
-      user_id: current_user.id,
-      name: params[:name],
-      pitch: params[:pitch],
-      functionalities: params[:functionalities],
-      value_of_project: params[:value_of_project],
-      number_of_developers_on_project: params[:number_of_developers_on_project],
-      daily_time_spent_on_project_per_developer: params[:daily_time_spent_on_project_per_developer],
-      clicks: 0,
-      money_earned: 0,
-      )
+    @project = Project.new(project_params)
+    @project.user_id = current_user.id
+    @project.clicks = 0
+    @project.money_earned = 0
       if @project.save
         flash[:success] = "Merci ! Nous allons vérifier les informations de votre projet"
         redirect_to :controller => 'projects', :action => 'index'
@@ -55,5 +49,9 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.friendly.find_by_slug(params[:slug])
+  end
+
+  def project_params
+    params.require(:project).permit(:name, :daily_time_spent_on_project_per_developer, :pitch, :functionalities, :value_of_project, :number_of_developers_on_project, :cover)
   end
 end
