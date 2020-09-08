@@ -1,14 +1,14 @@
 <!-- if ADMIN or PROJECT HOLDER this section appears -->
 <% if current_user %>
-  <% if current_user == @project_holder || current_user.is_admin %>
-    <%= render "show_admin" %>
-  <% end %>
+<% if current_user == @project_holder || current_user.is_admin %>
+<%= render "show_admin" %>
+<% end %>
 
-  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content"></div>
-    </div>
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
   </div>
+</div>
 <% end %>
 
 <!-- CONTENT
@@ -16,23 +16,23 @@
 <section class="pt-8 pt-md-11">
   <div class="container">
     <div class="row align-items-center">
-        <!-- Badge -->
-        <%if @project.validated == nil%>
-          <span class="badge badge-warning badge-pill badge-float badge-float-outside">
-            En attente de validation
-          </span>
-        <%elsif @project.validated == false%>
-          <span class="badge badge-danger badge-pill badge-float badge-float-outside">
-            Refusé par l'administration
-          </span>
-        <%end%>
-        
+      <!-- Badge -->
+      <%if @project.validated == nil%>
+      <span class="badge badge-warning badge-pill badge-float badge-float-outside">
+        En attente de validation
+      </span>
+      <%elsif @project.validated == false%>
+      <span class="badge badge-danger badge-pill badge-float badge-float-outside">
+        Refusé par l'administration
+      </span>
+      <%end%>
+
       <div class="col-12 col-md">
 
         <!-- Link -->
         <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none mb-5" do %>
-          <i class="fas fa-arrow-left mr-3"></i>
-          Tous les projets
+        <i class="fas fa-arrow-left mr-3"></i>
+        Tous les projets
         <% end %>
 
         <!-- Heading -->
@@ -42,17 +42,17 @@
 
       </div>
       <div class="col-auto">
-        
+
         <!-- Buttons -->
         <% if current_user %>
-          <% if current_user.is_admin %>
-            <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
-            <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
-          <% elsif current_user == @project_holder %>
-            <%= link_to "Supprimer le projet", project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
-          <% end %>
+        <% if current_user.is_admin %>
+        <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
+        <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+        <% elsif current_user == @project_holder %>
+        <%= link_to "Supprimer le projet", project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
         <% end %>
-          <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary" %>
+        <% end %>
+        <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary" %>
       </div>
     </div> <!-- / .row -->
     <div class="row">
@@ -147,8 +147,8 @@
 
             <!-- Heading -->
             <%= link_to user_fr_path(@project_holder), :class => "font-weight-bold font-size-sm text-decoration-none" do %>
-              <%= @project_holder.first_name %>
-              <i class="fas fa-arrow-right ml-3"></i>
+            <%= @project_holder.first_name %>
+            <i class="fas fa-arrow-right ml-3"></i>
             <% end %>
 
           </div>
@@ -156,7 +156,7 @@
       </div>
       <div class="col-auto">
         <!-- Button if not admin or project holder -->
-            <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary" %>
+        <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary" %>
       </div>
     </div> <!-- / .row -->
   </div> <!-- / .container -->

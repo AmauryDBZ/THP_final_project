@@ -23,7 +23,7 @@
               <div class="form-group mb-5">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <%= form.label :name, 'Le nom de votre projet' %>
-                <%= form.text_field :name, class: "form-control", placeholder: "Un titre explicite à propos de votre projet" %>
+                <%= form.text_field :name, class: "form-control", placeholder: "Un titre explicite à propos de votre projet." %>
               </div>
 
               <!-- Pitch -->
@@ -58,7 +58,7 @@
 
               <!-- Cover on project -->
               <div class="form-group mb-5">
-                <%= form.label  "Ajouter une photo à votre projet." %><br>
+                <%= form.label  "Ajouter une photo au format paysage à votre projet." %><br>
                 <%= form.label  "La largeur doit être comprise entre 1200px et 2400px, la hauteur entre  400px et 1800px." %><br>
                 <%= form.file_field :cover %>
               </div>
