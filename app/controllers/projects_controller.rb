@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :cannot_see_before_validation, only: [:show]
+  before_action :cannot_edit_others_projects, only: [:edit]
   before_action :set_project
   before_action :authenticate_user!, only: [:new, :create]
 
@@ -38,7 +39,6 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

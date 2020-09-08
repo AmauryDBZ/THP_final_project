@@ -10,4 +10,17 @@ module ProjectsHelper
       redirect_to root_path
     end
   end
+
+  def cannot_edit_others_projects
+    if current_user
+      if current_user != @project.user && !current_user.is_admin
+        flash[:danger] = "Vous ne pouvez pas accéder à cette page"
+        redirect_to root_path
+      end
+    else
+      flash[:danger] = "Vous ne pouvez pas accéder à cette page"
+      redirect_to root_path
+    end  
+  end
+
 end
