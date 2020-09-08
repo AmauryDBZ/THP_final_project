@@ -1,0 +1,74 @@
+<!-- CONTENT
+    ================================================== -->
+    <section class="section-border border-primary">
+      <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+          <div class="col-12 col-md-5 col-lg-8 py-8 py-md-11 text-center">
+
+            
+            <!-- Heading -->
+            <h1 class="mb-0 font-weight-bold">
+              Editer votre projet
+            </h1>
+
+            <!-- Text -->
+            <p class="mb-6 text-center text-muted">
+              Remplissez les informations suivantes afin qu'un administrateur valide vos modifications.
+            </p>
+
+            <!-- Form -->
+            <%= form_with model: Project, local: true, url: project_fr_path, method: :patch  do |form| %>
+
+              <!-- Name -->
+              <div class="form-group mb-5">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <%= form.label :name, 'Le nom de votre projet' %>
+                <%= form.text_field :name, class: "form-control", placeholder: "Un titre explicite à propos de votre projet" %>
+              </div>
+
+              <!-- Pitch -->
+              <div class="form-group mb-5">
+                <%= form.label :pitch, 'Le pitch de votre projet' %>
+                <%= form.text_area :pitch, class: "form-control", placeholder: "Les objectifs de votre projet, les problèmes auquels il répond" %>
+              </div>
+
+              <!-- Functionalities -->
+              <div class="form-group mb-5">
+                <%= form.label :functionalities, 'Les fonctionnalités de votre projet' %>
+                <%= form.text_area :functionalities, class: "form-control", placeholder: "Les caractéristiques techniques de votre projet, et ses fonctionnalités" %>
+              </div>
+
+              <!-- Value of project  -->
+              <div class="form-group mb-5">
+                <%= form.label :value_of_project, 'Le coût mensuel de votre projet en euros.' %>
+                <%= form.number_field :value_of_project, class: "form-control" %>
+              </div>
+
+              <!-- Number of developeurs on project  -->
+              <div class="form-group mb-5">
+                <%= form.label :number_of_developers_on_project, 'Nombre de développeurs travaillants sur le projet.' %>
+                <%= form.number_field :number_of_developers_on_project, class: "form-control" %>
+              </div>
+
+              <!-- Daily time spent on project per developer  -->
+              <div class="form-group mb-5">
+                <%= form.label :daily_time_spent_on_project_per_developer, "Nombre d'heures quotidiennes passées sur le projet, par développeur" %><br>
+                <%= form.select :daily_time_spent_on_project_per_developer, options_for_select(1..12), {}, { class: "form-control" } %>
+              </div>
+
+              <!-- Cover on project -->
+              <div class="form-group mb-5">
+                <%= form.label  "Ajouter une photo à votre projet" %><br>
+                <%= form.file_field :cover %>
+              </div>
+
+              <!-- Submit -->
+              <div class="form-group mb-5">
+                <%= form.submit "Valider les modifications", class: "btn btn-block btn-primary" %>
+              </div>
+              
+            <%end%>
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
