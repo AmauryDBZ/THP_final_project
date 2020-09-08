@@ -1,0 +1,26 @@
+div.d-inline.stripe {
+  margin-top: 50px;
+}
+
+.stripe-button-el {
+  width: 350px;
+  border-radius: 0.5em !important;
+  border: 0 !important;
+  background-image: none !important;
+  background-color: #FAD776 !important;
+  font-weight: normal !important;
+  margin: auto
+}
+
+.stripe-button-el span {
+  color: black !important;
+  font-family: sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  font-weight: normal !important;
+  font-size: 1em !important;
+  border-radius: 0.2em !important;
+  border: 0 !important;
+  background-image: none !important;
+  background: #FAD776 !important;
+  background-color: #FAD776 !important;
+}
