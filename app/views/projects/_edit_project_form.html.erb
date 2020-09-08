@@ -70,6 +70,12 @@
                 <%= form.select :daily_time_spent_on_project_per_developer, options_for_select(1..12), {}, { class: "form-control" } %>
               </div>
 
+              <!-- licence used for the project  -->
+              <div class="form-group mb-5">
+                <%= form.label :licence, "Type de licence utilisée pour votre projet" %><br>
+                <%= form.text_field :licence, class: "form-control" %>
+              </div>
+
               <!-- Cover on project -->
               <div class="form-group mb-5">
                 <%= form.label  "Ajouter une photo à votre projet" %><br>
