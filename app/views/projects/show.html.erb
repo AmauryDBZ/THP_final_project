@@ -37,13 +37,20 @@
 
         <!-- Heading -->
         <h1 class="display-4 my-2">
+
           <%= @project.name %>
+          <% if current_user && (current_user.is_admin || current_user == @project_holder) %>
+            <%=link_to edit_project_fr_path(@project), class:"ml-5 text-gray-700", title:"Editer le projet" do%>
+              <i class="fas fa-edit"></i>
+            <%end%>
+          <% end %>
         </h1>
 
       </div>
       <div class="col-auto">
 
         <!-- Buttons -->
+<<<<<<< HEAD
         <% if current_user %>
         <% if current_user.is_admin %>
         <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
@@ -51,6 +58,13 @@
         <% elsif current_user == @project_holder %>
         <%= link_to "Supprimer le projet", project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
         <% end %>
+=======
+        <% if current_user && current_user.is_admin %>
+          <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
+          <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+        <% elsif current_user && current_user == @project_holder %>
+          <%= link_to "Supprimer le projet", project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+>>>>>>> e40e5a8ae37d23a37f3e55d51b8b918f728ffcc5
         <% end %>
         <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary" %>
       </div>
