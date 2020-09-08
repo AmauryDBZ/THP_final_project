@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  include ProjectsHelper
+  before_action :cannot_see_before_validation, only: [:show]
+  before_action :cannot_edit_others_projects, only: [:edit]
   before_action :set_project
   before_action :authenticate_user!, only: [:new, :create]
 
@@ -10,15 +13,6 @@ class ProjectsController < ApplicationController
     @project.update(clicks: @project.clicks += 1)
     @project_holder = User.find(@project.user_id)
     @donations = Donation.where(project_id: @project.id)
-    if current_user 
-      if !@project.validated && current_user != @project.user && !current_user.is_admin 
-        flash[:danger] = "Vous ne pouvez pas accéder à cette page"
-        redirect_to root_path
-      end
-    elsif !@project.validated
-      flash[:danger] = "Vous ne pouvez pas accéder à cette page"
-      redirect_to root_path
-    end
   end
 
   def new
@@ -43,6 +37,20 @@ class ProjectsController < ApplicationController
     @project = Project.friendly.find_by_slug(params[:id])
     @project.delete
     redirect_to root_path
+  end
+
+  def edit
+  end
+
+  def update
+    if @project.update(project_params)
+      @project.update(validated: nil)
+      flash[:success] = "Merci ! Nous allons vérifier les nouvelles informations de votre projet"
+      redirect_to :controller => 'projects', :action => 'index'
+    else
+      flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@project.errors.full_messages.each {|message| message}.join('')}"
+      render :action => 'edit'
+    end
   end
 
   private
