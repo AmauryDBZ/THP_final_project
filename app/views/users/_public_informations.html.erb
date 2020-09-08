@@ -53,7 +53,7 @@
                     </li>
                     <li class="list-item">
                       <a class="list-link text-reset" href="#projects">
-                        Projets 
+                        Projets
                       </a>
                     </li>
                   </ul>
@@ -196,7 +196,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12" id="projects">
-          
+
           <!-- Heading -->
           <h3 class="mb-0">
             Tous les projets
@@ -211,18 +211,21 @@
       </div> <!-- / .row -->
       <div class="row">
         <% @projects.each do |project| %>
-        
+
           <div class="col-12 col-md-6 d-flex">
-            
+
             <!-- Card -->
             <div class="card mb-6 shadow-light-lg lift lift-lg">
 
               <!-- Image -->
-              
+
                 <%= link_to project_path(project), style: "text-decoration: none" do %>
                 <!-- Image -->
-                <img src="https://images.unsplash.com/photo-1481887328591-3e277f9473dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1060&q=80" alt="..." class="card-img-top">
-
+                <% if project.cover.attached? %>
+                  <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top" %>
+                <% else %>
+                  <%= image_tag "https://images.unsplash.com/photo-1481887328591-3e277f9473dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1060&q=80", class: "card-img-top" %>
+                <% end %>
                 <!-- Shape -->
                 <div class="position-relative">
                   <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
@@ -230,7 +233,7 @@
                   </div>
                 </div>
 
-              
+
 
               <!-- Body -->
               <div class="card-body">
@@ -246,32 +249,31 @@
                 </p>
 
               </div>
-                
+
               <!-- Meta -->
               <div class="card-meta mt-auto">
 
                 <!-- Divider -->
                 <hr class="card-meta-divider">
-                
+
                 <!-- Author -->
                 <% if project.user.first_name && project.user.last_name %>
                 <h6 class="text-uppercase text-muted mr-2 mb-0">
                   <%= project.user.first_name + ' ' + project.user.last_name  %>
                 </h6>
                 <% end %>
-                
+
                 <!-- Date -->
                 <p class="h6 text-uppercase text-muted mb-0 ml-auto">
                   <%= project.created_at.strftime('%d/%m/%Y')  %>
                 </p>
-              
+
               </div>
               <%end%>
             </div>
 
           </div>
-            
+
           <%end%>
   </section>
 <%end%>
-

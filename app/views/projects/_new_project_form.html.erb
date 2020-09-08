@@ -5,7 +5,7 @@
         <div class="row align-items-center justify-content-center no-gutters min-vh-100">
           <div class="col-12 col-md-5 col-lg-8 py-8 py-md-11 text-center">
 
-            
+
             <!-- Heading -->
             <h1 class="mb-0 font-weight-bold">
               Créez votre projet
@@ -17,25 +17,25 @@
             </p>
 
             <!-- Form -->
-            <%= form_with model: Project, local: true do |form| %>
+            <%= form_with model: @project, local: true do |form| %>
 
               <!-- Name -->
               <div class="form-group mb-5">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <%= form.label :name, 'Le nom de votre projet' %>
-                <%= form.text_field :name, class: "form-control", placeholder: "Un titre explicite à propos de votre projet" %>
+                <%= form.label :name, 'Le nom de votre projet.' %>
+                <%= form.text_field :name, class: "form-control", placeholder: "Un titre explicite à propos de votre projet." %>
               </div>
 
               <!-- Pitch -->
               <div class="form-group mb-5">
-                <%= form.label :pitch, 'Le pitch de votre projet' %>
-                <%= form.text_area :pitch, class: "form-control", placeholder: "Les objectifs de votre projet, les problèmes auquels il répond" %>
+                <%= form.label :pitch, 'Le pitch de votre projet.' %>
+                <%= form.text_area :pitch, class: "form-control", placeholder: "Les objectifs de votre projet, les problèmes auxquels il répond." %>
               </div>
 
               <!-- Functionalities -->
               <div class="form-group mb-5">
-                <%= form.label :functionalities, 'Les fonctionnalités de votre projet' %>
-                <%= form.text_area :functionalities, class: "form-control", placeholder: "Les caractéristiques techniques de votre projet, et ses fonctionnalités" %>
+                <%= form.label :functionalities, 'Les fonctionnalités de votre projet.' %>
+                <%= form.text_area :functionalities, class: "form-control", placeholder: "Les caractéristiques techniques de votre projet, et ses fonctionnalités." %>
               </div>
 
               <!-- Value of project  -->
@@ -52,7 +52,7 @@
 
               <!-- Daily time spent on project per developer  -->
               <div class="form-group mb-5">
-                <%= form.label :daily_time_spent_on_project_per_developer, "Nombre d'heures quotidiennes passées sur le projet, par développeur" %><br>
+                <%= form.label :daily_time_spent_on_project_per_developer, "Nombre d'heures quotidiennes passées sur le projet, par développeur." %><br>
                 <%= form.select :daily_time_spent_on_project_per_developer, options_for_select(1..12), {}, { class: "form-control" } %>
               </div>
 
@@ -66,7 +66,7 @@
               <div class="form-group mb-5">
                 <%= form.submit "Créer ce projet", class: "btn btn-block btn-primary" %>
               </div>
-              
+
             <%end%>
           </div>
         </div> <!-- / .row -->

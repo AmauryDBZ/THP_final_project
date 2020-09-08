@@ -82,7 +82,7 @@ fr:
     - ven
     - sam
     abbr_month_names:
-    - 
+    -
     - jan.
     - fév.
     - mar.
@@ -108,7 +108,7 @@ fr:
       long: "%e %B %Y"
       short: "%e %b"
     month_names:
-    - 
+    -
     - janvier
     - février
     - mars
@@ -295,3 +295,4 @@ fr:
     password: mot-de-passe
     sign_out: se-deconnecter
     cancel: annuler
+    
