@@ -5,7 +5,7 @@
         <div class="row align-items-center justify-content-center no-gutters min-vh-100">
           <div class="col-12 col-md-5 col-lg-8 py-8 py-md-11 text-center">
 
-            
+
             <!-- Heading -->
             <h1 class="mb-0 font-weight-bold">
               Créez votre projet
@@ -29,7 +29,7 @@
               <!-- Pitch -->
               <div class="form-group mb-5">
                 <%= form.label :pitch, 'Le pitch de votre projet' %>
-                <%= form.text_area :pitch, class: "form-control", placeholder: "Les objectifs de votre projet, les problèmes auquels il répond" %>
+                <%= form.text_area :pitch, class: "form-control", placeholder: "Les objectifs de votre projet, les problèmes auxquels il répond." %>
               </div>
 
               <!-- Functionalities -->
@@ -58,15 +58,16 @@
 
               <!-- Cover on project -->
               <div class="form-group mb-5">
-                <%= form.label  "Ajouter une photo à votre projet" %><br>
+                <%= form.label  "Ajouter une photo à votre projet." %><br>
+                <%= form.label  "La largeur doit être comprise entre 1200px et 2400px, la hauteur entre  400px et 1800px." %><br>
                 <%= form.file_field :cover %>
               </div>
 
               <!-- Submit -->
               <div class="form-group mb-5">
-                <%= form.submit "Créér ce projet", class: "btn btn-block btn-primary" %>
+                <%= form.submit "Créer ce projet", class: "btn btn-block btn-primary" %>
               </div>
-              
+
             <%end%>
           </div>
         </div> <!-- / .row -->

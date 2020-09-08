@@ -23,8 +23,8 @@ class Project < ApplicationRecord
   validates :cover, attached: true,
     content_type: [:png, :jpg, :jpeg],
     size: { less_than: 2.megabytes, message: "le fichier est trop lourd : 2Mo maximum." },
-    dimension: { width: { min: 800, max: 2400 },
-      height: { min: 600, max: 1800 }, message: "l'image n'est pas à la bonne dimension." }
+    dimension: { width: { min: 1200, max: 2400 },
+      height: { min: 400, max: 1800 }, message: "l'image n'est pas à la bonne dimension." }
 
   def admin_new_project
     ProjectMailer.admin_new_project(self).deliver_now
