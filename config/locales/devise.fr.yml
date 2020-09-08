@@ -278,7 +278,7 @@ fr:
     formats:
       default: "%d %B %Y %Hh %Mmin %Ss"
       long: "%A %d %B %Y %Hh%M"
-      short: "%d %b %Hh%M"
+      short: "%d %b %Hh%M" 
     pm: pm
 
   routes:
@@ -297,4 +297,4 @@ fr:
     password: mot-de-passe
     sign_out: se-deconnecter
     cancel: annuler
-    
+    static_pages: pages-statiques

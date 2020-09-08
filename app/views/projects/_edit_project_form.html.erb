@@ -31,7 +31,7 @@
             </p>
 
             <!-- Form -->
-            <%= form_with model: Project, local: true, url: project_fr_path, method: :patch  do |form| %>
+            <%= form_with model: @project, local: true, url: project_fr_path, method: :patch  do |form| %>
 
               <!-- Name -->
               <div class="form-group mb-5">
@@ -68,6 +68,12 @@
               <div class="form-group mb-5">
                 <%= form.label :daily_time_spent_on_project_per_developer, "Nombre d'heures quotidiennes passées sur le projet, par développeur." %><br>
                 <%= form.select :daily_time_spent_on_project_per_developer, options_for_select(1..12), {}, { class: "form-control" } %>
+              </div>
+
+              <!-- licence used for the project  -->
+              <div class="form-group mb-5">
+                <%= form.label :licence, "Type de licence utilisée pour votre projet" %><br>
+                <%= form.text_field :licence, class: "form-control" %>
               </div>
 
               <!-- Cover on project -->

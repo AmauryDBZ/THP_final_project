@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_165154) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.boolean "validated"
+    t.string "licence"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
