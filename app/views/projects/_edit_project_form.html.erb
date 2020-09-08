@@ -31,7 +31,7 @@
             </p>
 
             <!-- Form -->
-            <%= form_with model: Project, local: true, url: project_fr_path, method: :patch  do |form| %>
+            <%= form_with model: @project, local: true, url: project_fr_path, method: :patch  do |form| %>
 
               <!-- Name -->
               <div class="form-group mb-5">
