@@ -107,7 +107,7 @@
                         <h6 class="d-flex mb-3 text-uppercase">
                           Date de naissance 
                           <span class="ml-auto">
-                            <%if @user.date_of_birth %>
+                            <%if @user.date_of_birth != nil %>
                               <%=@user.date_of_birth.strftime("%d/%m/%Y")%>
                             <%end%>
                           </span>
