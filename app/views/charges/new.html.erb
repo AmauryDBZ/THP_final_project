@@ -1,35 +1,72 @@
-<section class="section-border border-primary">
-      <div class="container d-flex flex-column">
-        <div class="row align-items-center justify-content-center no-gutters min-vh-50" id= "validate-amount">
-          <div class="col-12 col-md-4 col-lg-4 py-8 py-md-11">
+<section data-jarallax data-speed=".8" class="pt-12 pb-10 pt-md-15 pb-md-14 bg-dark" >
+  <div class="container">
+    <div class="row justify-content-around text-center">
+      <div class="d-inline col-12 col-md-8 col-lg-6">
 
-            <!-- Form -->
-            <%= form_tag project_charges_path(@project, :amount => @amount), method: :post, class: 'container d-flex flex-column text-center' do %>
-              <article>
-                <% if flash[:error].present? %>
-                  <div id="error_explanation">
-                    <p><%= flash[:error] %></p>
-                  </div>
-                <% end %>
-                <label class="amount text-center">
-                  <span>Faire un don de <%=@amount%> €</span>
-                </label>
-              </article>
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                      data-description="Finalisation de votre commande"
-                      data-amount=<%=100*@amount.to_i%>
-                      data-locale="fr"
-                      data-currency="EUR"
-                      data-panel-label="Payer"
-                      data-label="Payer par carte"></script>
-              <% end %>
-            
-            
-
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-    </section>
+        <!-- Heading -->
+        <h1 class="display-3 font-weight-bold text-white" id="welcomeHeadingSource">
+          Soutenez le projet qui vous tient à coeur <br />
+          <span class="text-warning" data-toggle="typed" data-options='{"strings": ["Merci", "Danke", "Thank you"]}'></span>
+        </h1>
 
 
+        <!-- Text -->
+        <p class="font-size-lg text-white-80 mb-6">
+          Grâce à vous, l'open source est toujours plus grand.
+        </p>
+
+      </div>
+      <div class="d-inline stripe">
+        <!-- Form -->
+        <%= form_tag project_charges_path(@project, :amount => @amount), method: :post, class: 'container d-flex flex-column text-center' do %>
+          <article>
+            <% if flash[:error].present? %>
+              <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+              </div>
+            <% end %>
+            <label class="amount text-center">
+              <span class="stripe text display-4 font-weight-bold text-white mb-15">Faire un don de <%=@amount%> €</span>
+            </label>
+          </article>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="Finalisation de votre commande"
+                  data-amount=<%=100*@amount.to_i%>
+                  data-locale="fr"
+                  data-currency="EUR"
+                  data-panel-label="Payer"
+                  data-label="Payer par carte"></script>
+          <% end %>
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>
+
+ <!-- Shape -->
+<div class="shape shape-blur-3 svg-shim text-white">
+  <svg viewBox="0 0 1738 487" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h1420.92s713.43 457.505 0 485.868C707.502 514.231 0 0 0 0z" fill="url(#paint0_linear)"/><defs><linearGradient id="paint0_linear" x1="0" y1="0" x2="1049.98" y2="912.68" gradientUnits="userSpaceOnUse"><stop stop-color="currentColor" stop-opacity=".075"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs></svg>
+</div>
+
+<section class="py-6 py-md-8 bg-warning">
+  <div class="container text-center">
+    <div class="flickity-viewport-visible" data-flickity='{"imagesLoaded": true, "initialIndex": 6, "pageDots": false, "prevNextButtons": false, "contain": true}'>
+      <div class="col-4 col-md-3 col-lg-2">
+        <!-- Brand -->
+        <div class="img-fluid svg-shim text-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75"  viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </div>
+      </div>
+
+
+      <div class="col-4 col-md-3 col-lg-2">
+        <!-- Brand -->
+        <div class="img-fluid svg-shim text-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 24 24"><path d="M15.827 12.506c0 .672-.31 1.175-.771 1.175-.293 0-.468-.106-.589-.237l-.007-1.855c.13-.143.31-.247.596-.247.456-.001.771.51.771 1.164zm3.36-1.253c-.312 0-.659.236-.659.798h1.291c0-.562-.325-.798-.632-.798zm4.813-5.253v12c0 1.104-.896 2-2 2h-20c-1.104 0-2-.896-2-2v-12c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2zm-17.829 7.372c0-1.489-1.909-1.222-1.909-1.784 0-.195.162-.271.424-.271.38 0 .862.116 1.242.321v-1.176c-.414-.165-.827-.228-1.241-.228-1.012.001-1.687.53-1.687 1.414 0 1.382 1.898 1.158 1.898 1.754 0 .231-.201.305-.479.305-.414 0-.947-.171-1.366-.399v1.192c.464.2.935.283 1.365.283 1.038.001 1.753-.512 1.753-1.411zm2.422-3.054h-.949l-.001-1.084-1.219.259-.005 4.006c0 .739.556 1.285 1.297 1.285.408 0 .71-.074.876-.165v-1.016c-.16.064-.948.293-.948-.443v-1.776h.948v-1.066zm2.596 0c-.166-.06-.75-.169-1.042.369l-.078-.369h-1.079v4.377h1.248v-2.967c.295-.388.793-.313.952-.262v-1.148zm1.554 0h-1.253v4.377h1.253v-4.377zm0-1.664l-1.253.266v1.017l1.253-.266v-1.017zm4.314 3.824c0-1.454-.826-2.244-1.703-2.243-.489 0-.805.23-.978.392l-.065-.309h-1.099v5.828l1.249-.265.003-1.413c.179.131.446.316.883.316.893 0 1.71-.719 1.71-2.306zm3.943.045c0-1.279-.619-2.288-1.805-2.288-1.188 0-1.911 1.01-1.911 2.281 0 1.506.852 2.267 2.068 2.267.597 0 1.045-.136 1.384-.324v-1.006c-.34.172-.731.276-1.227.276-.487 0-.915-.172-.971-.758h2.444l.018-.448z"/></svg>
+        </div>
+      </div>
+      
+    </div>
+  </div> <!-- / .container -->
+</section>
 
