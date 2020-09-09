@@ -2,9 +2,7 @@ class BankDetailsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    def new
-      @bankdetail = BankDetail.new
-    end
+    @bankdetail = BankDetail.new 
   end
 
   def create
