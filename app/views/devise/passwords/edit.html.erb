@@ -21,15 +21,18 @@
           <%= f.hidden_field :reset_password_token %>
 
           <div class="form-group mb-5">
-            <%= f.label :password, "Votre nouveau mot de passe" %><br />
+            <%= f.label :password, "Votre nouveau mot de passe" %>
+            <br>
             <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> caractères minimum)</em><br />
+              <em>(<%= @minimum_password_length %> caractères minimum)</em>
+              <br>
             <% end %>
             <%= f.password_field :password, autofocus: true, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
           </div>
 
           <div class="form-group mb-5">
-            <%= f.label :password_confirmation, "Confirmez votre mot de passe" %><br />
+            <%= f.label :password_confirmation, "Confirmez votre mot de passe" %>
+            <br>
             <%= f.password_field :password_confirmation, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
           </div>
 
@@ -38,7 +41,7 @@
           </div>
         <% end %>
 
-      <%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
       </div>
     </div> <!-- / .row -->
   </div> <!-- / .container -->

@@ -10,95 +10,95 @@
         </h1>
 
         <!-- Text -->
-        <p class="mb-10 text-center text-muted">
+        <p class="mb-7 text-center text-muted">
           Remplissez uniquement les champs que vous souhaitez modifier
         </p>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <div class="card card-body card-border card-border-xl border-primary">
-            <div class="row">
-              <div class="col-md-4 m-5">
-                <div class="form-group mb-5">
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-flush" %>
-                </div>
-                <div class="row">
-                  <div class="form-group mb-5 col-md-6">
-                    <%= f.label "Prénom" %><br />
-                    <%= f.text_field :first_name, placeholder: "Votre prénom", class: "form-control form-control-flush" %>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <%= f.label "Nom" %><br />
-                    <%= f.text_field :last_name, placeholder: "Votre nom ", class: "form-control form-control-flush" %>
-                  </div>
-                </div>
-
-                <div class="form-group mb-5">
-                    <%= f.label "Date de naissance" %> <i class="fas fa-calendar input-prefix" tabindex=0></i><br />
-                  <small>
-                    <%= f.date_select(:date_of_birth, {start_year: 1900, end_year: 2100}) %>
-                  </small>
-                </div>
-              </div>  
-              <div class="col-md-6 m-5">
-                <div class="form-group mb-5">
-                  <%= f.label "Description personnelle" %><br />
-                  <%= f.text_area :personal_description, placeholder: "Votre description personnelle", class: "form-control form-control-flush" %>
-                </div>
-
-                <div class="form-group mb-5">
-                  <%= f.label "Parcours professionnel" %><br />
-                  <%= f.text_area :professional_background, placeholder: "Votre parcours professionnel", class: "form-control form-control-flush" %>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="card card-body card-border card-border-xl border-primary">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 m-5">
               <div class="form-group mb-5">
-                <%= f.label "Lien Github" %><br />
-                <%= f.text_field :link_of_github, placeholder: "Votre lien Github", class: "form-control form-control-flush" %>
+                <%= f.label :email %><br>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-flush" %>
+              </div>
+              <div class="row">
+                <div class="form-group mb-5 col-md-6">
+                  <%= f.label "Prénom" %><br>
+                  <%= f.text_field :first_name, placeholder: "Votre prénom", class: "form-control form-control-flush" %>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <%= f.label "Nom" %><br>
+                  <%= f.text_field :last_name, placeholder: "Votre nom ", class: "form-control form-control-flush" %>
+                </div>
               </div>
 
               <div class="form-group mb-5">
-                <%= f.label "Lien Linkedin" %><br />
-                <%= f.text_field :link_of_linkedin, placeholder: "Votre lien Linkedin", class: "form-control form-control-flush" %>
+                <%= f.label "Date de naissance" %> <i class="fas fa-calendar input-prefix" tabindex=0></i><br>
+                <small>
+                  <%= f.date_select(:date_of_birth, {start_year: 1900, end_year: 2100}) %>
+                </small>
               </div>
             </div>
+            <div class="col-md-6 m-5">
+              <div class="form-group mb-5">
+                <%= f.label "Description personnelle" %><br>
+                <%= f.text_area :personal_description, placeholder: "Votre description personnelle", class: "form-control form-control-flush" %>
+              </div>
 
-            <div class="col-md-5 ml-5 mb-5">
-              <div class="ml-5 card card-border card-border-xl border-secondary lift">
-                <h3 class="text-grey:600 mb-3 ml-5 mt-5">Editer son mot de passe</h3>
-                <div class="form-group mb-5 p-5">
-                  <%= f.label "Mot de passe" %><br />
-                  <%= f.password_field :password, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
-                </div>
-
-                <div class="form-group mb-5 p-5">
-                  <%= f.label "Confirmation de votre mot de passe" %><br />
-                  <%= f.password_field :password_confirmation,  placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
-                </div>
+              <div class="form-group mb-5">
+                <%= f.label "Parcours professionnel" %><br>
+                <%= f.text_area :professional_background, placeholder: "Votre parcours professionnel", class: "form-control form-control-flush" %>
               </div>
             </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group mb-5">
+              <%= f.label "Lien Github" %><br>
+              <%= f.text_field :link_of_github, placeholder: "Votre lien Github", class: "form-control form-control-flush" %>
+            </div>
+
+            <div class="form-group mb-5">
+              <%= f.label "Lien Linkedin" %><br>
+              <%= f.text_field :link_of_linkedin, placeholder: "Votre lien Linkedin", class: "form-control form-control-flush" %>
+            </div>
+          </div>
+
+          <div class="col-md-5 ml-5 mb-5">
+            <div class="ml-5 card card-border card-border-xl border-secondary">
+              <h3 class="text-grey:600 mb-3 ml-5 mt-5">Editer son mot de passe</h3>
+              <div class="form-group mb-5 p-5">
+                <%= f.label "Mot de passe" %><br>
+                <%= f.password_field :password, placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
+              </div>
+
+              <div class="form-group mb-5 p-5">
+                <%= f.label "Confirmation de votre mot de passe" %><br>
+                <%= f.password_field :password_confirmation,  placeholder: "Votre nouveau mot de passe", class: "form-control form-control-flush" %>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
-        <div class="row d-flex">
-          <div class="col align-items-center card card-border card-border-lg border-success mb-5">
-            <div class="form-group mb-5 text-center col-lg-10">
-              <h3 class="text-grey:600 mb-3 ml-5 mt-5">Confirmer son mot de passe et mettre à jour</h3><br />
-              <%= f.password_field :current_password, placeholder: "Mot de passe actuel", class: "form-control form-control-flush" %>
-            </div>
-            
-            <div class="actions mb-5 col-lg-10 align-items-center">
-              <%= f.submit "Modifier mon compte", class: "btn btn-primary btn-block" %>
-              <small>
-                <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Es-tu sûr ?" }, class: "text-danger",method: :delete %>
-              </small>
-            </div>
+      <div class="row d-flex">
+        <div class="col align-items-center card card-border card-border-lg border-success mb-5">
+          <div class="form-group mb-5 text-center col-lg-10">
+            <h3 class="text-grey:600 mb-3 ml-5 mt-5">Confirmer son mot de passe et mettre à jour</h3><br>
+            <%= f.password_field :current_password, placeholder: "Mot de passe actuel", class: "form-control form-control-flush" %>
           </div>
-        </div>         
+
+          <div class="actions mb-5 col-lg-10 align-items-center">
+            <%= f.submit "Modifier mon compte", class: "btn btn-primary btn-block" %>
+            <small>
+              <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Es-tu sûr ?" }, class: "text-danger",method: :delete %>
+            </small>
+          </div>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>

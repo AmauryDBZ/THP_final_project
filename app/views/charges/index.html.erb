@@ -14,20 +14,19 @@
         </p>
 
         <!-- Form -->
-
         <%= form_tag(new_project_charge_path, class: "mb-6", :action => "new", :method => "get") do %>
-
-        <!-- Value of project  -->
-        <div class="form-group mb-5">
-          <input type="number" class="form-control" id="amount" name='amount' placeholder="Montant de votre don en euros">
-        </div>
-        <div>
-          <button class="btn btn-block btn-primary" type="submit">
-            Valider ces informations
-          </button>
-        </div>
+          <!-- Value of project  -->
+          <div class="form-group mb-5">
+            <input type="number" class="form-control" id="amount" name='amount' placeholder="Montant de votre don en euros">
+          </div>
+          <div>
+            <button class="btn btn-block btn-primary" type="submit">
+              Valider ces informations
+            </button>
+          </div>
         <% end %>
 
-      </div> <!-- / .row -->
-    </div> <!-- / .container -->
-  </section>
+      </div> <!-- / .col-12 -->
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>
