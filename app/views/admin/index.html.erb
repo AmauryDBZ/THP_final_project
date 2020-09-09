@@ -1,0 +1,39 @@
+<section class="py-8 py-md-11">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8 text-center">
+
+        <!-- Preheader -->
+        <h6 class="text-uppercase text-primary" data-aos="fade-up">
+          Bienvenue
+        </h6>
+
+        <!-- Headin -->
+        <h1 class="display-1 font-weight-bold" data-aos="fade-up" data-aos-delay="50">
+          Vous êtes sur l'espace administrateur.
+        </h1>
+
+
+        <!-- Text -->
+        <p class="lead text-muted mb-6" data-aos="fade-up" data-aos-delay="100">
+          Certains projets nécessitent peut-être votre validation, vous pouvez également accéder à la liste des tous les ordres relatifs aux dons.
+        </p>
+
+        <!-- Button -->
+        <div class="d-inline mb-7 mb-md-9 mr-5" data-aos="fade-up" data-aos-delay="150">
+          <%= link_to admin_projects_path, :class => "btn btn-primary lift" do  %>
+            Voir les projets à valider <i class="fas fa-arrow-right"></i>
+          <% end %>
+        </div>
+
+        <div class="d-inline mb-7 mb-md-9" data-aos="fade-up" data-aos-delay="150">
+          <%= link_to admin_donations_path, :class => "btn btn-primary lift" do  %>
+            Voir les ordres <i class="fas fa-arrow-right"></i>
+          <% end %>
+        </div>
+
+
+      </div>
+    </div>
+  </div> <!-- / .container -->
+</section>

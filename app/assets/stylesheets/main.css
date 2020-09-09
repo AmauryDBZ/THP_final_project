@@ -1,0 +1,49 @@
+div.d-inline.stripe {
+  margin-top: 50px;
+}
+
+.stripe-button-el {
+  width: 350px;
+  border-radius: 0.5em !important;
+  border: 0 !important;
+  background-image: none !important;
+  background-color: #FAD776 !important;
+  font-weight: normal !important;
+  margin: auto
+}
+
+.stripe-button-el span {
+  color: black !important;
+  font-family: sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  font-weight: normal !important;
+  font-size: 1em !important;
+  border-radius: 0.2em !important;
+  border: 0 !important;
+  background-image: none !important;
+  background: #FAD776 !important;
+  background-color: #FAD776 !important;
+}
+
+.sans_serif_card_content{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.main_figures{
+  color: #335EEA;
+  font-weight: bold;
+  padding: -30px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+#sponsor{
+  margin-top: -25px;
+}
+
+.fund_btn{
+  font-weight: bold;
+  font-size: 17px;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 16px 40px 16px 40px;
+}
