@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_151819) do
+ActiveRecord::Schema.define(version: 2020_09_08_165154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 2020_09_08_151819) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "bank_details", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "bank_name"
+    t.string "iban"
+    t.string "branch_code"
+    t.string "bank_code"
+    t.string "account_number"
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bank_details_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -51,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_151819) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "transfered"
     t.index ["project_id"], name: "index_donations_on_project_id"
   end
 
