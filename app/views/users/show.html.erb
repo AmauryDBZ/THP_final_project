@@ -1,8 +1,8 @@
-<%if current_user == @user%>
-  <%if !current_user.bank_details.last %>
-    <%=render "bank_informations_reminder"%>
-  <%end%>
-  <%=render "personal_informations"%>
-<%else%>
-  <%=render "public_informations"%>
-<%end%>
+<% if current_user == @user %>
+  <% if !current_user.bank_details.last %>
+    <%= render "bank_informations_reminder" %>
+  <% end %>
+  <%= render "personal_informations" %>
+<% else %>
+  <%= render "public_informations" %>
+<% end %>
