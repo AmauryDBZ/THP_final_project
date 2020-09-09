@@ -4,7 +4,7 @@
     <%= link_to "Financer", project_charges_path(@project), class: "badge badge-lg badge-primary badge-float badge-float-outside fund_btn" %>
 
     <% if @project.money_earned == 0 %>
-    <h3 style="font-weight: bold;" class="text-gray-700 mt-2">Soyez parmis les premiers à financer ce projet !</h3>
+    <h3 style="font-weight: bold;" class="text-gray-700 mt-4">Soyez parmis les premiers à financer ce projet !</h3>
 
     <% elsif @project.money_earned > 0 %>
 
@@ -12,7 +12,11 @@
       <h1 class="main_figures mt-2"><%= @project.money_earned %> € </h1>
     </div>
     <div class="d-flex flex-row">
+      <% if @project.money_earned == 1 %>
+      <p>récolté grâce à</p>
+      <% elsif @project.money_earned > 1 %>
       <p>récoltés grâce à</p>
+      <% end %>
     </div>
     <div class="d-flex flex-row">
       <% if @donations.length == 1 %>
