@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
     @project.update(clicks: @project.clicks += 1)
     @project_holder = User.find(@project.user_id)
     @donations = Donation.where(project_id: @project.id)
+    @total = ((@project.daily_time_spent_on_project_per_developer)*(@project.number_of_developers_on_project))*5
   end
 
   def new
