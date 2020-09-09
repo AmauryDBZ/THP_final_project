@@ -1,5 +1,6 @@
 class Donation < ApplicationRecord
   after_create :donation_confirm
+  after_update :donation_transfer_update
 
   belongs_to :project
   validates :amount, presence: true
@@ -10,4 +11,7 @@ class Donation < ApplicationRecord
     DonationMailer.donation_notification(self).deliver_now
   end
 
+  def donation_transfer_update
+    DonationMailer.donation_transfer(self).deliver_now
+  end
 end

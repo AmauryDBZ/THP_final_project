@@ -8,11 +8,14 @@ Rails.application.routes.draw do
       resources :cover, only: [:create, :destroy]
     end
     resources :categories, only: [:index, :show], param: :slug
+    resources :donations, only: [:update]
     resources :users, only: [:show]
+    resources :bank_details, only: [:new, :create], param: :slug
     resources :static_pages, only: [:index]
     resources :admin, only: [:index]
     namespace :admin do
       resources :projects
+      resources :donations, only: [:index]
     end
     resources :projects do
       resources :charges, only: [:index, :new, :create, :delete]
