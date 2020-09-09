@@ -1,6 +1,6 @@
 Bonjour,
 Merci d'effectuer le virement suivant :
-Utilisateur : <%= @project_holder.first_name %> <%= @project_holder.last_name %> <%= @project_holder.email %> 
+Utilisateur : <%= @project_holder.first_name %> <%= @project_holder.last_name %> <%= @project_holder.email %>
 Montant : <%= @@donation.amount %> €
 Date : <%= @donation.created_at.strftime('%d/%m/%Y') %>
 IBAN : <%= @donation.project.user.bank_details.last.iban %>

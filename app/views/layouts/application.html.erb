@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <title>GoOpenSource</title>
-    <link rel="shortcut icon" href="https://cdn.iconscout.com/icon/free/png-512/open-source-1-555779.png" />
+    <link rel="shortcut icon" href="https://cdn.iconscout.com/icon/free/png-512/open-source-1-555779.png"/>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,13 +12,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
     <%= render 'layouts/flash' %>
-
 
     <%= yield %>
 
