@@ -1,31 +1,28 @@
 class ChargesController < ApplicationController
   include ChargesHelper
-  before_action :it_is_validated?, only: [:new, :create] 
+  before_action :it_is_validated?, only: [:new, :create]
+  before_action :set_project
 
   def index
-    set_project
-    
   end
 
 
   def new
-    set_project
     @amount = params[:amount]
     respond_to do |format|
       format.html {}
-      format.js { }
+      format.js {}
     end
   end
 
   def create
-    set_project
     @amount = params[:amount]
     @amount = @amount.to_i * 100
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
       source: params[:stripeToken],
     })
-  
+
     charge = Stripe::Charge.create({
       customer: customer.id,
       amount: @amount,
@@ -46,17 +43,17 @@ class ChargesController < ApplicationController
       flash[:danger] = "Erreur(s) à rectifier pour valider votre don : #{@donation.errors.full_messages.each {|message| message}.join('')}"
       render :action => 'new'
     end
-    
+
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to project_charges_path
   end
 
-  private 
+  private
 
   def set_project
     @project = Project.friendly.find_by_slug(params[:project_id])
   end
-    
+
 end
