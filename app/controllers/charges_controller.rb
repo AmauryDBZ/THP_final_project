@@ -1,4 +1,6 @@
 class ChargesController < ApplicationController
+  include ChargesHelper
+  before_action :it_is_validated?, only: [:new, :create] 
 
   def index
     set_project
