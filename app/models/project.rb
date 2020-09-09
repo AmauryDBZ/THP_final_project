@@ -1,10 +1,11 @@
 class Project < ApplicationRecord
-  after_create :admin_new_project
-  before_update :project_validated
   extend FriendlyId
   friendly_id :name, use: :slugged
 
   include SlugUpdate
+
+  after_create :admin_new_project
+  before_update :project_validated
 
   has_many :project_categories
   has_many :categories, through: :project_categories
