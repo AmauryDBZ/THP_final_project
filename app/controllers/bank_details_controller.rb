@@ -2,9 +2,7 @@ class BankDetailsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    def new
-      @bankdetail = BankDetail.new
-    end
+    @bankdetail = BankDetail.new 
   end
 
   def create
@@ -22,6 +20,6 @@ class BankDetailsController < ApplicationController
   private
 
   def bank_details_params
-    params.permit(:bank_name, :iban, :pitch, :branch_code, :bank_code, :account_number, :key)
+    params.require(:bank_detail).permit(:bank_name, :iban, :pitch, :branch_code, :bank_code, :account_number, :key)
   end
 end
