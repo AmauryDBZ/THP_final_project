@@ -284,6 +284,8 @@ fr:
   routes:
     admin: administrateur
     charges: paiement
+    donations: dons
+    bank_details: informations-bancaires
     projects: projets
     new: nouveau
     edit: modifier
