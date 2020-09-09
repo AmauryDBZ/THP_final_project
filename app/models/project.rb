@@ -23,7 +23,7 @@ class Project < ApplicationRecord
   has_one_attached :cover, dependent: :destroy
   validates :cover,
     content_type: [:png, :jpg, :jpeg],
-    size: { less_than: 2.megabytes, message: "le fichier est trop lourd : 2Mo maximum." },
+    size: { less_than: 3.megabytes, message: "le fichier est trop lourd : 3Mo maximum." },
     aspect_ratio: :landscape
 
   def admin_new_project
