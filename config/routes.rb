@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     end
     resources :categories, only: [:index, :show], param: :slug
     resources :donations, only: [:update]
-    resources :users, only: [:show]
-    resources :bank_details, only: [:new, :create], param: :slug
+    resources :users, only: [:show] do
+      resources :bank_details, only: [:show]
+    end
+    resources :bank_details, only: [:new, :create, :edit, :update]
     resources :static_pages, only: [:index]
     resources :admin, only: [:index]
     namespace :admin do

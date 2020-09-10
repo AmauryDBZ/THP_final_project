@@ -60,6 +60,11 @@
                     Mes projets
                   </a>
                 </li>
+                <% if @current_user_has_bankdetail %>
+                <li class="list-item user-info">
+                  <%= link_to "Mon RIB", user_bank_detail_path(user_id: @user, id: @bankdetail), class: "user-info" %>
+                </li>
+                <% end %>
               </ul>
             </div>
           </div>
