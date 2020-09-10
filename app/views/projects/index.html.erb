@@ -27,7 +27,10 @@
         </p>
 
         <!-- Buttons -->
-        <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-primary mr-1 lift"%>
+        <div class="">
+          <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-primary mr-1 lift"%>
+          <%= link_to "Voir tous les projets", "#list_projects", class: "btn btn block btn-primary mr-1 lift", data:{ toggle: 'smooth-scroll', offset: '0' }%>
+        </div>
 
       </div>
     </div> <!-- / .row -->
@@ -56,7 +59,7 @@
     <div class="card card-border card-border-lg border-info shadow-light">
       <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_online_wishes_dlmr.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
       <div class="card-body">
-        <p class="card-text text-justify text-gray-600"><strong> ... et vous offrir un outil de meilleure qualité !</strong></p>
+        <p class="card-text text-justify text-gray-600"><strong> En résumé : une rémunération juste, c'est-à-dire plus de temps pour le développement et un outil de meilleure qualité !</strong></p>
       </div>
     </div>
 
@@ -71,8 +74,8 @@
       <div class="col-12">
 
         <!-- Heading -->
-        <h3 class="mb-0 text-gray-700">
-          Tous les projets
+        <h3 class="mb-0 text-gray-700" id="list_projects">
+          <strong>Tous les projets</strong>
         </h3>
 
         <!-- Text -->
