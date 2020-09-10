@@ -34,3 +34,4 @@
 //= require typed.min.js
 //= require theme.min.js
 //= require bootstrap
+//= require sorttable.js
