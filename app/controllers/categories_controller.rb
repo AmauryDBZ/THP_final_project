@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @projects =  @category.projects
   end
 
   private 
