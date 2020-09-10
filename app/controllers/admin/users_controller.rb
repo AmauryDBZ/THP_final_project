@@ -10,11 +10,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    puts params
-    puts '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
-    puts params.fetch("user")
-    puts @user.email
-    if @user.update(params.fetch("user"))
+    if @user.update(user_params)
       flash[:success] = "Profil modifié !"
       redirect_to admin_users_fr_path
     else
@@ -38,7 +34,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:email, :first_name, :last_name, :date_of_birth, :personal_description, :professional_background, :github, :Linkedin)
+    params.require(:user).permit(:email, :first_name, :last_name, :date_of_birth, :personal_description, :professional_background, :link_of_github, :link_of_linkedin)
   end
 
 end
