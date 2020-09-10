@@ -1,1 +1,95 @@
-<p>Coucou !</p>
+<section data-jarallax data-speed=".8" class="py-14 py-md-14 overlay bg-cover jarallax" style="background-image: url(<%= @category.url %>)">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-7 text-center">
+        
+        <!-- Heading -->
+        <h1 class="display-2 font-weight-bold text-white">
+          <%= @category.name %>
+        </h1>
+
+        <!-- Text -->
+        <p class="lead mb-0 text-white">
+          On mettra la description de la catégorie ici.
+        </p>
+
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>
+<div class="position-relative">
+  <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
+    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
+  </div>
+</div>
+
+<div class="container mt-10">
+  <div class="row" data-aos="fade-up">
+
+    <% @projects.each do |project| %>
+      <%if project.validated %>
+        <div class="col-12 col-md-6 d-flex">
+
+          <!-- Card -->
+          <div class="card mb-6 shadow-light-lg lift lift-lg">
+
+            <%= link_to project_path(project), style: "text-decoration: none" do %>
+              <!-- Image -->
+              <% if project.cover.attached? %>
+                <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top" %>
+              <% else %>
+                <%= image_tag "https://images.unsplash.com/photo-1481887328591-3e277f9473dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1060&q=80", class: "card-img-top" %>
+              <% end %>
+
+              <!-- Shape -->
+              <div class="position-relative">
+                <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
+                  <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+
+                <!-- Heading -->
+                <h3>
+                  <%= project.name %>
+                </h3>
+
+                <!-- Text -->
+                <p class="mb-0 text-muted">
+                  <%= project.pitch %>
+                </p>
+
+              </div>
+
+              <!-- Meta -->
+              <div class="card-meta mt-auto">
+
+                <!-- Divider -->
+                <hr class="card-meta-divider">
+
+                <!-- Author -->
+                <% if project.user.first_name && project.user.last_name %>
+                  <%= link_to user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil" do %>
+                    <%= project.user.first_name + ' ' + project.user.last_name  %>
+                  <%end%>
+                <%else%>
+                  <%=link_to "Voir le développeur", user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil"%>
+                <% end %>
+
+                <!-- Date -->
+                <p class="h6 text-uppercase text-muted mb-0 ml-auto">
+                  <%= project.created_at.strftime('%d/%m/%Y')  %>
+                </p>
+
+              </div>
+              
+            <%end%>
+          </div>
+
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>
