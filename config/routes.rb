@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :projects
       resources :donations, only: [:index]
+      resources :users, only: [:index, :edit, :update, :delete]
     end
     resources :projects do
       resources :charges, only: [:index, :new, :create, :delete]
