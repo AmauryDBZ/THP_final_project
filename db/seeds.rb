@@ -23,6 +23,7 @@ branch_code_array = ['00003','00001','00101','00001','03253','00927','00910','00
 bank_code_array = ['30001','30004','30006','10107','11315','30002','30056','11808','10011','30076']
 account_number_array = ['12345678901','12345632901','12345675801','13445678901','12349678901','12295678901','12345659901','13445295901','17645678901','12355678901']
 key_array = ['85','43','89','29','38','68','82','47','88','86']
+categories_array = ['Finance','Education','Mobilité','Santé','Cybersécurité','Sport','Data science','Justice','Social','Gaming','Environnement','Media']
 
 i=0
 10.times do
@@ -79,11 +80,13 @@ i = 0
   i+=1
 end
 
-3.times do
-  cat = Category.create(
-    name: Faker::Coffee.blend_name
+x = 0
+12.times do 
+  category = Category.create(
+    name: categories_array[x]
   )
-  puts "Seeding Category #{cat.name}"
+  puts "Seeding Category #{category.name}"
+  x += 1
 end
 
 10.times do
@@ -105,3 +108,5 @@ end
   puts "Seeding Donation of #{donation.amount} € from #{donation.stripe_email}"
 end
 Donation.find(15).update(transfered: nil)
+
+
