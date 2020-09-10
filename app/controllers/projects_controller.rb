@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     @categories = Category.all
-    @project_categories = []
   end
 
   def show
