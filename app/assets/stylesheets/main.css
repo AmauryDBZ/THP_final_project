@@ -1,3 +1,7 @@
+body{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 div.d-inline.stripe {
   margin-top: 50px;
 }
