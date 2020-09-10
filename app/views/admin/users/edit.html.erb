@@ -1,5 +1,3 @@
-<%= devise_error_messages! %>
-
 <section class="section-border border-primary">
   <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center no-gutters min-vh-100">
@@ -14,7 +12,7 @@
           Remplissez uniquement les champs que vous souhaitez modifier
         </p>
 
-        <%= form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
+        <%= form_for(@user, url: admin_user_fr_path(@user), method: :put) do |f| %>
         <div class="card card-body card-border card-border-xl border-primary">
           <div class="row">
             <div class="col-md-4 m-5">
