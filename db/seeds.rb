@@ -23,7 +23,8 @@ branch_code_array = ['00003','00001','00101','00001','03253','00927','00910','00
 bank_code_array = ['30001','30004','30006','10107','11315','30002','30056','11808','10011','30076']
 account_number_array = ['12345678901','12345632901','12345675801','13445678901','12349678901','12295678901','12345659901','13445295901','17645678901','12355678901']
 key_array = ['85','43','89','29','38','68','82','47','88','86']
-
+categories_array = ['Finance','Education','Mobilité','Santé','Cybersécurité','Sport','Data science','Justice','Social','Gaming','Environnement','Media']
+image_categories_array = ['https://images.unsplash.com/photo-1558588942-930faae5a389', 'https://images.unsplash.com/photo-1485322551133-3a4c27a9d925','https://images.unsplash.com/photo-1587829723005-8c65e895fa12', 'https://images.unsplash.com/photo-1535914254981-b5012eebbd15', 'https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44', 'https://images.pexels.com/photos/1080882/pexels-photo-1080882.jpeg', 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0', 'https://images.unsplash.com/photo-1593115057322-e94b77572f20', 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b', 'https://images.unsplash.com/photo-1548003693-b55d51032288', 'https://images.unsplash.com/photo-1462690417829-5b41247f6b0e', 'https://images.unsplash.com/photo-1476242906366-d8eb64c2f661']
 i=0
 10.times do
   user = User.create(
@@ -79,11 +80,14 @@ i = 0
   i+=1
 end
 
-3.times do
-  cat = Category.create(
-    name: Faker::Coffee.blend_name
+x = 0
+12.times do 
+  category = Category.create(
+    name: categories_array[x],
+    url: image_categories_array[x]
   )
-  puts "Seeding Category #{cat.name}"
+  puts "Seeding Category #{category.name}"
+  x += 1
 end
 
 10.times do
@@ -105,3 +109,5 @@ end
   puts "Seeding Donation of #{donation.amount} € from #{donation.stripe_email}"
 end
 Donation.find(15).update(transfered: nil)
+
+

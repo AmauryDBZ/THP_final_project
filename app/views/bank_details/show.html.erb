@@ -1,0 +1,77 @@
+<br>
+<div class="container text-center">
+        <!-- Card -->
+        <div class="card card-bleed shadow-light-lg mb-6 text-center">
+          <div class="card-header">
+            <!-- Heading -->
+            <h4 class="mb-0">
+              Mes informations bancaires
+            </h4>
+
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-md-11">
+                <ul class="list-group list-group-flush mt-5">
+
+                  <li class="list-group-item mt-5">
+
+                    <!-- Heading -->
+                    <h6 class="d-flex mb-0 text-uppercase">
+                      Nom de ma banque <span class="ml-auto"><%= @bankdetail.bank_name %></span>
+                    </h6>
+                  </li>
+
+                  <li class="list-group-item">
+
+                    <!-- Heading -->
+                    <h6 class="d-flex mb-0 text-uppercase">
+                      IBAN <span class="ml-auto"><%= @bankdetail.iban %></span>
+                    </h6>
+                  </li>
+
+                  <li class="list-group-item">
+
+                    <!-- Heading -->
+                    <h6 class="d-flex mb-0 text-uppercase">
+                      Code banque <span class="ml-auto"><%= @bankdetail.bank_code %></span>
+                    </h6>
+                  </li>
+
+                  <li class="list-group-item">
+
+                    <!-- Heading -->
+                    <h6 class="d-flex mb-0 text-uppercase">
+                      Code guichet <span class="ml-auto"><%= @bankdetail.branch_code %></span>
+                    </h6>
+                  </li>
+
+                  <li class="list-group-item">
+
+                    <!-- Heading -->
+                    <h6 class="d-flex mb-0 text-uppercase">
+                      Numéro de compte <span class="ml-auto"><%= @bankdetail.account_number %></span>
+                    </h6>
+                  </li>
+
+                  <li class="list-group-item">
+
+                    <!-- Heading -->
+                    <h6 class="d-flex mb-0 text-uppercase">
+                      Clé du RIB <span class="ml-auto"><%= @bankdetail.key %></span>
+                    </h6>
+                  </li>
+
+                  
+                </ul>
+               
+              </div>
+              
+            </div>
+              
+          </div>
+          
+        </div>
+        <%= link_to "Modifier", edit_bank_detail_path(params[:id]), class: "btn btn-primary lift" %>
+         <%= link_to "Retour", user_fr_path(params[:user_id]), class: "btn btn-secondary lift" %>
+      </div>
