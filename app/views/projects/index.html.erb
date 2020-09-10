@@ -100,7 +100,7 @@
                   <div class="card-body">
 
                     <!-- Heading -->
-                    <h4 class="font-weight-bold text-center mb-0" id="new_projects">
+                    <h4 class="font-weight-bold text-center mb-0">
                       Les plus récents
                     </h4>
 
@@ -175,9 +175,9 @@
               <% @categories.each do |category| %>
                 <div class="col-12 col-md-5 col-lg-4">
                   <!-- Card -->
-                  <%= link_to category_fr_path(category.slug), class: "card shadow-light-lg card-flush mb-7 mb-md-0", title: "Voir plus" do %>
+                  <%= link_to category_fr_path(category.slug), class: "card shadow-light-lg card-flush mb-7 mb-md-0 lift", title: "Voir plus" do %>
                     <!-- Image -->
-                    <div class="card card-border card-border-xl border-info">
+                    <div class="card card-border card-border-xl border-primary">
                       <%= image_tag category.url, class: "card-img-top shadow-light-lg", alt: "..."%>
                     </div>
 
