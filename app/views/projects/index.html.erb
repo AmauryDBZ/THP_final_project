@@ -3,13 +3,13 @@
 <section class="position-relative py-0 py-md-0">
 
   <!-- Content -->
-  <div class="container">
+  <div class="d-flex justify-content-center">
     <div class="row align-items-center">
       <div class="col-12 col-md-6 order-md-2">
 
         <!-- Image -->
         <div class="m-0" data-aos="fade-up" data-aos-delay="100">
-          <%= image_tag "https://image.freepik.com/free-vector/open-source-concept-illustration_114360-2939.jpg", alt:"..."%>
+          <%= image_tag "https://pictures.kitties.netlib.re/storage/open_source.svg", alt:"..."%>
         </div>
 
       </div>
@@ -23,11 +23,11 @@
 
         <!-- Text -->
         <p class="lead text-muted mb-6 mb-md-8">
-          Découvrez le meilleur du logiciel Open Source et du Libre.
+          Découvrez le meilleur du logiciel Libre et Open Source.
         </p>
 
         <!-- Buttons -->
-        <%=link_to "Proposer votre projet", "#!", class: "btn btn block btn-primary mr-1 lift"%>
+        <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-primary mr-1 lift"%>
 
       </div>
     </div> <!-- / .row -->
