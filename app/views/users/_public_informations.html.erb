@@ -53,6 +53,11 @@
                     Projets
                   </a>
                 </li>
+                <% if @bankdetail && current_user.is_admin %>
+                <li class="list-item user-info">
+                  <%= link_to "RIB", user_bank_detail_path(user_id: @user, id: @bankdetail), class: "user-info" %>
+                </li>
+                <% end %>
               </ul>
             </div>
           </div>
