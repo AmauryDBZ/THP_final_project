@@ -4,43 +4,50 @@
   <div class="container-md">
     <div class="row align-items-center">
       <div class="col">
+
         <!-- Heading -->
         <h1 class="font-weight-bold text-white mb-2">
-          Profil développeur
+          Mon profil
         </h1>
+
         <!-- Text -->
         <p class="font-size-lg text-white-75 mb-0">
-          Informations de <%=@user.email%>
+          Parmètres de <%=@user.email%>
         </p>
+
+      </div>
+      <div class="col-auto">
+
+        <!-- Button -->
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <button class="btn btn-sm btn-gray-300-20">
+            Déconnexion
+          </button>
+        <%end%>
       </div>
     </div> <!-- / .row -->
   </div> <!-- / .container -->
 </header>
-
 <!-- MAIN
 ================================================== -->
 <main class="pb-8 pb-md-11 mt-md-n6">
   <div class="container-md">
     <div class="row">
       <div class="col-12 col-md-3">
-
         <!-- Card -->
         <div class="card card-bleed border-bottom border-bottom-md-0 shadow-light-lg">
-
           <!-- Collapse -->
           <div class="collapse d-md-block" id="sidenavCollapse">
             <div class="card-body">
-
               <!-- Heading -->
               <h6 class="font-weight-bold text-uppercase mb-3">
-                Informations
+                Paramètres
               </h6>
-
               <!-- List -->
               <ul class="card-list list text-gray-700 mb-6">
                 <li class="list-item active">
                   <a class="list-link text-reset">
-                    Générales
+                    Général
                   </a>
                 </li>
                 <li class="list-item">
@@ -50,24 +57,21 @@
                 </li>
                 <li class="list-item">
                   <a class="list-link text-reset" href="#projects">
-                    Projets
+                    Mes projets
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-
         </div>
-
       </div>
       <div class="col-12 col-md-9">
         <!-- Card -->
         <div class="card card-bleed shadow-light-lg mb-6">
           <div class="card-header">
-
             <!-- Heading -->
             <h4 class="mb-0">
-              Informations générales
+              Mes informations <%=link_to edit_user_registration_fr_path(@user), class:"ml-5 text-gray-700", title:"Editer mes informations" do%><i class="fas fa-user-edit"></i><%end%>
             </h4>
 
           </div>
@@ -123,14 +127,14 @@
 
             <!-- Title -->
             <h4 class="mb-0">
-              Description
+              Ma description
             </h4>
 
           </div>
           <!-- Text -->
           <div class="card-body">
             <p class="text-muted mb-0">
-              <%=@user.personal_description%>
+              <%= @user.personal_description %>
             </p>
           </div>
         </div>
@@ -141,7 +145,7 @@
 
             <!-- Heading -->
             <h4 class="mb-0">
-              Parcours professionnel
+              Mon parcours professionnel
             </h4>
 
           </div>
@@ -158,30 +162,28 @@
                   </div>
                 </div>
               </div>
-              <div class="list-group-item">
+            </div>
+            <div class="list-group-item">
+              <!-- Heading -->
+              <p class="mb-0">
+                Mes liens pratiques
+              </p>
+              <div class="col-12 col-md-11">
+                <ul class="list-group list-group-flush mt-5">
+                  <li class="list-group-item">
+                    <!-- Heading -->
+                    <h6 class="d-flex mb-0 text-uppercase">
+                      Github <a class="ml-auto" href="<%=@user.link_of_github%>"><%=@user.link_of_github%></a>
+                    </h6>
+                  </li>
 
-                <!-- Heading -->
-                <p class="mb-0">
-                  Liens pratiques
-                </p>
-
-                <div class="col-12 col-md-11">
-                  <ul class="list-group list-group-flush mt-5">
-                    <li class="list-group-item">
-                      <!-- Heading -->
-                      <h6 class="d-flex mb-0 text-uppercase">
-                        Github <a class="ml-auto" href="<%= @user.link_of_github %>"><%= @user.link_of_github %></a>
-                      </h6>
-                    </li>
-
-                    <li class="list-group-item">
-                      <!-- Heading -->
-                      <h6 class="d-flex mb-3 text-uppercase">
-                        Linkedin <a class="ml-auto" href= "<%=@user.link_of_linkedin%>%"><%= @user.link_of_linkedin %></a>
-                      </h6>
-                    </li>
-                  </ul>
-                </div>
+                  <li class="list-group-item">
+                    <!-- Heading -->
+                    <h6 class="d-flex mb-3 text-uppercase">
+                      Linkedin <a class="ml-auto" href= "<%=@user.link_of_linkedin%>%"><%= @user.link_of_linkedin %></a>
+                    </h6>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -191,9 +193,8 @@
   </div> <!-- / .container -->
 </main>
 
-
 <% if @projects.length > 0 %>
-  <!--Users' Projects-->
+<!--Users' Projects-->
   <section class="pt-7 pt-md-10">
     <div class="container">
       <div class="row">
@@ -201,21 +202,38 @@
 
           <!-- Heading -->
           <h3 class="mb-0">
-            Tous les projets
+            Tous mes projets
           </h3>
 
           <!-- Text -->
           <p class="mb-5 text-muted">
-            Projets publiés par <%=@user.email%>
+            Mes projets en ligne
           </p>
 
         </div>
       </div> <!-- / .row -->
+
       <div class="row">
         <% @projects.each do |project| %>
+
           <div class="col-12 col-md-6 d-flex">
+
             <!-- Card -->
             <div class="card mb-6 shadow-light-lg lift lift-lg">
+              <!-- Badge -->
+              <% if project.validated %>
+                <span class="badge badge-success badge-pill badge-float badge-float-outside">
+                  Validé
+                </span>
+              <% elsif project.validated == nil %>
+                <span class="badge badge-warning badge-pill badge-float badge-float-outside">
+                  En attente de validation
+                </span>
+              <% else %>
+                <span class="badge badge-danger badge-pill badge-float badge-float-outside">
+                  Refusé par l'administration
+                </span>
+              <% end %>
 
               <%= link_to project_path(project), style: "text-decoration: none" do %>
                 <!-- Image -->
@@ -224,6 +242,7 @@
                 <% else %>
                   <%= image_tag "https://images.unsplash.com/photo-1481887328591-3e277f9473dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1060&q=80", class: "card-img-top" %>
                 <% end %>
+
                 <!-- Shape -->
                 <div class="position-relative">
                   <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
@@ -238,14 +257,13 @@
 
                   <!-- Heading -->
                   <h3>
-                    <%= project.name %>
+                    <%= project.name %> <%=link_to edit_project_fr_path(project), class:"ml-5 text-gray-700", title:"Editer le projet" do %><i class="fas fa-edit"></i> <% end %>
                   </h3>
 
                   <!-- Text -->
                   <p class="mb-0 text-muted">
                     <%= project.pitch %>
                   </p>
-
                 </div>
 
                 <!-- Meta -->
@@ -256,9 +274,9 @@
 
                   <!-- Author -->
                   <% if project.user.first_name && project.user.last_name %>
-                    <h6 class="text-uppercase text-muted mr-2 mb-0">
-                      <%= project.user.first_name + ' ' + project.user.last_name  %>
-                    </h6>
+                  <h6 class="text-uppercase text-muted mr-2 mb-0">
+                    <%= project.user.first_name + ' ' + project.user.last_name  %>
+                  </h6>
                   <% end %>
 
                   <!-- Date -->
@@ -267,11 +285,11 @@
                   </p>
 
                 </div>
-              <%end%>
-            </div>
-          </div>
-        <%end%>
-      </div>
-    </div>
+              <% end %>
+            </div>  <!-- card -->
+          </div> <!-- col-12 -->
+        <% end %> <!-- what -->
+      </div> <!-- row -->
+    </div> <!-- container -->
   </section>
-<%end%>
+<% end %>

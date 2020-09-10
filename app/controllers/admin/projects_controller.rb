@@ -25,6 +25,9 @@ class Admin::ProjectsController < ApplicationController
 
   def destroy
     @project.delete
+    Donation.where(project_id: @project.id).each do |donation|
+      donation.delete
+    end
     redirect_to root_path
   end
 

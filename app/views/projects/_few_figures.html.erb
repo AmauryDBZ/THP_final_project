@@ -1,39 +1,35 @@
-<div class="card shadow-light-lg mb-5">
+<div class="card card-border card-border-xl shadow-light-lg mb-5">
   <div class="card-body sans_serif_card_content">
 
     <%= link_to "Financer", project_charges_path(@project), class: "badge badge-lg badge-primary badge-float badge-float-outside fund_btn" %>
 
     <% if @project.money_earned == 0 %>
-    <h3 style="font-weight: bold;" class="text-gray-700 mt-4">Soyez parmis les premiers à financer ce projet !</h3>
-
+      <h3 style="font-weight: bold;" class="text-gray-700 mt-4">Soyez parmis les premiers à financer ce projet !</h3>
     <% elsif @project.money_earned > 0 %>
-
-    <div class="main_figures d-flex flex-row ">
-      <h1 class="main_figures mt-2"><%= @project.money_earned %> € </h1>
-    </div>
-    <div class="d-flex flex-row">
-      <% if @project.money_earned == 1 %>
-      <p>récolté grâce à</p>
-      <% elsif @project.money_earned > 1 %>
-      <p>récoltés grâce à</p>
-      <% end %>
-    </div>
-    <div class="d-flex flex-row">
-      <% if @donations.length == 1 %>
-      <h2 id="sponsor" class="main_figures"><%= @donations.length %> donateur !</h2>
-      <% else %>
-      <h2 id="sponsor" class="main_figures"><%= @donations.length %> donateurs !</h2>
-      <% end %>
-    </div>
-
+      <div class="main_figures d-flex flex-row ">
+        <h2 class="main_figures mt-2"><%= @project.money_earned %> € </h2>
+      </div>
+      <div class="d-flex flex-row">
+        <% if @project.money_earned == 1 %>
+          <p>récolté grâce à</p>
+        <% elsif @project.money_earned > 1 %>
+          <p>récoltés grâce à</p>
+        <% end %>
+      </div>
+      <div class="d-flex flex-row">
+        <% if @donations.length == 1 %>
+          <h3 id="sponsor" class="main_figures"><%= @donations.length %> donateur !</h3>
+        <% else %>
+          <h3 id="sponsor" class="main_figures"><%= @donations.length %> donateurs !</h3>
+        <% end %>
+      </div>
     <% end %>
     <hr>
-    <h1 class="main_figures" class="mb-0"><%= @project.value_of_project %> €</h1>
+    <h2 class="main_figures" class="mb-0"><%= @project.value_of_project %> €</h2>
     <h5 class="text-gray-700 mb-0">de coûts mensuels</h5>
     <h5 class="text-gray-700 mt-0">supportés par</h5>
     <h3 class="main_figures"><%= @project.number_of_developers_on_project %> développeurs</h3>
     <h5 class="text-gray-700 mt-1 mb-0">et travaillant au total :</h5>
     <h3 class="main_figures"><%= @total %>h par semaine !</h3>
-
   </div>
 </div>
