@@ -1,3 +1,7 @@
+body{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 div.d-inline.stripe {
   margin-top: 50px;
 }
@@ -46,8 +50,4 @@ div.d-inline.stripe {
   font-size: 17px;
   font-family: Helvetica, Arial, sans-serif;
   padding: 16px 40px 16px 40px;
-}
-
-.undraw_jumbotron{
-  
 }
