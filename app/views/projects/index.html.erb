@@ -6,21 +6,29 @@
       <div class="col-12 col-md-10 col-lg-8 text-center">
 
         <!-- Heading -->
-        <h1 class="display-3 text-white">
-          L'Open Source à la française.
-        </h1>
+        <div class="row">
+          <div class="col-2">
+            <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_work_in_progress_uhmv.svg", class: "undraw_jumbotron" %>
+          </div>
+          <div class="col-10">
+            <h1 class="display-3 text-white">
+              L'Open Source à la française.
+            </h1>
 
-        <!-- Text -->
-        <p class="lead text-white-75 mb-6">
-          Notre objectif est de mettre en lumière et d'aider les porteurs de projets dans le domaine du logiciel libre français. Découvrez le meilleur du logiciel libre, faites un don ou bien présentez à notre communauté votre projet.
-        </p>
+            <!-- Text -->
+            <p class="lead text-white-75 mb-6">
+              Notre objectif est de mettre en lumière et d'aider les porteurs de projets dans le domaine du logiciel libre français. Découvrez le meilleur du logiciel libre, faites un don ou bien présentez à notre communauté votre projet.
+            </p>
+          </div>
+        </div>
 
         <!-- Button -->
-        <a>
+        <div class="row d-flex justify-content-center"><a>
           <%= link_to new_project_path, :class => "btn btn-primary lift" do  %>
           Créez votre projet <i class="fas fa-arrow-right"></i>
           <% end %>
         </a>
+      </div>
 
       </div>
     </div> <!-- / .row -->
