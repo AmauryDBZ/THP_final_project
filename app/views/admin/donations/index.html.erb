@@ -18,13 +18,21 @@
               <tbody>
                 <% @donations.each do |donation| %>
                   <tr>
+                  <td>
+                  <%= link_to user_fr_path(donation.project.user), :class => "btn btn-xs btn-outline-secondary" do %>
                     <% if donation.project.user.first_name && donation.project.user.last_name %>
-                      <td><%= donation.project.user.first_name %> <%= donation.project.user.last_name %></td>
+                      <%= donation.project.user.first_name %> <%= donation.project.user.last_name %>
                     <% else %>
-                      <td><%= donation.project.user.email %></td>
+                      <%= donation.project.user.email %>
                     <% end %>
-                      <td><%= donation.project.name %></td>
-                      <td><%= donation.amount %></td>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to project_fr_path(donation.project), :class => "btn btn-xs btn-outline-secondary" do %>
+                      <%= donation.project.name %>
+                    <% end %>
+                  </td>
+                      <td><%= donation.amount %> €</td>
                       <td><%= donation.created_at.strftime('%d/%m/%Y') %></td>
                     <% if donation.transfered %>
                       <td>Transféré</td>
