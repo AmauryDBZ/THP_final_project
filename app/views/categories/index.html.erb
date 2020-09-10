@@ -1,3 +1,26 @@
-<% @categories.each do |category| %>
-  <%= link_to category.name, category_path(category) %>
-<%end%>
+<section class="pt-8 pt-md-12 pb-12 pb-md-15">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8 text-center" data-aos="fade-up">
+
+        <!-- Headin -->
+        <h1 class="display-1 font-weight-bold">
+          Nos catégories.
+        </h1>
+
+        <!-- Text -->
+        <p class="lead text-secondary mb-4">
+          Trouvez aisément les projets qui vous tiennent à coeur et soutenez-les.
+        </p>
+
+        <nav class="nav justify-content-center">
+          <% @categories.each do |category| %>
+            <%=link_to category_path(category), class: "badge badge-pill badge-lg badge-secondary-soft mr-1 mb-3" do%>
+              <span class="h6 text-uppercase"><%= category.name %></span>
+            <% end %>
+          <% end %>
+        </nav>
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>
