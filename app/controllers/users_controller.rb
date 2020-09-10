@@ -8,5 +8,4 @@ class UsersController < ApplicationController
       @bankdetail = BankDetail.where(user_id: params[:id]).last.id
     end
   end
-
 end
