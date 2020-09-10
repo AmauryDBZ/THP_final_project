@@ -1,6 +1,6 @@
 <!-- WELCOME
 ================================================== -->
-<section class="position-relative py-0 py-md-0">
+<section class="position-relative py-0 py-md-0 mb-10">
 
   <!-- Content -->
   <div class="d-flex justify-content-center">
@@ -34,15 +34,44 @@
   </div> <!-- / .container -->
 </section>
 
+<!-- Pitch cards
+================================================== -->
+<section class="text-center">
+  <div class="card-deck mx-14 d-flex" data-aos="fade-up">
+
+    <div class="card card-border card-border-lg border-info shadow-light">
+      <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_transfer_money_rywa.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
+      <div class="card-body">
+        <p class="card-text text-justify text-gray-600"><strong>Un financement sous forme de pourboires pour l'équipe de développement d'un projet.</strong></p>
+      </div>
+    </div>
+
+    <div class="card card-border card-border-lg border-info shadow-light mx-10">
+      <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_time_management_30iu.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
+      <div class="card-body">
+        <p class="card-text text-justify text-gray-600"><strong>Une visualisation du temps nécessaire au développement des outils que vous utilisez.</strong></p>
+      </div>
+    </div>
+
+    <div class="card card-border card-border-lg border-info shadow-light">
+      <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_online_wishes_dlmr.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
+      <div class="card-body">
+        <p class="card-text text-justify text-gray-600"><strong> ... et vous offrir un outil de meilleure qualité !</strong></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- PROJECTS
 ================================================== -->
-<section class="pt-7 pt-md-10">
+<section class="pt-7 pt-md-10" data-aos="fade-up">
   <div class="container">
     <div class="row">
       <div class="col-12">
 
         <!-- Heading -->
-        <h3 class="mb-0">
+        <h3 class="mb-0 text-gray-700">
           Tous les projets
         </h3>
 
@@ -53,7 +82,7 @@
 
       </div>
     </div> <!-- / .row -->
-    <div class="row" data-aos="fade-up">
+    <div class="row">
 
       <% @projects.each do |project| %>
         <%if project.validated %>
