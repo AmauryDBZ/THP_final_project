@@ -24,7 +24,13 @@ class Admin::UsersController < ApplicationController
     Project.where(user_id: @user.id).each do |project|
       project.delete
     end
-    redirect_to admin_users_fr_path
+    respond_to do |format|
+      format.html {
+        redirect_to admin_users_fr_path
+      }
+      format.js { }
+    end
+
   end
 
   private
