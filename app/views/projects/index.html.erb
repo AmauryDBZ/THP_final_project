@@ -66,10 +66,58 @@
   </div>
 </section>
 
-<!-- PROJECTS
-================================================== -->
+<!--Navigation ==============================-->
 <section class="pt-7 pt-md-10" data-aos="fade-up">
   <div class="container">
+
+    <!--Categories
+    ========================================-->
+    <div class="row align-items-center mb-5">
+      <div class="col-12 col-md">
+        
+        <!-- Heading -->
+        <h2 class="mb-0 text-gray-700">
+          Parcourir les catégories
+        </h2>
+
+        <!-- Text -->
+        <p class="mb-0 text-muted">
+          Voir les projets liés à des thèmes qui me tiennent à coeur
+        </p>
+
+      </div>
+      <div class="col-12 col-md-auto">
+        
+        <!-- Button -->
+        <a href="#!" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline">
+          Voir toutes les catégories
+        </a>
+
+      </div>
+    </div> <!-- / .row -->
+    <div class="flickity-viewport-visible pt-2 pb-9" data-flickity='{"cellAlign": "left", "imagesLoaded": true, "pageDots": false, "prevNextButtons": false, "contain": true}'>
+      <% @categories.each do |category| %>
+        <div class="col-12 col-md-5 col-lg-4">
+          <!-- Card -->
+          <%= link_to "#", class: "card shadow-light-lg card-flush mb-7 mb-md-0", title: "Voir plus" do %>
+            <!-- Image -->
+            <div class="card card-border card-border-xl card-border-info">
+              <%= image_tag category.url, class: "card-img-top shadow-light-lg", alt: "..."%>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body text-center">
+
+            <!-- Preheading -->
+            <h3 class="m-1 ml-3 text-gray-700"><%= category.name %></h3>
+
+            </div>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
+    <hr class="mt-5">
+
     <div class="row">
       <div class="col-12">
 
@@ -85,16 +133,20 @@
 
       </div>
     </div> <!-- / .row -->
+
+    <!-- PROJECTS
+    ========================================= -->
     <div class="row">
 
       <% @projects.each do |project| %>
         <%if project.validated %>
-          <div class="col-12 col-md-6 d-flex">
 
+          <div class="col-12 col-md-4 d-flex">
+          
             <!-- Card -->
-            <div class="card mb-6 shadow-light-lg lift lift-lg">
+            <div class="card card-border card-border-lg mb-6 shadow-light-lg lift">
 
-              <%= link_to project_path(project), style: "text-decoration: none" do %>
+              <%= link_to project_path(project), style: "text-decoration: none", title: "En savoir plus" do %>
                 <!-- Image -->
                 <% if project.cover.attached? %>
                   <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top" %>
@@ -113,14 +165,15 @@
                 <div class="card-body">
 
                   <!-- Heading -->
-                  <h3>
+                  <h3 class="text-gray-800">
                     <%= project.name %>
                   </h3>
 
                   <!-- Text -->
                   <p class="mb-0 text-muted">
-                    <%= project.pitch %>
+                    <%= project.pitch.truncate_words(25) %>
                   </p>
+
 
                 </div>
 
@@ -152,53 +205,8 @@
         <%end%>
       <%end%>
     </div>
-    <hr class="mt-5">
+
     
-    <!--Categories-->
-    <div class="row align-items-center mb-5">
-      <div class="col-12 col-md">
-        
-        <!-- Heading -->
-        <h3 class="mb-0">
-          Parcourir les catégories
-        </h3>
-
-        <!-- Text -->
-        <p class="mb-0 text-muted">
-          Voir les projets liés à des thèmes qui me tiennent à coeur
-        </p>
-
-      </div>
-      <div class="col-12 col-md-auto">
-        
-        <!-- Button -->
-        <a href="#!" class="btn btn-sm btn-outline-gray-300 d-none d-md-inline">
-          Voir toutes les catégories
-        </a>
-
-      </div>
-    </div> <!-- / .row -->
-    <div class="flickity-viewport-visible pt-2 pb-9" data-flickity='{"cellAlign": "left", "imagesLoaded": true, "pageDots": false, "prevNextButtons": false, "contain": true}'>
-      <% @categories.each do |category| %>
-        <div class="col-12 col-md-5 col-lg-4">
-          <!-- Card -->
-          <%= link_to "#", class: "card shadow-light-lg card-flush mb-7 mb-md-0", title: "Voir plus" do %>
-            <!-- Image -->
-            <div class="card-zoom">
-              <%= image_tag "https://images.unsplash.com/photo-1462690417829-5b41247f6b0e", class: "card-img-top rounded shadow-light-lg", alt: "..."%>
-            </div>
-
-            <!-- Body -->
-            <div class="card-body">
-
-              <!-- Preheading -->
-              <h4 class="m-1 ml-3"><%= category.name %></h4>
-
-            </div>
-          <%end%>
-        </div>
-      <%end%>
-    </div>
 
 
   </div> <!--/ container -->
