@@ -16,22 +16,29 @@
 
         <!-- Text -->
         <p class="lead text-muted mb-6" data-aos="fade-up" data-aos-delay="100">
-          Certains projets nécessitent peut-être votre validation, vous pouvez également accéder à la liste des tous les ordres relatifs aux dons.
+          Certains projets nécessitent peut-être votre validation, vous pouvez également accéder à la liste des tous les ordres relatifs aux dons ainsi qu'aux profils des utilisateurs.
         </p>
 
         <!-- Button -->
-        <div class="d-inline mb-7 mb-md-9 mr-5" data-aos="fade-up" data-aos-delay="150">
-          <%= link_to admin_projects_path, :class => "btn btn-primary lift" do  %>
-            Voir les projets à valider <i class="fas fa-arrow-right"></i>
-          <% end %>
-        </div>
+        <div class="d-flex justify-content-between">
+          <div class="d-inline mb-7 mb-md-9" data-aos="fade-up" data-aos-delay="150">
+            <%= link_to admin_projects_path, :class => "btn btn-sm btn-primary lift" do  %>
+              Projets à valider <i class="fas fa-check-circle"></i>
+            <% end %>
+          </div>
 
-        <div class="d-inline mb-7 mb-md-9" data-aos="fade-up" data-aos-delay="150">
-          <%= link_to admin_donations_path, :class => "btn btn-primary lift" do  %>
-            Voir les ordres <i class="fas fa-arrow-right"></i>
-          <% end %>
-        </div>
+          <div class="d-inline mb-7 mb-md-9" data-aos="fade-up" data-aos-delay="150">
+            <%= link_to admin_donations_path, :class => "btn btn-sm btn-primary lift" do  %>
+              Ordres de virements <i class="fas fa-search-dollar"></i>
+            <% end %>
+          </div>
 
+          <div class="d-inline mb-7 mb-md-9" data-aos="fade-up" data-aos-delay="150">
+            <%= link_to admin_users_fr_path, :class => "btn btn-sm btn-primary lift" do  %>
+              Utilisateurs <i class="fas fa-user-friends"></i>
+            <% end %>
+          </div>
+        </div>
 
       </div>
     </div>

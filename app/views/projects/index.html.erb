@@ -1,65 +1,65 @@
 <!-- WELCOME
 ================================================== -->
-<section class="position-relative py-0 py-md-0 mb-10">
+<section class="position-relative d-block py-0 mb-10">
 
   <!-- Content -->
   <div class="d-flex justify-content-center">
     <div class="row align-items-center">
-      <div class="col-12 col-md-6 order-md-2">
 
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 order-md-2 mx-auto text-center w-auto p-auto">
         <!-- Image -->
-        <div class="m-0" data-aos="fade-up" data-aos-delay="100">
-          <%= image_tag "https://pictures.kitties.netlib.re/storage/open_source.svg", alt:"..."%>
+        <div class="img" data-aos="fade-up" data-aos-delay="100">
+          <%= image_tag "https://pictures.kitties.netlib.re/storage/open_source.svg", class: "img-fluid",alt:"index"%>
         </div>
-
       </div>
-      <div class="col-12 col-md-6 order-md-1" data-aos="fade-up">
 
+      <div class="col-xl-6 col-lg-12 col-md-12 mx-auto mt-4 mt-md-4 mt-sm-4 text-center" data-aos="fade-up">
         <!-- Heading -->
-        <h1 class="display-3">
+        <h1 class="display-3 text-center">
           Participez aussi au <br>
           <span class="text-primary">Libre et à l'Open Source</span>.
         </h1>
 
         <!-- Text -->
-        <p class="lead text-muted mb-6 mb-md-8">
+        <p class="lead text-muted mb-6 text-center">
           Découvrez le meilleur du logiciel Libre et Open Source.
         </p>
 
         <!-- Buttons -->
-        <div class="">
-          <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-primary mr-1 lift"%>
-          <%= link_to "Voir tous les projets", "#list_projects", class: "btn btn block btn-primary mr-1 lift", data:{ toggle: 'smooth-scroll', offset: '0' }%>
+        <div class="container">
+            <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-primary mr-1 lift" %>
+            <%= link_to "Voir tous les projets", "#list_projects", class: "btn btn block btn-primary mr-1 lift", data:{ toggle: 'smooth-scroll', offset: '0' }%>
         </div>
-
       </div>
     </div> <!-- / .row -->
-  </div> <!-- / .container -->
+  </div>
 </section>
 
 <!-- Pitch cards
 ================================================== -->
-<section class="text-center">
-  <div class="card-deck mx-14 d-flex" data-aos="fade-up">
+<section class="container">
+  <div class="mx-auto">
+    <div class="card-deck" data-aos="fade-up">
 
-    <div class="card card-border card-border-lg border-info shadow-light">
-      <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_transfer_money_rywa.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
-      <div class="card-body">
-        <p class="card-text text-justify text-gray-600"><strong>Un financement sous forme de pourboires pour l'équipe de développement d'un projet.</strong></p>
+      <div class="card card-border card-border-lg border-info shadow-light">
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_transfer_money_rywa.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
+        <div class="card-body">
+          <p class="card-text text-justify text-gray-600"><strong>Un financement sous forme de pourboires pour l'équipe de développement d'un projet.</strong></p>
+        </div>
       </div>
-    </div>
 
-    <div class="card card-border card-border-lg border-info shadow-light mx-10">
-      <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_time_management_30iu.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
-      <div class="card-body">
-        <p class="card-text text-justify text-gray-600"><strong>Une visualisation du temps nécessaire au développement des outils que vous utilisez.</strong></p>
+      <div class="card card-border card-border-lg border-info shadow-light">
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_time_management_30iu.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
+        <div class="card-body">
+          <p class="card-text text-justify text-gray-600"><strong>Une visualisation du temps nécessaire au développement des outils que vous utilisez.</strong></p>
+        </div>
       </div>
-    </div>
 
-    <div class="card card-border card-border-lg border-info shadow-light">
-      <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_online_wishes_dlmr.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
-      <div class="card-body">
-        <p class="card-text text-justify text-gray-600"><strong> En résumé : une rémunération juste, c'est-à-dire plus de temps pour le développement et un outil de meilleure qualité !</strong></p>
+      <div class="card card-border card-border-lg border-info shadow-light">
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_online_wishes_dlmr.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
+        <div class="card-body">
+          <p class="card-text text-justify text-gray-600"><strong> En résumé : une rémunération juste, c'est-à-dire plus de temps pour le développement et un outil de meilleure qualité !</strong></p>
+        </div>
       </div>
     </div>
 
