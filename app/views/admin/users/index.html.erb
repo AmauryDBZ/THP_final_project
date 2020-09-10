@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col col-md-12 text-center">
+      <h2 class="my-3">Tous les utilisateurs de Go Open Source</h2>
+      <div class="card">
+        <div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Email</th>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Date de naissance</th>
+                  <th scope="col">Adminitrateur</th>
+                  <th scope="col">Date d'inscription</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.email %></td>
+                    <td><%= user.first_name %></td>
+                    <td><%= user.last_name %></td>
+                    <td><%= user.date_of_birth %></td>
+                    <td><%= user.is_admin %></td>
+                    <td><%= user.created_at.strftime('%d/%m/%Y') %></td>
+                    <td>
+                      <%= link_to user_fr_path(user), :class => "btn btn-xs btn-outline-secondary" do %>
+                        <i class="far fa-eye"></i>
+                      <% end %>
+                      <%= link_to edit_admin_user_fr_path(user), :class => "btn btn-xs btn-outline-success ml-1" do %>
+                        <i class="fas fa-edit"></i>
+                      <% end %>
+                      <%= link_to admin_user_fr_path(user), :method => :delete, :class => "btn btn-xs btn-outline-danger ml-1" do %>
+                        <i class="fas fa-trash"></i>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
