@@ -70,3 +70,13 @@ div.d-inline.stripe {
   color: #161c2d!important;
   text-decoration: none;
 }
+
+.img-logo {
+  max-width: 30%;
+  height: auto
+}
+
+.img-logo-footer {
+  max-width: 40%;
+  height: auto
+}
