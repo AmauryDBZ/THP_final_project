@@ -1,4 +1,14 @@
-# __<div align="center">GO Open Source <img src="https://pictures.kitties.netlib.re/storage/logo_white_min.svg" style="width:50px;"/></div>__
+<h1 align="center">
+  <strong align="center">GoOpenSource</strong>
+  <a href="https://go-open-source.herokuapp.com/"
+
+  <img
+    src="https://pictures.kitties.netlib.re/storage/logo_white_min.svg"          
+    width="60px"
+    height="60px"
+    alt="Go Open Source">
+  </a>
+</h1>
 
 ## The first crowdfunding plateform dedicated to open sources and free softwares
 
