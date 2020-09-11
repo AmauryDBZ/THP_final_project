@@ -46,19 +46,13 @@
               <!-- List -->
               <ul class="card-list list text-gray-700 mb-6">
                 <li class="list-item active">
-                  <a class="list-link text-reset">
-                    Général
-                  </a>
+                  <%=link_to "Général", "#basic_informations", class: "list-link text-reset", data:{ toggle: 'smooth-scroll', offset: '0' } %>
                 </li>
                 <li class="list-item">
-                  <a class="list-link text-reset" href="#professional_informations">
-                    Infos professionnelles
-                  </a>
+                  <%=link_to "Infos professionnelles", "#professional_informations", class: "list-link text-reset", data:{ toggle: 'smooth-scroll', offset: '0' } %>
                 </li>
                 <li class="list-item">
-                  <a class="list-link text-reset" href="#projects">
-                    Mes projets
-                  </a>
+                  <%=link_to "Mes projets", "#projects", class: "list-link text-reset", data:{ toggle: 'smooth-scroll', offset: '0' } %>
                 </li>
                 <% if @current_user_has_bankdetail %>
                 <li class="list-item user-info">
@@ -73,7 +67,7 @@
       <div class="col-12 col-md-9">
         <!-- Card -->
         <div class="card card-bleed shadow-light-lg mb-6">
-          <div class="card-header">
+          <div class="card-header" id="basic_informations">
             <!-- Heading -->
             <h4 class="mb-0">
               Mes informations <%=link_to edit_user_registration_fr_path(@user), class:"ml-5 text-gray-700", title:"Editer mes informations" do%><i class="fas fa-user-edit"></i><%end%>
@@ -178,14 +172,14 @@
                   <li class="list-group-item">
                     <!-- Heading -->
                     <h6 class="d-flex mb-0 text-uppercase">
-                      Github <a class="ml-auto" href="<%=@user.link_of_github%>"><%=@user.link_of_github%></a>
+                      Github <%=link_to @user.link_of_github, @user.link_of_github, class:"ml-auto" %>
                     </h6>
                   </li>
 
                   <li class="list-group-item">
                     <!-- Heading -->
                     <h6 class="d-flex mb-3 text-uppercase">
-                      Linkedin <a class="ml-auto" href= "<%=@user.link_of_linkedin%>%"><%= @user.link_of_linkedin %></a>
+                      Linkedin <%=link_to @user.link_of_linkedin, @user.link_of_linkedin, class:"ml-auto" %>
                     </h6>
                   </li>
                 </ul>
@@ -221,10 +215,10 @@
       <div class="row">
         <% @projects.each do |project| %>
 
-          <div class="col-12 col-md-6 d-flex">
+          <div class="col-12 col-md-4 d-flex">
 
             <!-- Card -->
-            <div class="card mb-6 shadow-light-lg lift lift-lg">
+            <div class="card card-border card-border-lg mb-6 shadow-light-lg lift lift-lg">
               <!-- Badge -->
               <% if project.validated %>
                 <span class="badge badge-success badge-pill badge-float badge-float-outside">
@@ -243,9 +237,9 @@
               <%= link_to project_path(project), style: "text-decoration: none" do %>
                 <!-- Image -->
                 <% if project.cover.attached? %>
-                  <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top" %>
+                  <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top", alt: "image de couverture de #{project.name}" %>
                 <% else %>
-                  <%= image_tag "https://images.unsplash.com/photo-1481887328591-3e277f9473dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1060&q=80", class: "card-img-top" %>
+                  <%= image_tag "https://image.freepik.com/free-vector/business-team-discussing-ideas-startup_74855-4380.jpg", class: "card-img-top", alt: "image de couverture de #{project.name}" %>
                 <% end %>
 
                 <!-- Shape -->
@@ -267,9 +261,15 @@
 
                   <!-- Text -->
                   <p class="mb-0 text-muted">
-                    <%= project.pitch %>
+                    <%= project.pitch.truncate_words(25) %>
                   </p>
                 </div>
+                <% if project.validated%>
+                  <br>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%=project.money_earned * 100 / project.value_of_project%>%" aria-valuenow="<%=project.money_earned * 100 / project.value_of_project%>" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                <%end%>
 
                 <!-- Meta -->
                 <div class="card-meta mt-auto">
