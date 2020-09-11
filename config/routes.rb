@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :static_pages, only: [:index]
     resources :admin, only: [:index]
     namespace :admin do
+      resources :exports, only: [:new]
       resources :projects
       resources :donations, only: [:index]
       resources :users, only: [:index, :edit, :update, :destroy]
