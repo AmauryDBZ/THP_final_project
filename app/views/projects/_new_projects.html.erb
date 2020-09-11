@@ -16,7 +16,8 @@
 </div> <!-- / .row -->
 
 <div class="row">
-  <% @projects.order(:created_at).first(10).each do |project| %>
+  <% @projects.order(:created_at).reverse.first(10).each do |project| %>
+  <%puts "================================= #{@projects.order(:created_at).first(10)} ======================"%>
     <%if project.validated %>
 
       <div class="col-12 col-md-4 d-flex">
