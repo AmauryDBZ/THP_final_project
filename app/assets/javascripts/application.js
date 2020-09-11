@@ -12,9 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require jquery
-//= require jquery_ujs
-//= require jquery.min.js
 //= require bootstrap.bundle.min.js
 //= require jquery.fancybox.min.js
 //= require aos.js

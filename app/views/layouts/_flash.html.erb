@@ -1,7 +1,26 @@
-<% flash.each do |key, value| %>
-  <div class="alert-dismissible fade show alert alert-<%= key %>"><%= value %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<% if flash.present? %>
+  <div id='flash'>
+    <script>
+      <% if flash[:success] %>
+        var $toastContent = $('<span><%= flash[:success] %></span>');
+        toastr.success($toastContent)
+      <% end %>
+      <% if flash[:notice] %>
+        var $toastContent = $('<span><%= flash[:notice] %></span>');
+        toastr.success($toastContent)
+      <% end %>
+      <% if flash[:info] %>
+        var $toastContent = $('<span><%= flash[:info] %></span>');
+        toastr.info($toastContent)
+      <% end %>
+      <% if flash[:danger] %>
+        var $toastContent = $('<span><%= flash[:danger] %></span>');
+        toastr.error($toastContent)
+      <% end %>
+      <% if flash[:error] %>
+        var $toastContent = $('<span><%= flash[:error] %></span>');
+        toastr.error($toastContent)
+      <% end %>
+    </script>
   </div>
 <% end %>

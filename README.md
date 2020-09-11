@@ -1,45 +1,60 @@
-# Nom du projet : GO Open Source
+<h1 align="center">
+  <strong align="center">GoOpenSource</strong>
+  <a href="https://go-open-source.herokuapp.com/"
 
-## LA plateforme participative pour les logiciels Open Source
+  <img
+    src="https://pictures.kitties.netlib.re/storage/logo_white_min.svg"          
+    width="60px"
+    height="60px"
+    alt="Go Open Source">
+  </a>
+</h1>
 
+## The first crowdfunding plateform dedicated to open sources and free softwares
 
+Go check it: __[GoOpenSource](https://go-open-source.herokuapp.com/)__
+<details>
+<summary>Example</summary>
 
-## 1. Présentation 
+moussaillon @ yopmail.com || Azerty
+</details>
 
-Les logiciels opensources du moments en france #FrenchTech, surf sur la vague de l'entreprenariat francais
+## 1. Presentation
+We propore to teams of developers to publish their project on our plateform so they can both earn money and highlight all the work that developing a free or open sources software. The website is currently developed in french.  
 
-Possibilité de proposer le financement de ses projets de logiciels Open Source, et possibilité pour les utilisateurs de financer via des dons les projets qui leurs tiennent à coeur  
+In the same time, a user or a visitor can finance with tips softwares that they like.  
 
-Mise en évidence de la quantité de travail que ces projets repésentent suite à une estimation du temps de travail qui sera indiquée dans la description du projet par le dépositaire de l'annonce
+It is to the project holder to make an assessement concerning the time and money that cost the development of their project.
 
-## 2. Parcours utilisateur
-   L'utilisateur n'aura pas à s'inscrire pour financer un projet mais devra s'inscrire pour pouvoir en proposer un.
-   Il peut ensuite remplir son profil afin d'ajouter des informations à son propos et crédibiliser son projet, par exemple des compétences de dev, son portfolio ect...
+## 2. User stories
+A simple visitor does not need to sign up to donate to any project. When a donation is done, visitors/users get an email. But it is necessary to sign up to propose a project.  
 
-## 3. L'aspect technique du projet :
-   Nous avons réfléchi à un projet avec notre mentor qui se rapproche techniquement de ce que nous avons appris lors de la formation avec quelques axes d'approfondissements qui seront possibles lors de la seconde semaine en fonction de notre avancement.
+After signup, users get an email and can update its personal informations (first/last name, email, birth date, description, professional background). Users can of course do everything a visitor can do.
 
-   ### 3.1 BDD : 
-   Des Users et des Projets et qui recensera tout les dons et les liera au projet en question, ainsi qu'une table catégorie pour trier les projets
-   ### 3.2 Front :
-   Un thème sympa de bootstrap que l'on liera à du CSS classique.
-   ### 3.3 Backend :
-   API : mango Pay ou Stripe ou autre API nous permettant de gérer les financements
-   ### 3.4 Mes besoins techniques : 
-   L'équipe est complète actuellement et on est chaud
+Once a project is proposed, it must be first reviewed by an admin who can either accept or deny it. In any case the user gets an email. A project can be edited and deleted by both its holder or by an admin. If edited, a project is once again sent to review.
 
-## 4. Le MVP : 
-   La base de donnée sera opérationnelle, il sera possible de s'inscrire, de proposer, de financer un projet et de complèter son profil. Le porteur du projet recevra un mail à chaque don (On oublie pas le mailer)
+## 3. Technical aspects :
+### 3.1 Database :
+We use six tables (excluding active storage tables):
+* __users__: stores informations concerning users
+* __bank_details__: stores informations concerning users bank details
+* __projects__: stores informations concerning projects
+* __donations__: stores informations concerning donations from users to projects
+* __categories__: stores informations concerning categories. Categories are used to sort projects depending on their theme
+* __project_categories__: links projects to their potential multiple categories
+* __friendly_id_slugs__: links items id from various tables to a slug (human readable text id).
+
+### 3.2 Frontend :
+We use Bootstrap theme [landkit](https://themes.getbootstrap.com/product/landkit/).  
+
+### 3.3 Backend :
+API: we based our payment system on Stripe
+
+## 4. Le MVP :
+A fully operational DB, a complete user stories as described above, an admin dashboard.
 
 ## 5. La version que l'on présentera aux jury
-   Le MVP avec un front abouti et l'ajout des catégories pour trier les projets
+Who knows what surprises will we bring to you?
 
 ## 6. Mentor
-   On a choisi le meilleur : Bento de Lyon
-
-
-## Pourquoi les gens doivent rejoindre ce projet :
-   Étant tous interessés par le domaine de l'Open Source nous souhaitions apporter notre humble contribution à la communauté des devs français #FrenchTech 
-
-## Lien du repository :
-   https://github.com/AmauryDBZ/THP_final_project
+Maybe the best one? [Bento](https://github.com/davidBentoPereira) from Lyon.
