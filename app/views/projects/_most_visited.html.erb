@@ -1,0 +1,91 @@
+
+<div class="row">
+  <div class="col-12">
+    
+    <!-- Title -->
+    <h3 class="text-gray-700" id="most_visited_projects">
+      Les plus visités
+      <%=link_to "#menu", class:"btn btn-sm d-none d-md-inline lift  text-gray-700", title:"Remonter jusqu'au menu", data:{ toggle: 'smooth-scroll', offset: '0' } do%>
+        <i class="fas fa-arrow-alt-circle-up"></i>
+      <%end%>
+    </h3>
+    <!-- Text -->
+    <p class="mb-5 text-muted">
+      Découvrez les projets et aidez les développeurs avec un don !
+    </p>
+
+  </div>
+</div> <!-- / .row -->
+
+<div class="row">
+  <% @projects.order(:clicks).reverse.first(10).each do |project| %>
+    <%if project.validated %>
+
+      <div class="col-12 col-md-4 d-flex">
+      
+        <!-- Card -->
+        <div class="card card-border card-border-lg mb-6 shadow-light-lg lift">
+
+          <%= link_to project_path(project), style: "text-decoration: none", title: "En savoir plus" do %>
+            <!-- Image -->
+            <% if project.cover.attached? %>
+              <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top" %>
+            <% else %>
+              <%= image_tag "https://image.freepik.com/free-vector/business-team-discussing-ideas-startup_74855-4380.jpg", class: "card-img-top" %>
+            <% end %>
+
+            <!-- Shape -->
+            <div class="position-relative">
+              <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
+                <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>
+              </div>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body">
+
+              <!-- Heading -->
+              <h3 class="text-gray-800">
+                <%= project.name %>
+              </h3>
+
+              <!-- Text -->
+              <p class="mb-0 text-muted">
+                <%= project.pitch.truncate_words(25) %>
+              </p>
+              <br>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%=project.money_earned * 100 / project.value_of_project%>%" aria-valuenow="<%=project.money_earned * 100 / project.value_of_project%>" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <!-- Meta -->
+            <div class="card-meta mt-auto">
+
+              <!-- Divider -->
+              <hr class="card-meta-divider">
+
+              <!-- Author -->
+              <% if project.user.first_name && project.user.last_name %>
+                <%= link_to user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil" do %>
+                  <%= project.user.first_name + ' ' + project.user.last_name  %>
+                <%end%>
+              <%else%>
+                <%=link_to "Voir le développeur", user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil"%>
+              <% end %>
+
+              <!-- Date -->
+              <p class="h6 text-uppercase text-muted mb-0 ml-auto">
+                <%= project.created_at.strftime('%d/%m/%Y')  %>
+              </p>
+
+            </div>
+
+          <%end%>
+        </div>
+      </div>
+    <%end%>
+  <%end%>
+</div>
+
+<hr>
