@@ -1,4 +1,4 @@
-# __<div align="center">GO Open Source <img src="https://pictures.kitties.netlib.re/storage/logo_white_min.svg" style="width:50px;"></div>__
+# __<div align="center">GO Open Source <img src="https://pictures.kitties.netlib.re/storage/logo_white_min.svg" style="width:50px;"/></div>__
 
 ## The first crowdfunding plateform dedicated to open sources and free softwares
 
@@ -17,7 +17,6 @@ A simple visitor does not need to sign up to donate to any project. When a donat
 After signup, users get an email and can update its personal informations (first/last name, email, birth date, description, professional background). Users can of course do everything a visitor can do.
 
 Once a project is proposed, it must be first reviewed by an admin who can either accept or deny it. In any case the user gets an email. A project can be edited and deleted by both its holder or by an admin. If edited, a project is once again sent to review.
-
 
 ## 3. Technical aspects :
 ### 3.1 Database :
