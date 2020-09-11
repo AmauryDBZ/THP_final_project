@@ -53,7 +53,10 @@
               <p class="mb-0 text-muted">
                 <%= project.pitch.truncate_words(25) %>
               </p>
-
+              <br>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%=project.money_earned * 100 / project.value_of_project%>%" aria-valuenow="<%=project.money_earned * 100 / project.value_of_project%>" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
 
             </div>
 
