@@ -75,7 +75,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            
+
             <!-- Card -->
             <div class="card-group card-border card-border-lg border-primary shadow-light-lg">
                 <div class="card">
@@ -109,7 +109,7 @@
                       les derniers projets ajoutés <br>
                       <i class="fas fa-chevron-circle-down lift"></i>
                     </p>
-                    
+
                   </div>
                 <%end%>
               </div>
@@ -127,7 +127,7 @@
                       ceux qui ont reçu le plus de dons <br>
                       <i class="fas fa-chevron-circle-down lift"></i>
                     </p>
-                    
+
                   </div>
                 <%end%>
               </div>
@@ -145,7 +145,7 @@
                       ceux qui ont le plus de vues <br>
                       <i class="fas fa-chevron-circle-down lift"></i>
                     </p>
-                    
+
                   </div>
                 <%end%>
               </div>
@@ -155,7 +155,7 @@
             ========================================-->
             <div class="row align-items-center mb-5 pt-12">
               <div class="col-12 col-md">
-                
+
                 <!-- Heading -->
                 <h3 class="mb-0 text-gray-700">
                   Parcourir les catégories
@@ -171,7 +171,7 @@
                 <%=link_to "Voir toutes les catégories", categories_fr_path, class:"btn btn-sm btn-outline-gray-300 d-none d-md-inline"%>
               </div>
             </div> <!-- / .row -->
-            <div class="flickity-viewport-visible pt-2 pb-9" data-flickity='{"cellAlign": "left", "imagesLoaded": true, "pageDots": false, "prevNextButtons": false, "contain": true}'>
+            <div class="flickity-viewport-visible pt-2 pb-9" data-flickity='{"cellAlign": "center", "imagesLoaded": true, "pageDots": false, "prevNextButtons": false, "contain": true, "initialIndex":2}'>
               <% @categories.each do |category| %>
                 <div class="col-12 col-md-5 col-lg-4">
                   <!-- Card -->
@@ -205,9 +205,6 @@
     <%=render "most_supported"%>
     <%=render "new_projects"%>
     <%=render "all_projects"%>
-  
+
   </div> <!--/ container -->
 </section>
-
-
-
