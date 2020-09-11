@@ -16,12 +16,13 @@
   </head>
 
   <body>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'toast' %>
     <%= render 'layouts/navbar' %>
     <%= render 'layouts/flash' %>
 
     <%= yield %>
 
     <%= render 'layouts/footer' %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

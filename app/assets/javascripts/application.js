@@ -12,9 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require jquery
-//= require jquery_ujs
-//= require jquery.min.js
 //= require bootstrap.bundle.min.js
 //= require jquery.fancybox.min.js
 //= require aos.js
@@ -34,5 +31,3 @@
 //= require typed.min.js
 //= require theme.min.js
 //= require bootstrap
-//= require toastr.min.js
-//= require toastrparams.js
