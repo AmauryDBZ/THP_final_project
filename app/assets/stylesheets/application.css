@@ -19,7 +19,7 @@
 *= require jarallax.css
 *= require quill.core.css
 *= require theme.min.css
-*= require alerts.css
 *= require navbar.css
 *= require main.css
+*= require toastr
 */
