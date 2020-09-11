@@ -9,7 +9,7 @@
       <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 order-md-2 mx-auto text-center w-auto p-auto">
         <!-- Image -->
         <div class="img" data-aos="fade-up" data-aos-delay="100">
-          <%= image_tag "https://pictures.kitties.netlib.re/storage/open_source.svg", class: "img-fluid",alt:"index"%>
+          <%= image_tag "https://pictures.kitties.netlib.re/storage/open_source.svg", class: "img-fluid",alt:"image de couverture"%>
         </div>
       </div>
 
@@ -42,21 +42,21 @@
     <div class="card-deck" data-aos="fade-up">
 
       <div class="card card-border card-border-lg border-info shadow-light">
-        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_transfer_money_rywa.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_transfer_money_rywa.svg", class: "card-img-top mt-5", style: "height: 150px;", alt:"financement participatif"%>
         <div class="card-body">
           <p class="card-text text-justify text-gray-600"><strong>Un financement sous forme de pourboires pour l'équipe de développement d'un projet.</strong></p>
         </div>
       </div>
 
       <div class="card card-border card-border-lg border-info shadow-light">
-        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_time_management_30iu.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_time_management_30iu.svg", class: "card-img-top mt-5", style: "height: 150px;", alt:"horloge tournante" %>
         <div class="card-body">
           <p class="card-text text-justify text-gray-600"><strong>Une visualisation du temps nécessaire au développement des outils que vous utilisez.</strong></p>
         </div>
       </div>
 
       <div class="card card-border card-border-lg border-info shadow-light">
-        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_online_wishes_dlmr.svg", class: "card-img-top mt-5", style: "height: 150px;" %>
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_online_wishes_dlmr.svg", class: "card-img-top mt-5", style: "height: 150px;", alt:"accomplissement" %>
         <div class="card-body">
           <p class="card-text text-justify text-gray-600"><strong> En résumé : une rémunération juste, c'est-à-dire plus de temps pour le développement et un outil de meilleure qualité !</strong></p>
         </div>
@@ -178,7 +178,7 @@
                   <%= link_to category_fr_path(category.slug), class: "card shadow-light-lg card-flush mb-7 mb-md-0 lift", title: "Voir plus" do %>
                     <!-- Image -->
                     <div class="card card-border card-border-xl border-primary">
-                      <%= image_tag category.url, class: "card-img-top shadow-light-lg", alt: "..."%>
+                      <%= image_tag category.url, class: "card-img-top shadow-light-lg", alt: "image de couverture de #{category.name}"%>
                     </div>
 
                     <!-- Body -->
