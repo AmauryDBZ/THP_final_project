@@ -13,6 +13,7 @@
 ## The first crowdfunding plateform dedicated to open sources and free softwares
 
 Go check it: __[GoOpenSource](https://go-open-source.herokuapp.com/)__
+>! moussaillon@yopmail.com || Azerty
 
 ## 1. Presentation
 We propore to teams of developers to publish their project on our plateform so they can both earn money and highlight all the work that developing a free or open sources software. The website is currently developed in french.  
