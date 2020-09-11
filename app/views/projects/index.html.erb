@@ -1,126 +1,210 @@
 <!-- WELCOME
 ================================================== -->
-<section data-jarallax data-speed=".8" class="py-10 py-md-14 overlay overlay-black overlay-60 bg-cover jarallax" style="background-image: url(https://images.unsplash.com/photo-1500627965408-b5f2c8793f17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80);">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-8 text-center">
+<section class="position-relative d-block py-0 mb-10">
 
+  <!-- Content -->
+  <div class="d-flex justify-content-center">
+    <div class="row align-items-center">
+
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 order-md-2 mx-auto text-center w-auto p-auto">
+        <!-- Image -->
+        <div class="img" data-aos="fade-up" data-aos-delay="100">
+          <%= image_tag "https://pictures.kitties.netlib.re/storage/open_source.svg", class: "img-fluid",alt:"image de couverture"%>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-lg-12 col-md-12 mx-auto mt-4 mt-md-4 mt-sm-4 text-center" data-aos="fade-up">
         <!-- Heading -->
-        <h1 class="display-3 text-white">
-          L'Open Source à la française.
+        <h1 class="display-3 text-center">
+          Participez aussi au <br>
+          <span class="text-primary">Libre et à l'Open Source</span>.
         </h1>
 
         <!-- Text -->
-        <p class="lead text-white-75 mb-6">
-          Notre objectif est de mettre en lumière et d'aider les porteurs de projets dans le domaine du logiciel libre français. Découvrez le meilleur du logiciel libre, faites un don ou bien présentez à notre communauté votre projet.
+        <p class="lead text-muted mb-6 text-center">
+          Découvrez le meilleur du logiciel Libre et Open Source.
         </p>
 
-        <!-- Button -->
-        <a>
-          <%= link_to new_project_path, :class => "btn btn-primary lift" do  %>
-          Créez votre projet <i class="fas fa-arrow-right"></i>
-          <% end %>
-        </a>
-
+        <!-- Buttons -->
+        <div class="container">
+            <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-primary mr-1 mt-3 lift" %>
+            <%= link_to "Voir tous les projets", "#list_projects", class: "btn btn block btn-primary mr-1 mt-3  lift", data:{ toggle: 'smooth-scroll', offset: '0' }%>
+        </div>
       </div>
     </div> <!-- / .row -->
-  </div> <!-- / .container -->
+  </div>
 </section>
 
-<!-- SHAPE
+<!-- Pitch cards
 ================================================== -->
-<div class="position-relative">
-  <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
-    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
-  </div>
-</div>
+<section class="container">
+  <div class="mx-auto">
+    <div class="card-deck" data-aos="fade-up">
 
-<!-- PROJECTS
-================================================== -->
-<section class="pt-7 pt-md-10">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-
-        <!-- Heading -->
-        <h3 class="mb-0">
-          Tous les projets
-        </h3>
-
-        <!-- Text -->
-        <p class="mb-5 text-muted">
-          Découvrez les projets et aidez les développeurs avec un don !
-        </p>
-
+      <div class="card card-border card-border-lg border-info shadow-light">
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_transfer_money_rywa.svg", class: "card-img-top mt-5", style: "height: 150px;", alt:"financement participatif"%>
+        <div class="card-body">
+          <p class="card-text text-center text-gray-600"><strong>Un financement sous forme de pourboires pour l'équipe de développement d'un projet.</strong></p>
+        </div>
       </div>
-    </div> <!-- / .row -->
-    <div class="row" data-aos="fade-up">
 
-      <% @projects.each do |project| %>
-        <%if project.validated %>
-          <div class="col-12 col-md-6 d-flex">
+      <div class="card card-border card-border-lg border-info shadow-light">
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_time_management_30iu.svg", class: "card-img-top mt-5", style: "height: 150px;", alt:"horloge tournante" %>
+        <div class="card-body">
+          <p class="card-text text-center text-gray-600"><strong>Une visualisation du temps nécessaire au développement de chacun des outils que vous utilisez.</strong></p>
+        </div>
+      </div>
+
+      <div class="card card-border card-border-lg border-info shadow-light">
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_online_wishes_dlmr.svg", class: "card-img-top mt-5", style: "height: 150px;", alt:"accomplissement" %>
+        <div class="card-body">
+          <p class="card-text text-center text-gray-600"><strong> Une rémunération juste, c'est-à-dire plus de temps pour le développement et un outil de meilleure qualité !</strong></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--Navigation ==============================-->
+<section class="pt-7 pt-md-10 " data-aos="fade-up">
+  <div class="container">
+
+    <!--Choices-->
+    <section class="pt-0 pt-md-0 pb-4 pt-md-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
 
             <!-- Card -->
-            <div class="card mb-6 shadow-light-lg lift lift-lg">
+            <div class="card-group card-border card-border-lg border-primary shadow-light-lg">
+                <div class="card">
+                <%= link_to "#list_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
+                  <div class="card-body">
+                    <!-- Heading -->
+                    <h4 class="font-weight-bold text-center mb-0">
+                      Tous les projets
+                    </h4>
 
-              <%= link_to project_path(project), style: "text-decoration: none" do %>
-                <!-- Image -->
-                <% if project.cover.attached? %>
-                  <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top" %>
-                <% else %>
-                  <%= image_tag "https://images.unsplash.com/photo-1481887328591-3e277f9473dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1060&q=80", class: "card-img-top" %>
-                <% end %>
-
-                <!-- Shape -->
-                <div class="position-relative">
-                  <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
-                    <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>
+                    <!-- Text -->
+                    <p class="text-center text-muted mb-0">
+                      <small data-toggle="countup" data-from="0" data-to="<%=@projects.where(validated: true).size%>" data-aos data-aos-id="countup:in"></small> projets déjà en ligne <br>
+                      <i class="fas fa-chevron-circle-down mt-2 lift"></i>
+                    </p>
                   </div>
-                </div>
+                <%end%>
+              </div>
 
-                <!-- Body -->
-                <div class="card-body">
+              <div class="card border-left-md">
+                <%= link_to "#new_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
+                  <div class="card-body">
 
-                  <!-- Heading -->
-                  <h3>
-                    <%= project.name %>
-                  </h3>
+                    <!-- Heading -->
+                    <h4 class="font-weight-bold text-center mb-0">
+                      Les plus récents
+                    </h4>
 
-                  <!-- Text -->
-                  <p class="mb-0 text-muted">
-                    <%= project.pitch %>
-                  </p>
+                    <!-- Text -->
+                    <p class="text-center text-muted mb-0">
+                      les derniers projets ajoutés <br>
+                      <i class="fas fa-chevron-circle-down lift"></i>
+                    </p>
 
-                </div>
+                  </div>
+                <%end%>
+              </div>
+              <div class="card border-left-md">
+                <%= link_to "#most_supported_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
+                  <div class="card-body">
 
-                <!-- Meta -->
-                <div class="card-meta mt-auto">
+                    <!-- Heading -->
+                    <h4 class="font-weight-bold text-center mb-0">
+                      Les plus soutenus
+                    </h4>
 
-                  <!-- Divider -->
-                  <hr class="card-meta-divider">
+                    <!-- Text -->
+                    <p class="text-center text-muted mb-0">
+                      ceux qui ont reçu le plus de dons <br>
+                      <i class="fas fa-chevron-circle-down lift"></i>
+                    </p>
 
-                  <!-- Author -->
-                  <% if project.user.first_name && project.user.last_name %>
-                    <%= link_to user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil" do %>
-                      <%= project.user.first_name + ' ' + project.user.last_name  %>
-                    <%end%>
-                  <%else%>
-                    <%=link_to "Voir le développeur", user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil"%>
-                  <% end %>
+                  </div>
+                <%end%>
+              </div>
+              <div class="card border-left-md">
+                <%= link_to "#most_visited_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
+                  <div class="card-body">
 
-                  <!-- Date -->
-                  <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-                    <%= project.created_at.strftime('%d/%m/%Y')  %>
-                  </p>
+                    <!-- Heading -->
+                    <h4 class="font-weight-bold text-center mb-0">
+                      Les plus visités
+                    </h4>
 
-                </div>
-                
-              <%end%>
+                    <!-- Text -->
+                    <p class="text-center text-muted mb-0">
+                      ceux qui ont le plus de vues <br>
+                      <i class="fas fa-chevron-circle-down lift"></i>
+                    </p>
+
+                  </div>
+                <%end%>
+              </div>
             </div>
 
+            <!--Categories
+            ========================================-->
+            <div class="row align-items-center mb-5 pt-12">
+              <div class="col-12 col-md">
+
+                <!-- Heading -->
+                <h3 class="mb-0 text-gray-700">
+                  Parcourir les catégories
+                </h3>
+
+                <!-- Text -->
+                <p class="mb-0 text-muted">
+                  Voir les projets liés à des thèmes qui me tiennent à coeur
+                </p>
+              </div>
+              <div class="col-12 col-md-auto">
+                <!-- Button -->
+                <%=link_to "Voir toutes les catégories", categories_fr_path, class:"btn btn-sm btn-outline-gray-300 d-none d-md-inline"%>
+              </div>
+            </div> <!-- / .row -->
+            <div class="flickity-viewport-visible pt-2 pb-9" data-flickity='{"cellAlign": "center", "imagesLoaded": true, "pageDots": false, "prevNextButtons": false, "contain": true, "initialIndex":2}'>
+              <% @categories.each do |category| %>
+                <div class="col-12 col-md-5 col-lg-4">
+                  <!-- Card -->
+                  <%= link_to category_fr_path(category.slug), class: "card shadow-light-lg card-flush mb-7 mb-md-0 lift", title: "Voir plus" do %>
+                    <!-- Image -->
+                    <div class="card card-border card-border-xl border-primary">
+                      <%= image_tag category.url, class: "card-img-top shadow-light-lg", alt: "image de couverture de #{category.name}"%>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="card-body text-center">
+
+                    <!-- Preheading -->
+                    <h3 class="m-1 ml-3 text-gray-700"><%= category.name %></h3>
+
+                    </div>
+                  <%end%>
+                </div>
+              <%end%>
+            </div>
+            <hr class="mt-5">
+
           </div>
-        <%end%>
-      <%end%>
-    </div>
-  </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+
+    <!-- PROJECTS
+    ========================================= -->
+    <%=render "most_visited"%>
+    <%=render "most_supported"%>
+    <%=render "new_projects"%>
+    <%=render "all_projects"%>
+
+  </div> <!--/ container -->
 </section>

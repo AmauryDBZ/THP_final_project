@@ -1,3 +1,7 @@
+body{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 div.d-inline.stripe {
   margin-top: 50px;
 }
@@ -48,8 +52,6 @@ div.d-inline.stripe {
   padding: 16px 40px 16px 40px;
 }
 
-
-
 .user-info {
   color:inherit!important;
   cursor:pointer;
@@ -67,4 +69,14 @@ div.d-inline.stripe {
 .user-info:hover {
   color: #161c2d!important;
   text-decoration: none;
+}
+
+.img-logo {
+  max-width: 30%;
+  height: auto
+}
+
+.img-logo-footer {
+  max-width: 40%;
+  height: auto
 }

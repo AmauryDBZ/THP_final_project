@@ -7,7 +7,7 @@
     <!-- Brand -->
     <%= link_to root_path, :class => "navbar-brand" do%>
       <h2 class="ml-5 mt-2">
-        G<i class="fab fa-osi"></i> <i class="fab fa-osi"></i>Pen S<i class="fab fa-osi"></i>urce
+          <%= image_tag "https://pictures.kitties.netlib.re/storage/logo_white.png", class: "img-logo",alt:"index"%>
       </h2>
     <%end%>
 
@@ -21,9 +21,9 @@
       <!-- Navigation -->
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown mr-2">
-          <a class="nav-link dropdown-toggle text-gray-700" id="navbarLandings" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+          <%=link_to "#", class: "nav-link dropdown-toggle text-gray-700", id: "navbarLandings", data:{ toggle: 'dropdown' }, aria:{haspopup: "true", expanded: "false"} do %>
             <i class="fas fa-user-plus"></i>
-          </a>
+          <%end%>
           <div class="dropdown-menu dropdown-menu-xl p-0" aria-labelledby="navbarLandings">
             <div class="row no-gutters">
               <div class="col-12 col-lg-6">
@@ -65,7 +65,7 @@
           </div>
         </li>
         <li class="nav-item dropdown mr-5">
-          <span class="badge badge-pill badge-primary-soft badge-lg nav-link dropdown-toggle mr-5 mt-1 text-gray-700" id="navbarDocumentation" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+          <span class="badge badge-pill badge-primary-soft badge-lg nav-link dropdown-toggle mr-5 mt-1 text-gray-700" id="navbarDocumentation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             À propos   <i class="far fa-question-circle"></i>
           </span>
           <div class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDocumentation">
