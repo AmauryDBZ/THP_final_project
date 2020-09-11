@@ -19,6 +19,7 @@ class Project < ApplicationRecord
   validates :number_of_developers_on_project, presence: true
   validates :daily_time_spent_on_project_per_developer, presence: true
 
+  has_many_attached :images, dependent: :destroy
   # The cover picture is displayed on the cards and as a cover on the project page (project/show).
   has_one_attached :cover, dependent: :destroy
   validates :cover,
