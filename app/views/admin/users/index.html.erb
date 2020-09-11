@@ -23,7 +23,13 @@
                     <td><%= user.email %></td>
                     <td><%= user.first_name %></td>
                     <td><%= user.last_name %></td>
-                    <td><%= user.date_of_birth %></td>
+                    <td>
+                      <% if user.date_of_birth == nil %>
+                        <%= user.date_of_birth %>
+                      <% else %>
+                        <%= user.date_of_birth.strftime('%d/%m/%Y') %>
+                      <% end %>
+                    </td>
                     <td><%= user.is_admin %></td>
                     <td><%= user.created_at.strftime('%d/%m/%Y') %></td>
                     <td>
