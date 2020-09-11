@@ -25,11 +25,12 @@
       </div>
     <% end %>
     <hr>
-    <h2 class="main_figures" class="mb-0"><%= @project.value_of_project %> €</h2>
-    <h5 class="text-gray-700 mb-0">de coûts mensuels</h5>
-    <h5 class="text-gray-700 mt-0">supportés par</h5>
-    <h3 class="main_figures"><%= @project.number_of_developers_on_project %> développeurs</h3>
-    <h5 class="text-gray-700 mt-1 mb-0">et travaillant au total :</h5>
-    <h3 class="main_figures"><%= @total %>h par semaine !</h3>
+    <h5 class="text-gray-700 mb-0">Ce projet, c'est :</h5>
+    <h3 class="main_figures mt-0 mb-0"><%= @project.value_of_project %> €</h3>
+    
+    <h5 class="text-gray-700 mt-0 mb-0">de charges par mois, et</h5>
+    <h3 class="main_figures mt-0 mb-0"><%= @project.number_of_developers_on_project %> développeurs</h3>
+    <h5 class="text-gray-700 mt-0 mb-0">investis pendant un total de</h5>
+    <h3 class="main_figures mt-0 mb-0"><%= @total %>h par semaine !</h3>
   </div>
 </div>
