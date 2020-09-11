@@ -22,4 +22,5 @@
 *= require alerts.css
 *= require navbar.css
 *= require main.css
+*= require toastr
 */
