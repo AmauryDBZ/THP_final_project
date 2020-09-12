@@ -1,4 +1,6 @@
 class Donation < ApplicationRecord
+  require 'csv'
+
   after_create :donation_confirm
   after_update :donation_transfer_update
 
@@ -13,5 +15,14 @@ class Donation < ApplicationRecord
 
   def donation_transfer_update
     DonationMailer.donation_transfer(self).deliver_now
+  end
+
+  def self.to_csv(table_name)
+    CSV.generate(headers: true) do |f|
+      f << all.first.attributes.map { |a, v| a }
+      all.each do |t|
+        f << t.attributes.map { |a, v| v }
+      end
+    end
   end
 end
