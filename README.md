@@ -45,15 +45,15 @@ We use six tables (excluding active storage tables):
 * __friendly_id_slugs__: links items id from various tables to a slug (human readable text id).
 
 ### 3.2 Frontend :
-We use Bootstrap theme [landkit](https://themes.getbootstrap.com/product/landkit/).  
+We use Bootstrap theme [landkit](https://themes.getbootstrap.com/product/landkit/). Pictures are hosted on our server using a Raspberry Pi.
 
 ### 3.3 Backend :
 API: we based our payment system on Stripe
 
-## 4. Le MVP :
+## 4. The MVP :
 A fully operational DB, a complete user stories as described above, an admin dashboard.
 
-## 5. La version que l'on présentera aux jury
+## 5. Final version :
 Who knows what surprises will we bring to you?
 
 ## 6. Mentor
