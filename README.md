@@ -19,6 +19,14 @@ Go check it: __[GoOpenSource](https://go-open-source.herokuapp.com/)__
 moussaillon @ yopmail.com || Azerty
 </details>
 
+#### Installation instructions
+This application uses Ruby 2.5.1 and Rails 5.2.4
+1. Install dependencies: `sudo apt install imagemagick postgresql-12`
+2. Install gems: `bundle install`
+3. Create pg database: `rails db:create`
+4. Migrate: `rails db:migrate`
+5. Run the seed to fill database: `rails db:seed`
+
 ## 1. Presentation
 We propore to teams of developers to publish their project on our plateform so they can both earn money and highlight all the work that developing a free or open sources software. The website is currently developed in french.  
 
