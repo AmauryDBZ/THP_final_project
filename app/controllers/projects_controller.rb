@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    @categories = Category.all
+    @categories = Category.all 
   end
 
   def show
@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
+    @project.cat
     @project.clicks = 0
     @project.money_earned = 0
       if @project.save
