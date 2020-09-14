@@ -115,10 +115,11 @@
           </div>
         </div>
 
-        <%= social_share_button_tag(@project.name) %>
         <% unless @project.licence.blank? %>
-          <span class="d-flex justify-content-center shadow-light badge badge-lg badge-light mt-5 mx-auto bg-white"><%= @project.licence %></span>
+          <span class="d-flex justify-content-center shadow-light badge badge-lg badge-light mt-5 mx-auto bg-white mb-5"><%= @project.licence %></span>
         <% end %>
+
+        <%= social_share_button_tag(@project.name) %>
       </div>
       <div class="col-auto">
         <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary fund_btn" %>
