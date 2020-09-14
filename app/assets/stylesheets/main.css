@@ -2,6 +2,16 @@ body{
   font-family: Helvetica, Arial, sans-serif;
 }
 
+.github_links{
+  font-size: 14px;
+  color: #506690;
+}
+
+.github_links:hover{
+  color: #506690;
+  text-decoration: none;
+}
+
 div.d-inline.stripe {
   margin-top: 50px;
 }
