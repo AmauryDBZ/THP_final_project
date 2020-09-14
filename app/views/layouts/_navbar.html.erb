@@ -75,13 +75,16 @@
             </div> <!-- / .row -->
           </div>
         </li>
-        
-          
-            
+        <% if user_signed_in? && current_user.is_admin %>
+          <div class="d-flex align-items-center mr-3">
+                <%=link_to "Administrateur", admin_index_path , class:"badge badge-pill badge-primary-soft"%>
+          </div>
+        <% end %>
           <div class="d-flex align-items-center mr-10">
              
               <%=link_to "À propos", static_pages_fr_path , class:"badge badge-pill badge-primary-soft"%>
           </div>
+          
             </div>
           </div>
         </li>
