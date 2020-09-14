@@ -1,31 +1,59 @@
-<!-- if ADMIN or PROJECT HOLDER this section appears -->
-<% if current_user == @project_holder %>
+<!-- If ADMIN or PROJECT HOLDER this section appears -->
+<% if current_user && (current_user == @project_holder || current_user.is_admin )%>
   <%= render "show_admin" %>
+
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
 <% end %>
+
 <!-- CONTENT
 ================================================== -->
 <section class="pt-8 pt-md-11">
   <div class="container">
     <div class="row align-items-center">
+      <!-- Badge -->
+      <%if @project.validated == nil%>
+        <span class="badge badge-warning badge-pill badge-float badge-float-outside">
+          En attente de validation
+        </span>
+      <%elsif @project.validated == false%>
+        <span class="badge badge-danger badge-pill badge-float badge-float-outside">
+          Refusé par l'administration
+        </span>
+      <%end%>
+
       <div class="col-12 col-md">
 
         <!-- Link -->
         <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none mb-5" do %>
-        <i class="fas fa-arrow-left mr-3"></i>
-        Tous les projets
+          <i class="fas fa-arrow-left mr-3"></i>
+          Tous les projets
         <% end %>
 
         <!-- Heading -->
         <h1 class="display-4 my-2">
+
           <%= @project.name %>
+          <% if current_user && (current_user.is_admin || current_user == @project_holder) %>
+            <%=link_to edit_project_fr_path(@project), class:"ml-5 text-gray-700", title:"Editer le projet" do %>
+              <i class="fas fa-edit"></i>
+            <%end%>
+          <% end %>
         </h1>
 
       </div>
       <div class="col-auto">
 
         <!-- Buttons -->
-        <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
-
+        <% if current_user && current_user.is_admin %>
+          <%= link_to "Statut", edit_admin_project_fr_path(@project), class: "btn btn-outline-secondary", remote: true %>
+          <%= link_to "Supprimer le projet", admin_project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+        <% elsif current_user && (current_user == @project_holder) %>
+          <%= link_to "Supprimer le projet", project_fr_path(@project), class: "btn btn-outline-danger", :method => "delete", data: {confirm: "Êtes-vous sûr ?"} %>
+        <% end %>
       </div>
     </div> <!-- / .row -->
     <div class="row">
@@ -59,53 +87,20 @@
           <%= @project.functionalities %>
         </p>
 
+        <% if @project.url %>
+          <div class="container text-center">
+              <%=link_to "Site du projet", @project.url, :target => "_blank" , class:"badge badge-pill badge-primary-soft"%>
+            </div>
+        <% end %>
+
       </div>
       <div class="col-12 col-md-4">
 
         <!-- Card -->
-        <div class="card shadow-light-lg mb-5">
-          <div class="card-body">
-
-            <!-- Heading -->
-            <h4>
-              Quelques chiffres
-            </h4>
-
-            <!-- Heading -->
-            <h6 class="font-weight-bold text-uppercase text-gray-700 mb-1">
-              Objectif de financement
-            </h6>
-
-            <!-- Text -->
-            <p class="font-size-sm mb-3">
-              <%= @project.value_of_project %> € / mois
-            </p>
-
-            <!-- Heading -->
-            <h6 class="font-weight-bold text-uppercase text-gray-700 mb-1">
-              Financements déjà acquis
-            </h6>
-
-            <!-- Text -->
-            <p class="font-size-sm mb-3">
-              <%= @project.money_earned %> € / mois
-            </p>
-
-            <!-- Heading -->
-            <h6 class="font-weight-bold text-uppercase text-gray-700 mb-1">
-              Temps de travail quotidien
-            </h6>
-
-            <!-- Text -->
-            <p class="font-size-sm mb-3">
-              <%= @project.daily_time_spent_on_project_per_developer %> H / Jour
-            </p>
-
-          </div>
-        </div>
+        <%= render 'few_figures' %>
 
         <!-- Card -->
-        <div class="card shadow-light-lg">
+        <div class="card shadow-light-lg mb-5">
           <div class="card-body">
 
             <!-- Heading -->
@@ -118,23 +113,22 @@
               <%= "#{@project_holder.first_name} #{@project_holder.last_name}" %>
             </h6>
 
-            <!-- Text -->
-            <p class="font-size-sm text-gray-800">
-              <%= @project_holder.professional_background %>
-            </p>
-
             <!-- Heading -->
-            <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none" do %>
-            <%= @project_holder.first_name %>
-            <i class="fas fa-arrow-right ml-3"></i>
+            <%= link_to user_fr_path(@project_holder), :class => "font-weight-bold font-size-sm text-decoration-none" do %>
+              <%= @project_holder.first_name %>
+              <i class="fas fa-arrow-right ml-3"></i>
             <% end %>
-
           </div>
         </div>
+
+        <% unless @project.licence.blank? %>
+          <span class="d-flex justify-content-center shadow-light badge badge-lg badge-light mt-5 mx-auto bg-white mb-5"><%= @project.licence %></span>
+        <% end %>
+        
+        <%= social_share_button_tag(@project.name) %>
       </div>
       <div class="col-auto">
-        <!-- Buttons -->
-        <%= link_to "Financer", root_path(@project.id), class: "btn btn-primary" %>
+        <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary fund_btn" %>
       </div>
     </div> <!-- / .row -->
   </div> <!-- / .container -->
@@ -151,27 +145,22 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-              <div class="col-12 col-md-3">
-
-                <!-- iPhone -->
-                <div class="device device-iphonex">
-                  <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnickmomrik.files.wordpress.com%2F2017%2F12%2Fimg_0226.jpg&f=1&nofb=1", class: "device-screen", alt: "..." %>
-                  <%= image_tag "screenshots/devices/iphonex.svg", class: "img-fluid", alt: "..." %>
-                </div>
-
-              </div>
-              <div class="col-12 col-md-9">
-
-                <!-- Macbook -->
-                <div class="device device-macbook">
-                  <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fqph.fs.quoracdn.net%2Fmain-qimg-024a7070f2e691550175f412786f31db&f=1&nofb=1", class: "device-screen", alt: "..." %>
-                  <%= image_tag "screenshots/devices/macbook.svg", class: "img-fluid", alt: "..." %>
-                </div>
-
+              <div class="col-12 col-md-12">
+                <% if @project.images.attached? %>
+                  <div class="carousel" data-flickity='{ "lazyLoad": 2, "prevNextButtons": false, "initialIndex": 1, "autoPlay": true }'>
+                    <% @project.images.each do |image| %>
+                      <div class="col-12 col-md-5 col-lg-4">
+                        <%= image_tag image, class: "carousel-image rounded" %>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
-      </div> <!-- / .row -->
-    </div> <!-- / .container -->
-  </section>
+
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>

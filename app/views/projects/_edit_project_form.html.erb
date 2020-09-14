@@ -1,0 +1,99 @@
+<!-- CONTENT
+================================================== -->
+<section class="section-border border-primary">
+  <div class="container d-flex flex-column">
+    <div class="row mt-5">
+      <div class="col-md-1">
+        <i class="fas fa-exclamation fa-2x mt-5 text-muted text-center"></i>
+      </div>
+      <div class="col-md-11">
+        <small class="text-muted mt-3 mx-2">
+          Attention, si ce projet a été déjà validé par l'administration, l'édition du projet nécessitera une nouvelle validation avant de pouvoir être de nouveau accessible au public. La réception de dons est close jusqu'à l'admission des modifications par un administrateur.
+        </small>
+      </div>
+    </div>
+    <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+
+      <div class="col-12 col-md-5 col-lg-8 py-8 py-md-11 pt-0 mt-0 text-center">
+
+        <!-- Heading -->
+        <h1 class="mb-0 font-weight-bold">
+          <% if !current_user.is_admin %>
+            Editer votre projet
+          <%else%>
+            Editer le projet
+          <%end%>
+        </h1>
+
+        <!-- Text -->
+        <p class="mb-6 text-center text-muted">
+          Remplissez les informations suivantes afin qu'un administrateur valide vos modifications.
+        </p>
+
+        <!-- Form -->
+        <%= form_with model: @project, local: true, url: project_fr_path, method: :patch  do |form| %>
+
+          <!-- Name -->
+          <div class="form-group mb-5">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <%= form.label :name, 'Le nom de votre projet.' %>
+            <%= form.text_field :name, class: "form-control", placeholder: "Un titre explicite à propos de votre projet." %>
+          </div>
+
+          <!-- Pitch -->
+          <div class="form-group mb-5">
+            <%= form.label :pitch, 'Le pitch de votre projet.' %>
+            <%= form.text_area :pitch, class: "form-control", placeholder: "Les objectifs de votre projet, les problèmes auxquels il répond." %>
+          </div>
+
+          <!-- Functionalities -->
+          <div class="form-group mb-5">
+            <%= form.label :functionalities, 'Les fonctionnalités de votre projet.' %>
+            <%= form.text_area :functionalities, class: "form-control", placeholder: "Les caractéristiques techniques de votre projet, et ses fonctionnalités." %>
+          </div>
+
+          <!-- Value of project  -->
+          <div class="form-group mb-5">
+            <%= form.label :value_of_project, 'Le coût mensuel de votre projet en euros.' %>
+            <%= form.number_field :value_of_project, class: "form-control" %>
+          </div>
+
+          <!-- Number of developeurs on project  -->
+          <div class="form-group mb-5">
+            <%= form.label :number_of_developers_on_project, 'Nombre de développeurs travaillants sur le projet.' %>
+            <%= form.number_field :number_of_developers_on_project, class: "form-control" %>
+          </div>
+
+          <!-- Daily time spent on project per developer  -->
+          <div class="form-group mb-5">
+            <%= form.label :daily_time_spent_on_project_per_developer, "Nombre d'heures quotidiennes passées sur le projet, par développeur." %><br>
+            <%= form.select :daily_time_spent_on_project_per_developer, options_for_select(1..12), {}, { class: "form-control" } %>
+          </div>
+
+          <!-- licence used for the project  -->
+          <div class="form-group mb-5">
+            <%= form.label :licence, "Type de licence utilisée pour votre projet" %><br>
+            <%= form.text_field :licence, class: "form-control" %>
+          </div>
+
+          <!-- Cover on project -->
+          <div class="form-group mb-5">
+            <%= form.label  "Changer la photo de couverture de votre projet" %><br>
+            <%= form.file_field :cover %>
+          </div>
+
+          <!-- Images on project -->
+          <div class="form-group mb-5">
+          <%= form.label  "Ajouter des photos de présentations à votre projet" %><br>
+          <%= form.file_field :images, multiple: true, direct_upload: true %>
+          </div>          
+
+          <!-- Submit -->
+          <div class="form-group mb-5">
+            <%= form.submit "Valider les modifications", class: "btn btn-block btn-primary" %>
+          </div>
+        <%end%>
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>

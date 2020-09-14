@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'goopensource@protonmail.com'
   layout 'mailer'
+  @url = 'https://go-open-source.herokuapp.com/'
 end

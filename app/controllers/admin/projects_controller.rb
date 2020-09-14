@@ -1,34 +1,46 @@
 class Admin::ProjectsController < ApplicationController
-    before_action :set_project
-    before_action :check_if_admin
-  
-    def index
-      @projects = Project.all
-    end
-  
-    def show
-    end
-  
-    def edit
-    end
+  include AdminHelper
 
-    def update
-    end
-  
-    private 
-  
-    def set_project
-      @project = Project.friendly.find_by_slug(params[:slug])
-    end
+  before_action :set_project
+  before_action :check_if_admin
 
-    def check_if_admin
-      if current_user == nil 
-        flash[:danger] = "Vous devez vous connecter à un compte administrateur pour accéder à cette page"
-          redirect_to new_user_session_path
-      elsif current_user.is_admin == false || current_user.is_admin == nil
-        flash[:danger] = "Seul un administrateur peut accéder à cette page"
-        redirect_to projects_path
-      end
+  def index
+    @projects = Project.all
   end
-  
+
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    if params[:status_project] == "true"
+      @project.update(validated: true)
+    elsif params[:status_project] == "false"
+      @project.update(validated: false)
+    end
+    redirect_to project_fr_path(@project)
+  end
+
+  def destroy
+    @project.delete
+    if @project.delete
+      flash[:success] = "Le projet a bien été supprimé"
+      Donation.where(project_id: @project.id).each do |donation|
+      donation.delete
+      end
+      redirect_to root_path
+    else 
+      flash[:danger] = "Le projet n'a pas pu être supprimé, veuillez rééssayer ultérieurement"
+      redirect_to root_path
+    end
+  end
+
+  private
+
+  def set_project
+    @project = Project.friendly.find_by_slug(params[:id])
+  end
+
 end
