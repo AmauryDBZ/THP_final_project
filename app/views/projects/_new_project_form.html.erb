@@ -36,6 +36,18 @@
             <%= form.text_area :functionalities, class: "form-control", placeholder: "Les caractéristiques techniques de votre projet, et ses fonctionnalités." %>
           </div>
 
+          <!-- Categories -->
+          <div class="row my-5">
+            <div class="form_row">
+                <label for="category_ids[]">Catégories liées au projet:</label>
+                <% for category in Category.all do %>
+                  <br><%= check_box_tag 'category_ids[]', category.id,
+                          @project.category_ids.include?(category.id) %>
+                  <%= category.name.humanize %>
+                <% end %>
+            </div>
+          </div>         
+
           <!-- URL -->
           <div class="form-group mb-5">
             <%= form.label :url, "L'url de ton projet.", class: "mb-5" %>
