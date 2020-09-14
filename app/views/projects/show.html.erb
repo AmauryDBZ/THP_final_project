@@ -87,6 +87,12 @@
           <%= @project.functionalities %>
         </p>
 
+        <% if @project.url %>
+          <div class="container text-center">
+                  <%=link_to "Site du projet", @project.url, :target => "_blank" , class:"badge badge-pill badge-primary-soft"%>
+            </div>
+        <% end %>
+
       </div>
       <div class="col-12 col-md-4">
 
