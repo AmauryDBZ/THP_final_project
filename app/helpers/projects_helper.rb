@@ -29,7 +29,7 @@ module ProjectsHelper
   def monthly_donation
     @last_month_donation = []
     Donation.where(project_id: @project.id).each do |d|
-      if Time.now - d.created_at < (2*24*3600)
+      if Time.now - d.created_at < (30*24*3600)
         @last_month_donation << d
       end
     end
