@@ -31,7 +31,7 @@
         </p>
 
         <!-- Form -->
-        <%= form_with model: @project, local: true, url: project_fr_path, method: :patch  do |form| %>
+        <%= form_with model: @project, local: true, url: project_fr_path,class: "text-left", method: :patch  do |form| %>
 
           <!-- Name -->
           <div class="form-group mb-5">
@@ -50,6 +50,18 @@
           <div class="form-group mb-5">
             <%= form.label :functionalities, 'Les fonctionnalités de votre projet.' %>
             <%= form.text_area :functionalities, class: "form-control", placeholder: "Les caractéristiques techniques de votre projet, et ses fonctionnalités." %>
+          </div>
+
+          <!-- Categories -->
+          <div class="row my-5">
+            <div class="form_row">
+                <label for="category_ids[]">Catégories liées au projet:</label>
+                <% for category in Category.all do %>
+                  <br><%= check_box_tag 'category_ids[]', category.id,
+                          @project.category_ids.include?(category.id) %>
+                  <%= category.name.humanize %>
+                <% end %>
+            </div>
           </div>
 
           <!-- Value of project  -->

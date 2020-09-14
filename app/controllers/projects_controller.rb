@@ -58,6 +58,10 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
+      @project.update(categories: Category.find(params[:category_ids]) )
+      params[:category_ids].each do |category|
+        @project.categories << Category.find(category.to_i)
+      end
       @project.update(validated: nil)
       flash[:success] = "Merci ! Nous allons vérifier les nouvelles informations de votre projet"
       redirect_to :controller => 'projects', :action => 'index'
