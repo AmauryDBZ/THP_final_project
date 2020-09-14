@@ -72,6 +72,27 @@ fr:
             dépendant(e) existe
           has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
             dépendants existent
+
+    attributes:
+      user:
+        password: "votre mot de passe"
+        password_confirmation: "La confirmation de mot de passe"
+        current_password: "Le mot de passe actuel"
+      project:
+        name: 'Le nom de votre projet'
+        pitch: ' la présentation'
+        functionalities: ' les fonctionalités'
+        value_of_project: ' le cout mensuel du projet'
+        number_of_developers_on_project: ' le nombre de développeur sur le projet'
+        daily_time_spent_on_project_per_developer: ' le temps passé par chaque développeur sur ce projet (par mois)'
+      bank_detail:
+          bank_name: ' le nom de la banque'
+          iban: " l'iban"
+          account_number: ' le numéro de compte'
+          branch_code: ' le numéro de guichet'
+          bank_code: ' le numéro de la banque'
+          key: ' la clé'
+
   date:
     abbr_day_names:
     - dim
