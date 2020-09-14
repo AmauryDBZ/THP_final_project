@@ -1,4 +1,4 @@
-<!-- if ADMIN or PROJECT HOLDER this section appears -->
+<!-- If ADMIN or PROJECT HOLDER this section appears -->
 <% if current_user && (current_user == @project_holder || current_user.is_admin )%>
   <%= render "show_admin" %>
 
@@ -138,21 +138,20 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12 col-md-12">
-
                 <% if @project.images.attached? %>
-                  <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 2, "prevNextButtons": false, "initialIndex": 2, "autoPlay": true }'>
-                    <%@project.images.each do |image| %>
-                    <div class="col-12 col-md-5 col-lg-4">
-                      <%= image_tag image, class: "carousel-image rounded" %>
-                    </div>
-                    <%end%>
+                  <div class="carousel" data-flickity='{ "lazyLoad": 2, "prevNextButtons": false, "initialIndex": 1, "autoPlay": true }'>
+                    <% @project.images.each do |image| %>
+                      <div class="col-12 col-md-5 col-lg-4">
+                        <%= image_tag image, class: "carousel-image rounded" %>
+                      </div>
+                    <% end %>
                   </div>
                 <% end %>
-
-
               </div>
             </div>
+          </div>
         </div>
+
       </div>
     </div> <!-- / .row -->
   </div> <!-- / .container -->

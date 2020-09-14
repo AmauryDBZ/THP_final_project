@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
       donation.delete
       end
       redirect_to root_path
-    else 
+    else
       flash[:danger] = "Le projet n'a pas pu être supprimé, veuillez rééssayer ultérieurement"
       redirect_to root_path
     end
