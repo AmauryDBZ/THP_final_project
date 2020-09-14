@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :admin, only: [:index]
     namespace :admin do
       resources :exports, only: [:new]
+      resources :transfers, only: [:new, :update]
       resources :projects
       resources :donations, only: [:index]
       resources :users, only: [:index, :edit, :update, :destroy]
