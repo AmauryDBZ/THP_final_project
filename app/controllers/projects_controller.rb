@@ -58,6 +58,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
+      ProjectCategory.where(project: @project).destroy_all
       @project.update(categories: Category.find(params[:category_ids]) )
       params[:category_ids].each do |category|
         @project.categories << Category.find(category.to_i)
