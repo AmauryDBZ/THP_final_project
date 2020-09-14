@@ -151,7 +151,7 @@
                     <% image_id = 0 %>
                     <% @project.images.each do |image| %>
 
-                      <%= link_to project_image_fr_path(project_slug: @project_id, id: @project_id.id, image_id: image_id), remote: true do %>
+                      <%= link_to project_image_fr_path(project_slug: @project_id, id: @project_id.id, image_id: image_id), class: "m-0 p-auto", remote: true do %>
                         <div class="col-12 col-md-5 col-lg-4">
                           <%= image_tag image, class: "carousel-image rounded" %>
                         </div>
