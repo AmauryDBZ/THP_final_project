@@ -80,3 +80,8 @@ div.d-inline.stripe {
   max-width: 40%;
   height: auto
 }
+
+.svg-project {
+  max-height: 50%;
+  max-width: 50%;
+}
