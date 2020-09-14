@@ -46,14 +46,14 @@ ActiveRecord::Schema.define(version: 2020_09_14_111028) do
 
   create_table "bank_details", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "bank_name"
-    t.string "iban"
-    t.string "branch_code"
-    t.string "bank_code"
-    t.string "account_number"
-    t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "key"
+    t.string "account_number"
+    t.string "bank_code"
+    t.string "branch_code"
+    t.string "iban"
+    t.string "bank_name"
     t.index ["user_id"], name: "index_bank_details_on_user_id"
   end
 
