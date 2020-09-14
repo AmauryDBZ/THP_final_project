@@ -3,17 +3,17 @@
 
     <%= link_to "Financer", project_charges_path(@project), class: "badge badge-lg badge-primary badge-float badge-float-outside fund_btn" %>
 
-    <% if @project.money_earned == 0 %>
-      <h3 style="font-weight: bold;" class="text-gray-700 mt-4">Soyez parmis les premiers à financer ce projet !</h3>
-    <% elsif @project.money_earned > 0 %>
+    <% if @month_total == 0 %>
+      <h3 style="font-weight: bold;" class="text-gray-700 mt-4">Soyez parmis les premiers à financer ce projet ce mois-ci !</h3>
+    <% elsif @month_total > 0 %>
       <div class="main_figures d-flex flex-row ">
-        <h2 class="main_figures mt-2"><%= @project.money_earned %> € </h2>
+        <h2 class="main_figures mt-2"><%= @month_total %> € </h2>
       </div>
       <div class="d-flex flex-row">
-        <% if @project.money_earned == 1 %>
-          <p>récolté grâce à</p>
-        <% elsif @project.money_earned > 1 %>
-          <p>récoltés grâce à</p>
+        <% if @month_total == 1 %>
+          <p>récolté ce mois-ci grâce à</p>
+        <% elsif @month_total > 1 %>
+          <p>récoltés ce mois-ci grâce à</p>
         <% end %>
       </div>
       <div class="d-flex flex-row">
@@ -27,7 +27,7 @@
     <hr>
     <h5 class="text-gray-700 mb-0">Ce projet, c'est :</h5>
     <h3 class="main_figures mt-0 mb-0"><%= @project.value_of_project %> €</h3>
-    
+
     <h5 class="text-gray-700 mt-0 mb-0">de charges par mois, et</h5>
     <h3 class="main_figures mt-0 mb-0"><%= @project.number_of_developers_on_project %> développeurs</h3>
     <h5 class="text-gray-700 mt-0 mb-0">investis pendant un total de</h5>
