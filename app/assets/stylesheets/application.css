@@ -21,5 +21,6 @@
 *= require theme.min.css
 *= require navbar.css
 *= require main.css
+*= require carousel.css
 *= require toastr
 */

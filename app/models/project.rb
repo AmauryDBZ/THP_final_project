@@ -19,6 +19,12 @@ class Project < ApplicationRecord
   validates :number_of_developers_on_project, presence: true
   validates :daily_time_spent_on_project_per_developer, presence: true
 
+  # "Images" pictures are displayed on the project/show as exemple/screenshots of the project.
+  has_many_attached :images, dependent: :destroy
+  validates :images,
+    content_type: [:png, :jpg, :jpeg],
+    size: { less_than: 3.megabytes, message: "le fichier est trop lourd : 3Mo maximum." }
+
   # The cover picture is displayed on the cards and as a cover on the project page (project/show).
   has_one_attached :cover, dependent: :destroy
   validates :cover,

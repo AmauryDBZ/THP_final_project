@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
       donation.delete
       end
       redirect_to root_path
-    else 
+    else
       flash[:danger] = "Le projet n'a pas pu être supprimé, veuillez rééssayer ultérieurement"
       redirect_to root_path
     end
@@ -70,6 +70,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :daily_time_spent_on_project_per_developer, :pitch, :functionalities, :value_of_project, :number_of_developers_on_project, :licence, :cover)
+    params.require(:project).permit(:name, :daily_time_spent_on_project_per_developer, :pitch, :functionalities, :value_of_project, :number_of_developers_on_project, :licence, :cover, images: [])
   end
 end

@@ -62,9 +62,16 @@
 
           <!-- Cover on project -->
           <div class="form-group mb-5">
-            <%= form.label  "Ajouter une photo à votre projet" %><br>
+            <%= form.label  "Ajouter une photo de couverture à votre projet" %><br>
             <%= form.file_field :cover %>
           </div>
+
+          <!-- Images on project -->
+          <div class="form-group mb-5">
+          <%= form.label  "Ajouter des photos de présentations à votre projet" %><br>
+          <%= form.file_field :images, multiple: true %>
+          </div>
+
 
           <!-- Submit -->
           <div class="form-group mb-5">

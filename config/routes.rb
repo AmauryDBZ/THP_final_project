@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     devise_for :users
     resources :projects, param: :slug do
       resources :cover, only: [:create, :destroy]
+      resources :images, only: [:create, :destroy]
     end
     resources :categories, only: [:index, :show], param: :slug
     resources :donations, only: [:update]

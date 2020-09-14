@@ -1,0 +1,14 @@
+.carousel {
+  background: #FFF;
+}
+
+.carousel-image {
+  display: block;
+  height: 300px;
+  /* set min-width, allow images to set cell width */
+  min-width: 150px;
+  max-width: 100%;
+  margin-right: 10px;
+  /* vertically center */
+  top: 50%;
+}

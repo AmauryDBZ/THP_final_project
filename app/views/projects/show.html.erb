@@ -1,4 +1,4 @@
-<!-- if ADMIN or PROJECT HOLDER this section appears -->
+<!-- If ADMIN or PROJECT HOLDER this section appears -->
 <% if current_user && (current_user == @project_holder || current_user.is_admin )%>
   <%= render "show_admin" %>
 
@@ -137,27 +137,22 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-              <div class="col-12 col-md-3">
-
-                <!-- iPhone -->
-                <div class="device device-iphonex">
-                  <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnickmomrik.files.wordpress.com%2F2017%2F12%2Fimg_0226.jpg&f=1&nofb=1", class: "device-screen", alt: "capture d'écran de smartphone" %>
-                  <%= image_tag "screenshots/devices/iphonex.svg", class: "img-fluid", alt: "smartphone" %>
-                </div>
-
-              </div>
-              <div class="col-12 col-md-9">
-
-                <!-- Macbook -->
-                <div class="device device-macbook">
-                  <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fqph.fs.quoracdn.net%2Fmain-qimg-024a7070f2e691550175f412786f31db&f=1&nofb=1", class: "device-screen", alt: "capture d'écran de pc" %>
-                  <%= image_tag "screenshots/devices/macbook.svg", class: "img-fluid", alt: "pc portable" %>
-                </div>
-
+              <div class="col-12 col-md-12">
+                <% if @project.images.attached? %>
+                  <div class="carousel" data-flickity='{ "lazyLoad": 2, "prevNextButtons": false, "initialIndex": 1, "autoPlay": true }'>
+                    <% @project.images.each do |image| %>
+                      <div class="col-12 col-md-5 col-lg-4">
+                        <%= image_tag image, class: "carousel-image rounded" %>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
-      </div> <!-- / .row -->
-    </div> <!-- / .container -->
-  </section>
+
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>

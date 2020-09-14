@@ -266,7 +266,7 @@
                 </div>
                 <% if project.validated%>
                   <br>
-                  <div class="progress">
+                  <div class="progress" title="<%=project.money_earned%> € remboursés grâce aux dons ce mois-ci, sur un investissement de <%=project.value_of_project%> €">
                     <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%=project.money_earned * 100 / project.value_of_project%>%" aria-valuenow="<%=project.money_earned * 100 / project.value_of_project%>" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 <%end%>
