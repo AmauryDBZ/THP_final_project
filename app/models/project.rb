@@ -9,6 +9,7 @@ class Project < ApplicationRecord
 
   has_many :project_categories
   has_many :categories, through: :project_categories
+  has_many :admin_explanations
 
   belongs_to :user
 
