@@ -71,9 +71,9 @@ div.d-inline.stripe {
   font-size: .9375rem;
   text-decoration: none;
   background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid #f1f4f8;
-    border-radius: .375rem;
+  background-clip: border-box;
+  border: 0 solid #f1f4f8;
+  border-radius: .375rem;
 }
 
 .user-info:hover {
@@ -89,4 +89,9 @@ div.d-inline.stripe {
 .img-logo-footer {
   max-width: 40%;
   height: auto
+}
+
+.svg-project {
+  max-height: 50%;
+  max-width: 50%;
 }
