@@ -50,13 +50,14 @@
 
         <!-- List -->
         <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
-          <li class="mb-3">
-            <%= link_to "S'inscrire", new_user_registration_fr_path, class: "text-reset"  %>
-          </li>
-          <li class="mb-3">
-            <%= link_to "Se connecter", new_user_session_fr_path, class: "text-reset"  %>
-          </li>
-          <% if user_signed_in? %>
+          <% if !user_signed_in? %>
+            <li class="mb-3">
+              <%= link_to "S'inscrire", new_user_registration_fr_path, class: "text-reset"  %>
+            </li>
+            <li class="mb-3">
+              <%= link_to "Se connecter", new_user_session_fr_path, class: "text-reset"  %>
+            </li>
+          <% else %>
             <li class="mb-3">
               <%= link_to "Mon profil", user_fr_path(current_user), class: "text-reset"  %>
             </li>
