@@ -38,7 +38,7 @@
 
           <%= @project.name %>
           <% if current_user && (current_user.is_admin || current_user == @project_holder) %>
-            <%=link_to edit_project_fr_path(@project), class:"ml-5 text-gray-700", title:"Editer le projet" do%>
+            <%=link_to edit_project_fr_path(@project), class:"ml-5 text-gray-700", title:"Editer le projet" do %>
               <i class="fas fa-edit"></i>
             <%end%>
           <% end %>
@@ -89,7 +89,7 @@
 
         <% if @project.url %>
           <div class="container text-center">
-                  <%=link_to "Site du projet", @project.url, :target => "_blank" , class:"badge badge-pill badge-primary-soft"%>
+              <%=link_to "Site du projet", @project.url, :target => "_blank" , class:"badge badge-pill badge-primary-soft"%>
             </div>
         <% end %>
 
@@ -121,10 +121,11 @@
           </div>
         </div>
 
-        <%= social_share_button_tag(@project.name) %>
         <% unless @project.licence.blank? %>
-          <span class="d-flex justify-content-center shadow-light badge badge-lg badge-light mt-5 mx-auto bg-white"><%= @project.licence %></span>
+          <span class="d-flex justify-content-center shadow-light badge badge-lg badge-light mt-5 mx-auto bg-white mb-5"><%= @project.licence %></span>
         <% end %>
+        
+        <%= social_share_button_tag(@project.name) %>
       </div>
       <div class="col-auto">
         <%= link_to "Financer", project_charges_path(@project), class: "btn btn-primary fund_btn" %>
