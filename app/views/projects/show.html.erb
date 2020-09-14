@@ -25,10 +25,15 @@
         </span>
       <%end%>
 
-      <div class="col-12 col-md">
+      <div class="col-12 col-md mb-5">
+        <% @project.categories.each do |category| %>
+          <%= link_to category_fr_path(category), class: "badge badge-pill badge-primary-soft mb-5", title: "Voir la catégorie" do %>
+            <span class="h6 text-uppercase font-weight-bold"><%=category.name%></span>
+          <% end %>
+        <% end %><br>
 
         <!-- Link -->
-        <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none mb-5" do %>
+        <%= link_to root_path, :class => "font-weight-bold font-size-sm text-decoration-none mb-5 mt-5" do %>
           <i class="fas fa-arrow-left mr-3"></i>
           Tous les projets
         <% end %>
