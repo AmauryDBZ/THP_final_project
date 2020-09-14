@@ -1,7 +1,7 @@
 
 <div class="row">
   <div class="col-12">
-    
+
     <!-- Title -->
     <h3 class="text-gray-700" id="most_supported_projects">
       Les plus soutenus
@@ -15,11 +15,11 @@
 </div> <!-- / .row -->
 
 <div class="row">
-  <% @projects.order(:money_earned).reverse.first(10).each do |project| %>
+  <% @projects.order(:money_earned).reverse.first(5).each do |project| %>
     <%if project.validated %>
 
       <div class="col-12 col-md-4 d-flex">
-      
+
         <!-- Card -->
         <div class="card card-border card-border-lg mb-6 shadow-light-lg lift">
 
