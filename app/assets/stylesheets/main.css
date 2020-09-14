@@ -2,6 +2,16 @@ body{
   font-family: Helvetica, Arial, sans-serif;
 }
 
+.github_links{
+  font-size: 14px;
+  color: #506690;
+}
+
+.github_links:hover{
+  color: #506690;
+  text-decoration: none;
+}
+
 div.d-inline.stripe {
   margin-top: 50px;
 }
@@ -80,8 +90,11 @@ div.d-inline.stripe {
   max-width: 40%;
   height: auto
 }
+<<<<<<< HEAD
 
 .svg-project {
   max-height: 50%;
   max-width: 50%;
 }
+=======
+>>>>>>> 1860eb4b97d21fcbbebfc745ed83c828d50f6ebc
