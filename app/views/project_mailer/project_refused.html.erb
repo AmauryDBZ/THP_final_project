@@ -1,2 +1,5 @@
 <h2>Bonjour</h2>
-<p>Malheureusement, votre projet "<%= @project.name %>" a été refusé.</p>
+<p>Malheureusement, votre projet "<%= @project.name %>" a été refusé.<br>
+  Voici les propositions de modifications de nos administrateurs pour que votre projet soit mis en ligne: <br>
+  <em><%= @project.admin_explanations.last.content %></em>
+</p>
