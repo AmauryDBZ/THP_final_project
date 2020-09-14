@@ -1,2 +1,9 @@
-$("#modal-image").find(".modal-content").html("<%= j (render 'fullscreen') %>");
-$("#modal-image").modal();
+let image = $("#modal-image").find(".modal-content").html("<%= j (render 'fullscreen') %>");
+// console.log(image);
+// $("#modal-image").modal();
+// let image = document.getElementById('modal-content-image').html("<%= j (render 'fullscreen') %>");
+function image_fullscreen(){
+  $("#modal-image").modal();
+};
+
+image.addEventListener('dblclick', image_fullscreen());

@@ -11,8 +11,8 @@
 
 <!-- @project.image modal -->
 <div id="modal-image" class="modal hide fade" role="dialog" aria-labelledby="modal-image" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content"></div>
+  <div class="modal-dialog" id="modal-dialog-image" role="document">
+    <div class="modal-content" id="modal-content-image"></div>
   </div>
 </div>
 
@@ -147,17 +147,19 @@
               <div class="col-12 col-md-12">
                 <% if @project.images.attached? %>
                   <div class="carousel" data-flickity='{ "lazyLoad": 2, "prevNextButtons": false, "initialIndex": 1, "autoPlay": true }'>
+                    <% image_id = 0 %>
                     <% @project.images.each do |image| %>
 
-                    <%= link_to project_image_fr_path(project_slug: @project_id, id: @project_id.id), remote: true do %>
-                      <div class="col-12 col-md-5 col-lg-4">
-                        <%= image_tag image, class: "carousel-image rounded" %>
-                      </div>
-                    <% end %> <!-- link_to do-->
+                      <%= link_to project_image_fr_path(project_slug: @project_id, id: @project_id.id, image_id: image_id), remote: true do %>
+                        <div class="col-12 col-md-5 col-lg-4">
+                          <%= image_tag image, class: "carousel-image rounded" %>
+                        </div>
+                      <% end %> <!-- link_to do-->
 
+                      <% image_id += 1 %>
                     <% end %> <!-- each do -->
                   </div>
-                <% end %><!-- if -->
+                <% end %> <!-- if -->
               </div>
             </div>
           </div>

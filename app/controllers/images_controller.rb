@@ -6,12 +6,12 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @project = Project.friendly.find_by_slug(params[:slug])
-    puts "+++++++++++++++++++++++++++++++++++++++ Dans la def show d'images"
+    @project = Project.find_by(id: params[:id])
+    puts "======="
+    puts params
+    puts "======="
     respond_to do |format|
       format.js{
-        puts "-------------------------"
-        puts "Je suis en JS"
       }
     end
   end

@@ -1,7 +1,7 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-window-status">Titre</h4>
+  <h4 class="modal-title" id="modal-title-image"><%= @project.name %></h4>
   <button type="button" class="close" data-dismiss="modal"><i class="far fa-times-circle"></i></button>
 </div>
-<div class="modal-body">
-<p>texte</p>
+<div class="modal-body" id="modal-body-image">
+  <%= image_tag @project.images[(params[:image_id]).to_i]%>
 </div>
