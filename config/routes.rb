@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show] do
       resources :bank_details, only: [:show]
     end
+    resources :admin_explanations, only: [:new, :create]
     resources :bank_details, only: [:new, :create, :edit, :update]
     resources :static_pages, only: [:index]
     resources :admin, only: [:index]

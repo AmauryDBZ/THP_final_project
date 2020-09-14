@@ -297,4 +297,11 @@
       </div> <!-- row -->
     </div> <!-- container -->
   </section>
-<% end %>
+  <%else%>
+    <div class="container">
+      <h4 class=" col-md-12 text-center ml-10 m-3"><strong> Oh oh! On dirait que tu n'as pas encore proposé de projet... </strong></h4>
+      <div class=" svg-project">
+        <%= image_tag "https://pictures.kitties.netlib.re/jirafeau/f.php?h=0LkAtTRh&p=1", class: "m-10"%>
+      </div>
+    </div>
+  <% end %>
