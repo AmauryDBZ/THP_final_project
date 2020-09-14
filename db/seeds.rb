@@ -11,6 +11,7 @@ Project.reset_pk_sequence
 ProjectCategory.destroy_all
 ProjectCategory.reset_pk_sequence
 BankDetail.destroy_all
+AdminExplanation.destroy_all
 BankDetail.reset_pk_sequence
 puts "Database reset done!"
 
