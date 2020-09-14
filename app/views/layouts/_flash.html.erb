@@ -21,6 +21,10 @@
         var $toastContent = $('<span><%= flash[:error] %></span>');
         toastr.error($toastContent)
       <% end %>
+      <% if flash[:alert] %>
+        var $toastContent = $('<span><%= flash[:alert] %></span>');
+        toastr.error($toastContent)
+      <% end %>
     </script>
   </div>
 <% end %>
