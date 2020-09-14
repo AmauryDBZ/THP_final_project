@@ -15,6 +15,10 @@ class ProjectsController < ApplicationController
     @project_holder = User.find(@project.user_id)
     @donations = Donation.where(project_id: @project.id)
     @total = ((@project.daily_time_spent_on_project_per_developer)*(@project.number_of_developers_on_project))*5
+    # The result is multiplied by 5 since there is 5 worked day in a week --^*
+    @project_id = Project.friendly.find_by_slug(params[:slug])
+    puts "-------------------+++++++++++++++++++++++++++++++"
+    puts @project_id.id
   end
 
   def new
