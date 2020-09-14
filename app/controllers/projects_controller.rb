@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @categories = Category.all
   end
 
   def create
@@ -26,6 +27,9 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     @project.clicks = 0
     @project.money_earned = 0
+    params[:category_ids].each do |category|
+      @project.categories << Category.find(category.to_i)
+    end
       if @project.save
         flash[:success] = "Merci ! Nous allons vérifier les informations de votre projet"
         redirect_to :controller => 'projects', :action => 'index'
@@ -43,7 +47,7 @@ class ProjectsController < ApplicationController
       donation.delete
       end
       redirect_to root_path
-    else
+    else 
       flash[:danger] = "Le projet n'a pas pu être supprimé, veuillez rééssayer ultérieurement"
       redirect_to root_path
     end
@@ -70,6 +74,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :daily_time_spent_on_project_per_developer, :pitch, :functionalities, :value_of_project, :number_of_developers_on_project, :licence, :cover, images: [])
+    params.require(:project).permit(:name, :daily_time_spent_on_project_per_developer, :pitch, :functionalities, :value_of_project, :number_of_developers_on_project, :licence, :cover)
   end
 end
