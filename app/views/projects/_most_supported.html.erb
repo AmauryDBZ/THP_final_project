@@ -15,7 +15,7 @@
 </div> <!-- / .row -->
 
 <div class="row">
-  <% @projects.order(:money_earned).reverse.first(10).each do |project| %>
+  <% @projects.order(:money_earned).reverse.first(5).each do |project| %>
     <%if project.validated %>
 
       <div class="col-12 col-md-4 d-flex">
