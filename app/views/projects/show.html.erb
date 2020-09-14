@@ -138,16 +138,20 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12 col-md-12">
+
                 <% if @project.images.attached? %>
-                  <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 2, "prevNextButtons": false, "autoPlay": true}'>
+                  <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 2, "prevNextButtons": false, "initialIndex": 2, "autoPlay": true }'>
                     <%@project.images.each do |image| %>
-                      <%=image_tag image, data:{flickity: true, lazyload: true}, class: "carousel-image rounded mx-5"%>
+                    <div class="col-12 col-md-5 col-lg-4">
+                      <%= image_tag image, class: "carousel-image rounded" %>
+                    </div>
                     <%end%>
                   </div>
-                <%end%>
+                <% end %>
+
+
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div> <!-- / .row -->

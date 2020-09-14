@@ -1,32 +1,19 @@
 .carousel {
-  background: #ffffff
+  background: #FFF;
 }
 
 .carousel-image {
   display: block;
-  height: 500px;
+  height: 300px;
   /* set min-width, allow images to set cell width */
-  min-width: 300px;
+  min-width: 150px;
   max-width: 100%;
   margin-right: 10px;
   /* vertically center */
   top: 50%;
-  transform: translateY(-50%)
 }
 
-/* cell number */
-.carousel-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
-}
-
-
-.carousel-cell {
-  width: 100%; /* full width */
-  height: 160px; /* height of carousel */
-  margin-right: 10px;
+.carousel.is-fullscreen .carousel-image {
+  height: auto;
+  max-height: 100%;
 }
