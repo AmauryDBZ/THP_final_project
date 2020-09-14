@@ -28,16 +28,10 @@ module ProjectsHelper
 
   def monthly_donation
     @last_month_donation = []
-    puts '------------------ project helper ------------------------'
-    puts Donation.where(project_id: @project.id)
     Donation.where(project_id: @project.id).each do |d|
-      puts "created at #{d.created_at}"
-      puts Time.now
       if Time.now - d.created_at < (2*24*3600)
         @last_month_donation << d
       end
-      puts '--------------------------'
-      puts @last_month_donation
     end
     return @last_month_donation
   end
