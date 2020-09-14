@@ -94,7 +94,7 @@
         <%= render 'few_figures' %>
 
         <!-- Card -->
-        <div class="card shadow-light-lg">
+        <div class="card shadow-light-lg mb-5">
           <div class="card-body">
 
             <!-- Heading -->
@@ -112,9 +112,10 @@
               <%= @project_holder.first_name %>
               <i class="fas fa-arrow-right ml-3"></i>
             <% end %>
-
           </div>
         </div>
+
+        <%= social_share_button_tag(@project.name) %>
         <% unless @project.licence.blank? %>
           <span class="d-flex justify-content-center shadow-light badge badge-lg badge-light mt-5 mx-auto bg-white"><%= @project.licence %></span>
         <% end %>
