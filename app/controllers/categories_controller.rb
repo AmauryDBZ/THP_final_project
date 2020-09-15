@@ -5,13 +5,8 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def show 
-  end
-
-  def new
-  end
-
-  def create
+  def show
+    @projects =  @category.projects
   end
 
   private 

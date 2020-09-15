@@ -1,0 +1,31 @@
+<section class="section-border border-primary">
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+      <div class="col-12 col-md-5 col-lg-8 py-8 py-md-11 text-center">
+        <!-- Heading -->
+        <h1 class="mb-0 font-weight-bold">
+          Soumission d'un refus
+        </h1>
+
+        <!-- Text -->
+        <p class="mb-6 text-center text-muted">
+          Veuillez expliquer en quoi le projet proposé ne correspond pas aux critères de Go Open Source, afin de permettre à son développeur d'y apporter les modifications nécessaires.
+        </p>
+
+        <!-- Form -->
+        <%= form_with model: @explanation, local: true do |form| %>
+          <!-- Content -->
+          <div class="form-group mb-5">
+            <%= form.text_area :content, class: "form-control", placeholder: "Propositions de modifications et explications" %>
+          </div>
+            
+
+          <!-- Submit -->
+          <div class="form-group mb-5">
+            <%= form.button :Envoyer, name: "project",value: params[:project], class: "btn btn-block btn-primary" %>
+          </div>
+        <%end%>
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>
