@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @projects = Project.all
+    @projects = Project.where(validated: true).paginate(:page => params[:page], :per_page=> 6)
     @categories = Category.all
   end
 
