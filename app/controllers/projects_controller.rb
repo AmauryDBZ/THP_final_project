@@ -19,8 +19,6 @@ class ProjectsController < ApplicationController
     @total = ((@project.daily_time_spent_on_project_per_developer)*(@project.number_of_developers_on_project))*5
     # The result is multiplied by 5 since there is 5 worked day in a week --^*
     @project_id = Project.friendly.find_by_slug(params[:slug])
-    puts "-------------------+++++++++++++++++++++++++++++++"
-    puts @project_id.id
   end
 
   def new
@@ -55,7 +53,7 @@ class ProjectsController < ApplicationController
       donation.delete
       end
       redirect_to root_path
-    else 
+    else
       flash[:danger] = "Le projet n'a pas pu être supprimé, veuillez rééssayer ultérieurement"
       redirect_to root_path
     end

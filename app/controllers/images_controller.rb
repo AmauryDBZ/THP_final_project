@@ -7,9 +7,6 @@ class ImagesController < ApplicationController
 
   def show
     @project = Project.find_by(id: params[:id])
-    puts "======="
-    puts params
-    puts "======="
     respond_to do |format|
       format.js{
       }
