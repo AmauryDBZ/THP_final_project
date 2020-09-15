@@ -27,8 +27,8 @@
 
         <!-- Buttons -->
         <div class="container">
-            <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-primary mr-1 mt-3 lift" %>
-            <%= link_to "Voir tous les projets", projects_fr_path, class: "btn btn block btn-primary mr-1 mt-3  lift", data:{ toggle: 'smooth-scroll', offset: '0' }%>
+            <%= link_to "Voir tous les projets", projects_fr_path, class: "btn btn-primary mr-3 mt-3  lift"%>
+            <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn-sm btn-info mr-1 mt-3" %>
         </div>
       </div>
     </div> <!-- / .row -->
@@ -95,17 +95,17 @@
             <!-- Card -->
             <div class="card-group card-border card-border-lg border-primary shadow-light-lg">
               <div class="card border-left-md">
-                <%= link_to "#new_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
+                <%= link_to "#most_visited_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
                   <div class="card-body">
 
                     <!-- Heading -->
                     <h4 class="font-weight-bold text-center mb-0">
-                      Les plus récents
+                      Les plus visités
                     </h4>
 
                     <!-- Text -->
                     <p class="text-center text-muted mb-0">
-                      les derniers projets ajoutés <br>
+                      ceux qui ont le plus de vues <br>
                       <i class="fas fa-chevron-circle-down lift"></i>
                     </p>
 
@@ -131,17 +131,17 @@
                 <%end%>
               </div>
               <div class="card border-left-md">
-                <%= link_to "#most_visited_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
+                <%= link_to "#new_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
                   <div class="card-body">
 
                     <!-- Heading -->
                     <h4 class="font-weight-bold text-center mb-0">
-                      Les plus visités
+                      Les plus récents
                     </h4>
 
                     <!-- Text -->
                     <p class="text-center text-muted mb-0">
-                      ceux qui ont le plus de vues <br>
+                      les derniers projets ajoutés <br>
                       <i class="fas fa-chevron-circle-down lift"></i>
                     </p>
 
