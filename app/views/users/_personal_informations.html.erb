@@ -7,7 +7,7 @@
 
         <!-- Heading -->
         <h1 class="font-weight-bold text-white mb-2">
-          Mon profil
+          Mon profil <%=link_to edit_user_registration_fr_path(@user), class:"ml-5 btn btn-sm btn-secondary btn-rounded-circle lift text-gray-900", title:"Editer mes informations" do%><i class="fas fa-user-edit fa-1x"></i><%end%>
         </h1>
 
         <!-- Text -->
@@ -70,7 +70,7 @@
           <div class="card-header" id="basic_informations">
             <!-- Heading -->
             <h4 class="mb-0">
-              Mes informations <%=link_to edit_user_registration_fr_path(@user), class:"ml-5 text-gray-700", title:"Editer mes informations" do%><i class="fas fa-user-edit"></i><%end%>
+              Mes informations 
             </h4>
 
           </div>
@@ -239,7 +239,7 @@
                 <% if project.cover.attached? %>
                   <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top", alt: "image de couverture de #{project.name}" %>
                 <% else %>
-                  <%= image_tag "https://image.freepik.com/free-vector/business-team-discussing-ideas-startup_74855-4380.jpg", class: "card-img-top", alt: "image de couverture de #{project.name}" %>
+                  <%= image_tag "https://pictures.kitties.netlib.re/storage/business-team-discussing-ideas-startup.jpg", class: "card-img-top", alt: "image de couverture de #{project.name}" %>
                 <% end %>
 
                 <!-- Shape -->

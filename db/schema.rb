@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_111028) do
+ActiveRecord::Schema.define(version: 2020_09_14_194431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,14 +46,14 @@ ActiveRecord::Schema.define(version: 2020_09_14_111028) do
 
   create_table "bank_details", force: :cascade do |t|
     t.bigint "user_id"
+    t.string "bank_name"
+    t.string "iban"
+    t.string "branch_code"
+    t.string "bank_code"
+    t.string "account_number"
+    t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "key"
-    t.string "account_number"
-    t.string "bank_code"
-    t.string "branch_code"
-    t.string "iban"
-    t.string "bank_name"
     t.index ["user_id"], name: "index_bank_details_on_user_id"
   end
 
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_111028) do
     t.string "slug"
     t.boolean "validated"
     t.string "licence"
+    t.string "url"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
