@@ -2,12 +2,19 @@
 <% if current_user && (current_user == @project_holder || current_user.is_admin )%>
   <%= render "show_admin" %>
 
-  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div id="modal-status" class="modal hide fade" role="dialog" aria-labelledby="modal-status" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content"></div>
     </div>
   </div>
 <% end %>
+
+<!-- @project.image modal -->
+<div id="modal-image" class="modal hide fade" role="dialog" aria-labelledby="modal-image" aria-hidden="true">
+  <div class="modal-dialog" id="modal-dialog-image" role="document">
+    <div class="modal-content" id="modal-content-image"></div>
+  </div>
+</div>
 
 <!-- CONTENT
 ================================================== -->
@@ -158,13 +165,19 @@
               <div class="col-12 col-md-12">
                 <% if @project.images.attached? %>
                   <div class="carousel" data-flickity='{ "lazyLoad": 2, "prevNextButtons": false, "initialIndex": 1, "autoPlay": true }'>
+                    <% image_id = 0 %>
                     <% @project.images.each do |image| %>
-                      <div class="col-12 col-md-5 col-lg-4">
-                        <%= image_tag image, class: "carousel-image rounded" %>
-                      </div>
-                    <% end %>
+
+                      <%= link_to project_image_fr_path(project_slug: @project_id, id: @project_id.id, image_id: image_id), class: "m-0 p-auto", remote: true do %>
+                        <div class="col-12 col-md-5 col-lg-4">
+                          <%= image_tag image, class: "carousel-image rounded" %>
+                        </div>
+                      <% end %> <!-- link_to do-->
+
+                      <% image_id += 1 %>
+                    <% end %> <!-- each do -->
                   </div>
-                <% end %>
+                <% end %> <!-- if -->
               </div>
             </div>
           </div>

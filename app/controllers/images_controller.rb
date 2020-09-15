@@ -4,4 +4,12 @@ class ImagesController < ApplicationController
     @project.images.attach(params[:images])
     redirect_to(project_fr_path(@project))
   end
+
+  def show
+    @project = Project.find_by(id: params[:id])
+    respond_to do |format|
+      format.js{
+      }
+    end
+  end
 end
