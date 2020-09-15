@@ -39,12 +39,12 @@
           <!-- Categories -->
           <div class="row my-5">
             <div class="form_row">
-                <label for="category_ids[]">Catégories liées au projet:</label>
-                <% for category in Category.all do %>
-                  <br><%= check_box_tag 'category_ids[]', category.id,
-                          @project.category_ids.include?(category.id) %>
-                  <%= category.name.humanize %>
-                <% end %>
+              <label for="category_ids[]">Catégories liées au projet:</label>
+              <% for category in Category.all do %>
+                <br><%= check_box_tag 'category_ids[]', category.id,
+                @project.category_ids.include?(category.id) %>
+                <%= category.name.humanize %>
+              <% end %>
             </div>
           </div>         
 
