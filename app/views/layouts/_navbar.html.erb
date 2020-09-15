@@ -6,9 +6,9 @@
 
     <!-- Brand -->
     <%= link_to root_path, :class => "navbar-brand" do%>
-      <h2 class="ml-5 mt-2">
-          <%= image_tag "https://pictures.kitties.netlib.re/storage/logo_white.png", class: "img-logo",alt:"index"%>
-      </h2>
+    <h2 class="ml-5 mt-2">
+      <%= image_tag "https://pictures.kitties.netlib.re/storage/logo_white.png", class: "img-logo",alt:"index"%>
+    </h2>
     <%end%>
 
     <!-- Toggler -->
@@ -34,7 +34,7 @@
                       Vous voulez proposer un projet?
                     </h4>
                     <!-- Text -->
-                    <p class="font-size-sm text-white">      
+                    <p class="font-size-sm text-white">
                       Créez un compte et trouvez des financements auprès de particuliers.
                     </p>
                   <% else %>
@@ -43,11 +43,10 @@
                     </h4>
 
                     <!-- Text -->
-                    <p class="font-size-sm text-white">      
-                    Trouvez des financements auprès de particuliers.
+                    <p class="font-size-sm text-white">
+                      Trouvez des financements auprès de particuliers.
                     </p>
                   <% end %>
-                  </p>
                 </div>
               </div>
               <div class="col-12 col-lg-6">
@@ -76,16 +75,15 @@
           </div>
         </li>
         <% if user_signed_in? && current_user.is_admin %>
-          <div class="d-flex align-items-center mr-3">
-                <%=link_to "Administrateur", admin_index_path , class:"badge badge-pill badge-primary-soft"%>
-          </div>
-        <% end %>
-          <div class="d-flex align-items-center mr-10">
-             
-              <%=link_to "À propos", static_pages_fr_path , class:"badge badge-pill badge-primary-soft"%>
-          </div>
-          
+          <li class="nav-item dropdown mr-2 d-flex align-items-center">
+            <div class="d-flex align-items-center mr-3">
+              <%=link_to "Administrateur", admin_index_path , class:"badge badge-pill badge-primary-soft"%>
             </div>
+          </li>
+          <% end %>
+        <li class="nav-item dropdown mr-2 d-flex align-items-center">
+          <div class="d-flex align-items-center mr-10">
+            <%=link_to "À propos", static_pages_fr_path , class:"badge badge-pill badge-primary-soft"%>
           </div>
         </li>
       </ul>
