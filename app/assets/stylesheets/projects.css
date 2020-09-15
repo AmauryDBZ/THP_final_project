@@ -1,15 +1,13 @@
-#modal-title-image{
-  font-weight: bold;
-  width: auto;
-}
-
 #modal-body-image{
-padding: 0px;
-width: 100%;
-height: 100%;
-margin: auto;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 #image_fullscreen{
-margin: auto;
+  margin: auto;
+  max-width: 60em;
 }

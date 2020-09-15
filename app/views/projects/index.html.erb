@@ -27,8 +27,8 @@
 
         <!-- Buttons -->
         <div class="container">
-            <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-primary mr-1 mt-3 lift" %>
             <%= link_to "Voir tous les projets", "#list_projects", class: "btn btn block btn-primary mr-1 mt-3  lift", data:{ toggle: 'smooth-scroll', offset: '0' }%>
+            <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-secondary mr-1 mt-3 lift" %>
         </div>
       </div>
     </div> <!-- / .row -->
@@ -51,14 +51,14 @@
       <div class="card card-border card-border-lg border-info shadow-light">
         <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_time_management_30iu.svg", class: "card-img-top mt-5", style: "height: 150px;", alt:"horloge tournante" %>
         <div class="card-body">
-          <p class="card-text text-center text-gray-600"><strong>Une visualisation du temps nécessaire au développement de chacun des outils que vous utilisez.</strong></p>
+          <p class="card-text text-center text-gray-600"><strong>Une visualisation du temps nécessaire au développement des outils que vous utilisez.</strong></p>
         </div>
       </div>
 
       <div class="card card-border card-border-lg border-info shadow-light">
         <%= image_tag "https://pictures.kitties.netlib.re/storage/undraw_online_wishes_dlmr.svg", class: "card-img-top mt-5", style: "height: 150px;", alt:"accomplissement" %>
         <div class="card-body">
-          <p class="card-text text-center text-gray-600"><strong> Une rémunération juste, c'est-à-dire plus de temps pour le développement et un outil de meilleure qualité !</strong></p>
+          <p class="card-text text-center text-gray-600"><strong>Une rémunération juste, c'est-à-dire plus de temps pour le développement et un outil de meilleure qualité !</strong></p>
         </div>
       </div>
     </div>
@@ -78,23 +78,6 @@
 
             <!-- Card -->
             <div class="card-group card-border card-border-lg border-primary shadow-light-lg">
-                <div class="card">
-                <%= link_to "#list_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
-                  <div class="card-body">
-                    <!-- Heading -->
-                    <h4 class="font-weight-bold text-center mb-0">
-                      Tous les projets
-                    </h4>
-
-                    <!-- Text -->
-                    <p class="text-center text-muted mb-0">
-                      <small data-toggle="countup" data-from="0" data-to="<%=@projects.where(validated: true).size%>" data-aos data-aos-id="countup:in"></small> projets déjà en ligne <br>
-                      <i class="fas fa-chevron-circle-down mt-2 lift"></i>
-                    </p>
-                  </div>
-                <%end%>
-              </div>
-
               <div class="card border-left-md">
                 <%= link_to "#new_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
                   <div class="card-body">
@@ -149,6 +132,23 @@
                   </div>
                 <%end%>
               </div>
+
+              <div class="card">
+              <%= link_to "#list_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
+                <div class="card-body">
+                  <!-- Heading -->
+                  <h4 class="font-weight-bold text-center mb-0">
+                    Tous les projets
+                  </h4>
+
+                  <!-- Text -->
+                  <p class="text-center text-muted mb-0">
+                    <small data-toggle="countup" data-from="0" data-to="<%=@projects.where(validated: true).size%>" data-aos data-aos-id="countup:in"></small> projets déjà en ligne <br>
+                    <i class="fas fa-chevron-circle-down mt-2 lift"></i>
+                  </p>
+                </div>
+              <%end%>
+            </div>
             </div>
 
             <!--Categories
