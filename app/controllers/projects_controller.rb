@@ -29,8 +29,10 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     @project.clicks = 0
     @project.money_earned = 0
-    params[:category_ids].each do |category|
-      @project.categories << Category.find(category.to_i)
+    if params[:category_ids] != nil
+      params[:category_ids].each do |category|
+        @project.categories << Category.find(category.to_i)
+      end
     end
       if @project.save
         flash[:success] = "Merci ! Nous allons vérifier les informations de votre projet"
