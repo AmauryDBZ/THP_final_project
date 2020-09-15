@@ -21,8 +21,8 @@
         </h1>
 
         <!-- Text -->
-        <p class="lead text-muted mb-6 text-center">
-          Découvrez le meilleur du logiciel Libre et Open Source.
+        <p class= "lead text-muted mb-6 text-center">
+          Développeur comme visiteur, cette plateforme de financement<br> participatif vous permet d'ajouter votre pierre à l'édifice !<br>
         </p>
 
         <!-- Buttons -->
@@ -62,13 +62,18 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
+
 <!--Navigation ==============================-->
 <section class="pt-7 pt-md-10 " data-aos="fade-up">
-  <div class="container">
+  <div class="container mt-5">
+    <hr>
+    <p class="lead text-muted mb-6 text-center mb-10">
+      Découvrez le meilleur du logiciel Libre et Open Source
+    </p>
+    <%=render "most_visited"%>
 
     <!--Choices-->
     <section class="pt-0 pt-md-0 pb-4 pt-md-4">
@@ -93,25 +98,7 @@
             </div>
 
             <!-- Card -->
-            <div class="card-group card-border card-border-lg border-primary shadow-light-lg">
-              <div class="card border-left-md">
-                <%= link_to "#most_visited_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
-                  <div class="card-body">
-
-                    <!-- Heading -->
-                    <h4 class="font-weight-bold text-center mb-0">
-                      Les plus visités
-                    </h4>
-
-                    <!-- Text -->
-                    <p class="text-center text-muted mb-0">
-                      ceux qui ont le plus de vues <br>
-                      <i class="fas fa-chevron-circle-down lift"></i>
-                    </p>
-
-                  </div>
-                <%end%>
-              </div>
+            <div class="card-group card-border card-border-lg border-primary shadow-light-lg mx-10">
               <div class="card border-left-md">
                 <%= link_to "#most_supported_projects", data:{ toggle: 'smooth-scroll', offset: '0' }, class: "text-gray-800", style: "text-decoration: none" do%>
                   <div class="card-body">
@@ -200,7 +187,6 @@
 
     <!-- PROJECTS
     ========================================= -->
-    <%=render "most_visited"%>
     <%=render "most_supported"%>
     <%=render "new_projects"%>
 
