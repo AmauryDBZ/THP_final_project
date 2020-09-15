@@ -7,7 +7,7 @@
 
         <!-- Heading -->
         <h1 class="font-weight-bold text-white mb-2">
-          Mon profil
+          Mon profil <%=link_to edit_user_registration_fr_path(@user), class:"ml-5 btn btn-sm btn-secondary btn-rounded-circle lift text-gray-900", title:"Editer mes informations" do%><i class="fas fa-user-edit fa-1x"></i><%end%>
         </h1>
 
         <!-- Text -->
@@ -70,7 +70,7 @@
           <div class="card-header" id="basic_informations">
             <!-- Heading -->
             <h4 class="mb-0">
-              Mes informations <%=link_to edit_user_registration_fr_path(@user), class:"ml-5 text-gray-700", title:"Editer mes informations" do%><i class="fas fa-user-edit"></i><%end%>
+              Mes informations 
             </h4>
 
           </div>
