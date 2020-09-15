@@ -3,11 +3,7 @@ class ProjectsController < ApplicationController
   before_action :cannot_see_before_validation, only: [:show]
   before_action :cannot_edit_others_projects, only: [:edit]
   before_action :set_project
-<<<<<<< HEAD
-  before_action :authenticate_user!, only: [:new,:create]
-=======
   before_action :authenticate_user!, only: [:new, :create]
->>>>>>> f1925ab1cff2fb1088d1b3dfa45925cf96db23ce
 
   def index
     @projects = Project.all
