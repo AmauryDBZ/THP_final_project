@@ -38,7 +38,7 @@ class ChargesController < ApplicationController
     )
     if @donation.save
       flash[:success] = "Merci pour votre don !"
-      redirect_to root_path
+      redirect_to project_path(@project)
     else
       flash[:danger] = "Erreur(s) à rectifier pour valider votre don : #{@donation.errors.full_messages.each {|message| message}.join('')}"
       render :action => 'new'
