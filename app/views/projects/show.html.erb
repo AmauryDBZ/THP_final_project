@@ -122,7 +122,12 @@
         </div>
 
         <% unless @project.licence.blank? %>
-          <span class="d-flex justify-content-center shadow-light badge badge-lg badge-light mt-5 mx-auto bg-white mb-5"><%= @project.licence %></span>
+          <div class="card shadow-light-lg mb-5">
+            <div class="card-body">
+              <h4>Licence</h4>
+              <span class="d-flex justify-content-center shadow-light badge badge-lg badge-light mt-5 mx-auto bg-white mb-5"><%= @project.licence %></span>
+            </div>
+          </div>
         <% end %>
         
         <%= social_share_button_tag(@project.name) %>
