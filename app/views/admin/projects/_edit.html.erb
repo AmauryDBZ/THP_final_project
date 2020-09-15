@@ -4,7 +4,7 @@
 </div>
 <div class="modal-body">
   <div class="col text-center">
-    <%= link_to "Valider", admin_project_fr_path(@project, :status_project => "true"), class: "btn btn-outline-success", :method => "put", data: {confirm: "Êtes-vous sûr de vouloir valider le projet ?"} %>
-    <%= link_to "Refuser", new_admin_explanation_fr_path(:project => @project.id, :status_project => "false"), class: "btn btn-outline-danger", data: {confirm: "Êtes-vous sûr de vouloir refuser le projet ?"} %>
+    <%= link_to "Valider", admin_project_fr_path(@project, :status_project => "true"), class: "btn btn-outline-success", :method => "put" %>
+    <%= link_to "Refuser", new_admin_explanation_fr_path(:project => @project.id, :status_project => "false"), class: "btn btn-outline-danger" %>
   </div>
 </div>
