@@ -12,6 +12,14 @@
         <p class="font-size-lg text-white-75 mb-0">
           Informations de <%=@user.email%>
         </p>
+      
+        <!-- Link -->
+        <%= link_to :back, :class => "font-weight-bold font-size-sm text-decoration-none" do %>
+          <i class="fas fa-arrow-left mr-3"></i>
+          Page précédente
+        <% end %>
+
+
       </div>
     </div> <!-- / .row -->
   </div> <!-- / .container -->
@@ -204,7 +212,7 @@
                 <% if project.cover.attached? %>
                   <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top", alt: "image de couverture de #{project.name}" %>
                 <% else %>
-                  <%= image_tag "https://pictures.kitties.netlib.re/storage/business-team-discussing-ideas-startup.jpg", class: "card-img-top", alt: "image de couverture de #{project.name}" %>
+                  <%= image_tag "https://pictures.kitties.netlib.re/storage/business-team-discussing-ideas-startup.svg", class: "card-img-top", alt: "image de couverture de #{project.name}" %>
                 <% end %>
                 <!-- Shape -->
                 <div class="position-relative">
