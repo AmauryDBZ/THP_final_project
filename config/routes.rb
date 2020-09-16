@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   localized do
     devise_for :users
+    resources :landing_pages, only: [:index]
     resources :projects, param: :slug do
       resources :cover, only: [:create, :destroy]
       resources :images, only: [:create, :destroy, :show]
