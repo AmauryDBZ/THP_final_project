@@ -49,7 +49,7 @@
               <%= project.pitch.truncate_words(25) %>
             </p>
             <br>
-            <div class="progress" title="<%=project.money_earned%> € remboursés grâce aux dons ce mois-ci, sur un investissement de <%=project.value_of_project%> €">
+            <div class="progress" title="<%=project.money_earned%> € récoltés grâce aux dons ce mois-ci, pour un coût mensuel estimé à <%=project.value_of_project%> €">
               <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%=project.money_earned * 100 / project.value_of_project%>%" aria-valuenow="<%=project.money_earned * 100 / project.value_of_project%>" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
 
@@ -61,20 +61,25 @@
             <!-- Divider -->
             <hr class="card-meta-divider">
 
-            <!-- Author -->
-            <% if project.user.first_name && project.user.last_name %>
-              <%= link_to user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil" do %>
-                <%= project.user.first_name + ' ' + project.user.last_name  %>
-              <%end%>
-            <%else%>
-              <%=link_to "Voir le développeur", user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil"%>
-            <% end %>
+            <div class="d-flex justify-content-center">
+              <!-- Author -->
+              <div>
+                <% if project.user.first_name && project.user.last_name %>
+                  <%= link_to user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil" do %>
+                  <h6><%= project.user.first_name + ' ' + project.user.last_name  %></h6>
+                  <%end%>
+                <%else%>
+                  <h6><%=link_to "Voir le développeur", user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil"%></h6>
+                <% end %>
+              </div>
 
-            <!-- Date -->
-            <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-              <%= project.created_at.strftime('%d/%m/%Y')  %>
-            </p>
-
+              <!-- Date -->
+              <div class="ml-8">
+                <p class="h6 text-uppercase text-muted mb-0 ml-auto">
+                  <%= project.created_at.strftime('%d/%m/%Y')  %>
+                </p>
+              </div>
+            </div>
           </div>
 
         <%end%>
