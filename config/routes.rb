@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'landing_pages#index'
+  root 'landing_pages#index' 
 
   localized do
     devise_for :users
