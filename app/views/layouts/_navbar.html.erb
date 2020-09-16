@@ -6,9 +6,9 @@
 
     <!-- Brand -->
     <%= link_to root_path, :class => "navbar-brand" do%>
-    <h2 class="ml-5 mt-2">
-      <%= image_tag "https://pictures.kitties.netlib.re/storage/logo_white.png", class: "img-logo",alt:"index"%>
-    </h2>
+      <h2 class="ml-5 mt-2">
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/logo_white.png", class: "img-logo",alt:"index"%>
+      </h2>
     <%end%>
 
     <!-- Toggler -->
@@ -20,9 +20,6 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <!-- Navigation -->
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown mr-2 ">
-          <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn-xs btn-pill btn-primary mr-5 mt-2"%>
-        </li>
         <li class="nav-item dropdown mr-2">
           <%=link_to "#", class: "nav-link dropdown-toggle text-gray-700 mt-2", id: "navbarLandings", data:{ toggle: 'dropdown' }, aria:{haspopup: "true", expanded: "false"} do %>
             <% if current_user%>
@@ -57,7 +54,7 @@
                 </div>
               </div>
               <div class="col-12 col-lg-6">
-                <div class="dropdown-body mr-5">
+                <div class="dropdown-body mr-2 ">
                   <div class="row no-gutters">
                     <div class="col-6">
                       <!-- Heading -->
@@ -81,6 +78,9 @@
             </div> <!-- / .row -->
           </div>
         </li>
+        <li class="nav-item dropdown mr-2 ">
+          <%= link_to "Voir tous les projets", projects_fr_path, class: "btn btn-xs btn-pill btn-outline-primary mr-5 mt-2"%>
+        </li>
         <% if user_signed_in? && current_user.is_admin %>
           <li class="nav-item dropdown mr-2 d-flex align-items-center">
             <div class="d-flex align-items-center mr-3">
@@ -91,7 +91,7 @@
             </div>
           </li>
         <% end %>
-        <li class="nav-item dropdown mr-2 d-flex align-items-center">
+        <li class="nav-item dropdown mr-0 d-flex align-items-center">
           <div class="d-flex align-items-center mr-10">
             <%=link_to "À propos", static_pages_fr_path , class:"badge badge-pill badge-primary-soft text-gray-700"%>
           </div>
