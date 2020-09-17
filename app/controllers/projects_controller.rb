@@ -63,17 +63,21 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update(project_params)
-      ProjectCategory.where(project: @project).destroy_all
-      @project.update(categories: Category.find(params[:category_ids]) )
-      @project.update(validated: nil)
-      flash[:success] = "Merci ! Nous allons vérifier les nouvelles informations de votre projet"
-      redirect_to :controller => 'projects', :action => 'index'
-    else
-      flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@project.errors.full_messages.each {|message| message}.join('')}"
-      render :action => 'edit'
+      if @project.update(project_params)
+        if ProjectCategory.where(project: @project).size > 0
+          ProjectCategory.where(project: @project).destroy_all
+        end
+        if params[:category_ids]
+          @project.update(categories: Category.find(params[:category_ids]) )
+        end
+        @project.update(validated: nil)
+        flash[:success] = "Merci ! Nous allons vérifier les nouvelles informations de votre projet"
+        redirect_to :controller => 'projects', :action => 'index'
+      else
+        flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@project.errors.full_messages.each {|message| message}.join('')}"
+        render :action => 'edit'
+      end
     end
-  end
 
   private
 
