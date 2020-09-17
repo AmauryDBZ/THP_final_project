@@ -2,8 +2,15 @@
 ================================================== -->
 <section class="section-border border-primary">
   <div class="container d-flex flex-column">
+    <div class="row  ml-10 mt-5">
+      <!-- Link -->
+      <%= link_to :back, :class => "font-weight-bold font-size-sm text-decoration-none" do %>
+        <i class="fas fa-arrow-left mr-3"></i>
+        Page précédente
+      <% end %>
+    </div>
     <div class="row align-items-center justify-content-center no-gutters min-vh-100">
-      <div class="col-12 col-md-5 col-lg-8 py-8 py-md-11 text-center">
+      <div class="col-12 col-md-5 col-lg-8 py-8 text-center">
         <!-- Heading -->
         <h1 class="mb-0 font-weight-bold">
           Créez votre projet
@@ -15,7 +22,7 @@
         </p>
 
         <!-- Form -->
-        <%= form_with model: @project, class: "text-left", local: true do |form| %>
+        <%= form_with model: @project, class: "text-left", local: true, multipart: true do |form| %>
 
           <!-- Name -->
           <div class="form-group mb-5">
@@ -36,22 +43,21 @@
             <%= form.text_area :functionalities, class: "form-control", placeholder: "Les caractéristiques techniques de votre projet, et ses fonctionnalités." %>
           </div>
 
-          <!-- Categories -->
-          <div class="row my-5">
-            <div class="form_row">
-              <label for="category_ids[]">Catégories liées au projet:</label>
-              <% for category in Category.all do %>
-                <br><%= check_box_tag 'category_ids[]', category.id,
-                @project.category_ids.include?(category.id) %>
-                <%= category.name.humanize %>
-              <% end %>
-            </div>
-          </div>         
-
           <!-- URL -->
           <div class="form-group mb-5">
             <%= form.label :url, "L'url de ton projet.", class: "mb-5" %>
             <%= form.text_field :url, class: "form-control", placeholder: "https://monprojet.com/" %>
+          </div>
+
+          <!-- Categories -->
+          <div class="row my-5 ml-1">
+            <div class="form_row">
+              <label for="category_ids[]">Catégories liées au projet:</label>
+              <% for category in Category.all do %>
+                <br><%= check_box_tag 'category_ids[]', category.id, @project.category_ids.include?(category.id) %>
+                <%= category.name.humanize %>
+              <% end %>
+            </div>
           </div>
 
           <!-- Value of project  -->
@@ -69,14 +75,14 @@
           <!-- Daily time spent on project per developer  -->
           <div class="form-group mb-5">
             <%= form.label :daily_time_spent_on_project_per_developer, "Nombre d'heures quotidiennes passées sur le projet, par développeur. *", class: "mb-5"%><br>
-            <%= form.select :daily_time_spent_on_project_per_developer, options_for_select(1..12), {}, { class: "form-control" } %>
+            <%= form.select :daily_time_spent_on_project_per_developer, options_for_select(1..12), {}, { class: "custom-select" } %>
           </div>
 
           <!-- licence used for the project  -->
           <div class="form-group mb-5">
             <%= form.label :licence, "Type de licence utilisée pour votre projet", class: "mb-5"%><br>
             <%= form.select :licence, ['Aucune', 'Apache License 2.0', 'BSD 3-Clause "New" or "Revised" license', 'BSD 2-Clause "Simplified" or "FreeBSD" license', 'GNU General Public License (GPL)', 'GNU Library or "Lesser" General Public License (LGPL)', 'MIT license', 'Mozilla Public License 2.0', '
-            Common Development and Distribution License', 'Eclipse Public License version 2.0', 'Autre']%>
+            Common Development and Distribution License', 'Eclipse Public License version 2.0', 'Autre'], {}, { class: "custom-select" } %>
           </div>
 
           <!-- Cover on project -->
@@ -87,10 +93,9 @@
 
           <!-- Images on project -->
           <div class="form-group mb-5">
-          <%= form.label  "Ajouter des photos de présentations à votre projet", class: "mb-5" %><br>
-          <%= form.file_field :images, multiple: true %>
+            <%= form.label "Photos de présentations de votre projet", class: "mb-5" %><br>
+            <%= form.file_field :images, multiple: true %>
           </div>
-
 
           <!-- Submit -->
           <div class="form-group mb-5">

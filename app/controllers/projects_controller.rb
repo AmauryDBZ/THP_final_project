@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @projects = Project.all
+    @projects = Project.where(validated: true).paginate(:page => params[:page], :per_page=> 6)
     @categories = Category.all
   end
 
@@ -17,6 +17,8 @@ class ProjectsController < ApplicationController
     @month_total = 0
     @donations.each { |d| @month_total += d.amount }
     @total = ((@project.daily_time_spent_on_project_per_developer)*(@project.number_of_developers_on_project))*5
+    # The result is multiplied by 5 since there is 5 worked days in a week --^
+    @project_id = Project.friendly.find_by_slug(params[:slug])
   end
 
   def new
@@ -51,7 +53,7 @@ class ProjectsController < ApplicationController
       donation.delete
       end
       redirect_to root_path
-    else 
+    else
       flash[:danger] = "Le projet n'a pas pu être supprimé, veuillez rééssayer ultérieurement"
       redirect_to root_path
     end
@@ -61,17 +63,21 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update(project_params)
-      ProjectCategory.where(project: @project).destroy_all
-      @project.update(categories: Category.find(params[:category_ids]) )
-      @project.update(validated: nil)
-      flash[:success] = "Merci ! Nous allons vérifier les nouvelles informations de votre projet"
-      redirect_to :controller => 'projects', :action => 'index'
-    else
-      flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@project.errors.full_messages.each {|message| message}.join('')}"
-      render :action => 'edit'
+      if @project.update(project_params)
+        if ProjectCategory.where(project: @project).size > 0
+          ProjectCategory.where(project: @project).destroy_all
+        end
+        if params[:category_ids]
+          @project.update(categories: Category.find(params[:category_ids]) )
+        end
+        @project.update(validated: nil)
+        flash[:success] = "Merci ! Nous allons vérifier les nouvelles informations de votre projet"
+        redirect_to :controller => 'projects', :action => 'index'
+      else
+        flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@project.errors.full_messages.each {|message| message}.join('')}"
+        render :action => 'edit'
+      end
     end
-  end
 
   private
 

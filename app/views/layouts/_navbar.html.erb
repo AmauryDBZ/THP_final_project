@@ -7,7 +7,7 @@
     <!-- Brand -->
     <%= link_to root_path, :class => "navbar-brand" do%>
       <h2 class="ml-5 mt-2">
-          <%= image_tag "https://pictures.kitties.netlib.re/storage/logo_white.png", class: "img-logo",alt:"index"%>
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/logo_white.png", class: "img-logo",alt:"index"%>
       </h2>
     <%end%>
 
@@ -21,20 +21,24 @@
       <!-- Navigation -->
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown mr-2">
-          <%=link_to "#", class: "nav-link dropdown-toggle text-gray-700", id: "navbarLandings", data:{ toggle: 'dropdown' }, aria:{haspopup: "true", expanded: "false"} do %>
-            <i class="fas fa-user"></i>
+          <%=link_to "#", class: "nav-link dropdown-toggle text-gray-700 mt-2", id: "navbarLandings", data:{ toggle: 'dropdown' }, aria:{haspopup: "true", expanded: "false"} do %>
+            <% if current_user%>
+              <i class="fas fa-user-cog"></i>
+            <%else%>
+              <i class="fas fa-user"></i>
+            <%end%>
           <%end%>
           <div class="dropdown-menu dropdown-menu-xl p-0" aria-labelledby="navbarLandings">
             <div class="row no-gutters">
               <div class="col-12 col-lg-6">
-                <div class="dropdown-img-left" style="background-image: url(https://images.unsplash.com/photo-1492551557933-34265f7af79e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+                <div class="dropdown-img-left" style="background-image: url(https://pictures.kitties.netlib.re/storage/menu_login.jpeg);">
                   <!-- Heading -->
                   <% if !user_signed_in? %>
                     <h4 class="font-weight-bold text-white mb-2">
                       Vous voulez proposer un projet?
                     </h4>
                     <!-- Text -->
-                    <p class="font-size-sm text-white">      
+                    <p class="font-size-sm text-white">
                       Créez un compte et trouvez des financements auprès de particuliers.
                     </p>
                   <% else %>
@@ -43,15 +47,14 @@
                     </h4>
 
                     <!-- Text -->
-                    <p class="font-size-sm text-white">      
-                    Trouvez des financements auprès de particuliers.
+                    <p class="font-size-sm text-white">
+                      Trouvez des financements auprès de particuliers.
                     </p>
                   <% end %>
-                  </p>
                 </div>
               </div>
               <div class="col-12 col-lg-6">
-                <div class="dropdown-body mr-5">
+                <div class="dropdown-body mr-2 ">
                   <div class="row no-gutters">
                     <div class="col-6">
                       <!-- Heading -->
@@ -75,17 +78,26 @@
             </div> <!-- / .row -->
           </div>
         </li>
+        <li class="nav-item dropdown mr-2 ">
+          <%if current_user%>
+            <%= link_to "Proposez un projet", new_project_fr_path, class: "btn btn-xs btn-pill btn-outline-primary mr-5 mt-2"%>
+          <%else%>
+            <%= link_to "Voir tous les projets", projects_fr_path, class: "btn btn-xs btn-pill btn-outline-primary mr-5 mt-2"%>
+          <%end%>
+        </li>
         <% if user_signed_in? && current_user.is_admin %>
-          <div class="d-flex align-items-center mr-3">
-                <%=link_to "Administrateur", admin_index_path , class:"badge badge-pill badge-primary-soft"%>
-          </div>
-        <% end %>
-          <div class="d-flex align-items-center mr-10">
-             
-              <%=link_to "À propos", static_pages_fr_path , class:"badge badge-pill badge-primary-soft"%>
-          </div>
-          
+          <li class="nav-item dropdown mr-2 d-flex align-items-center">
+            <div class="d-flex align-items-center mr-3">
+              <%=link_to admin_index_path , class:"badge badge-pill badge-primary-soft text-gray-700", title: "Accéder à l'espace administrateur" do%>
+                Administrateur
+                <i class="fas fa-unlock-alt"></i>
+              <%end%>
             </div>
+          </li>
+        <% end %>
+        <li class="nav-item dropdown mr-0 d-flex align-items-center">
+          <div class="d-flex align-items-center mr-10">
+            <%=link_to "À propos", static_pages_fr_path , class:"badge badge-pill badge-primary-soft text-gray-700"%>
           </div>
         </li>
       </ul>

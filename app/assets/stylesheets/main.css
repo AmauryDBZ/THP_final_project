@@ -81,17 +81,22 @@ div.d-inline.stripe {
   text-decoration: none;
 }
 
-.img-logo {
-  max-width: 30%;
-  height: auto
-}
-
-.img-logo-footer {
-  max-width: 40%;
-  height: auto
-}
-
 .svg-project {
   max-height: 50%;
   max-width: 50%;
+}
+
+/*css for images in project*/
+#modal-body-image{
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#image_fullscreen{
+  margin: auto;
+  max-width: 60em;
 }

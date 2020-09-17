@@ -20,9 +20,9 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user.delete
+    @user.destroy
     Project.where(user_id: @user.id).each do |project|
-      project.delete
+      project.destroy
     end
     respond_to do |format|
       format.html {

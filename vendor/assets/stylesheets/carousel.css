@@ -7,8 +7,9 @@
   height: 300px;
   /* set min-width, allow images to set cell width */
   min-width: 150px;
-  max-width: 100%;
-  margin-right: 10px;
+  width: auto;
+  margin-left: 50px;
+  margin-right: 50px;
   /* vertically center */
   top: 50%;
 }

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12">
-    
+
     <!-- Title -->
     <h3 class="text-gray-700" id="list_projects">
       Tous les projets
@@ -16,72 +16,77 @@
 <div class="row">
 
   <% @projects.each do |project| %>
-    <%if project.validated %>
+    <div class="col-12 col-md-4 d-flex">
 
-      <div class="col-12 col-md-4 d-flex">
-      
-        <!-- Card -->
-        <div class="card card-border card-border-lg mb-6 shadow-light-lg lift">
+      <!-- Card -->
+      <div class="card card-border card-border-lg mb-6 shadow-light-lg lift">
 
-          <%= link_to project_path(project), style: "text-decoration: none", title: "En savoir plus" do %>
-            <!-- Image -->
-            <% if project.cover.attached? %>
-              <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top", alt: "image de couverture de #{project.name}" %>
-            <% else %>
-              <%= image_tag "https://pictures.kitties.netlib.re/storage/business-team-discussing-ideas-startup.jpg", class: "card-img-top", alt: "image de couverture de #{project.name}" %>
-            <% end %>
+        <%= link_to project_path(project), style: "text-decoration: none", title: "En savoir plus" do %>
+          <!-- Image -->
+          <% if project.cover.attached? %>
+            <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top", alt: "image de couverture de #{project.name}" %>
+          <% else %>
+            <%= image_tag "https://pictures.kitties.netlib.re/storage/business-team-discussing-ideas-startup.svg", class: "card-img-top", alt: "image de couverture de #{project.name}" %>
+          <% end %>
 
-            <!-- Shape -->
-            <div class="position-relative">
-              <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
-                <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>
-              </div>
+          <!-- Shape -->
+          <div class="position-relative">
+            <div class="shape shape-bottom shape-fluid-x svg-shim text-white">
+              <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+
+            <!-- Heading -->
+            <h3 class="text-gray-800">
+              <%= project.name %>
+            </h3>
+
+            <!-- Text -->
+            <p class="mb-0 text-muted">
+              <%= project.pitch.truncate_words(25) %>
+            </p>
+            <br>
+            <div class="progress" title="<%=project.money_earned%> € récoltés grâce aux dons ce mois-ci, pour un coût mensuel estimé à <%=project.value_of_project%> €">
+              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%=project.money_earned * 100 / project.value_of_project%>%" aria-valuenow="<%=project.money_earned * 100 / project.value_of_project%>" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
 
-            <!-- Body -->
-            <div class="card-body">
+          </div>
 
-              <!-- Heading -->
-              <h3 class="text-gray-800">
-                <%= project.name %>
-              </h3>
+          <!-- Meta -->
+          <div class="card-meta mt-auto">
 
-              <!-- Text -->
-              <p class="mb-0 text-muted">
-                <%= project.pitch.truncate_words(25) %>
-              </p>
-              <br>
-              <div class="progress" title="<%=project.money_earned%> € remboursés grâce aux dons ce mois-ci, sur un investissement de <%=project.value_of_project%> €">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%=project.money_earned * 100 / project.value_of_project%>%" aria-valuenow="<%=project.money_earned * 100 / project.value_of_project%>" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+            <!-- Divider -->
+            <hr class="card-meta-divider">
 
-            </div>
-
-            <!-- Meta -->
-            <div class="card-meta mt-auto">
-
-              <!-- Divider -->
-              <hr class="card-meta-divider">
-
+            <div class="d-flex justify-content-center">
               <!-- Author -->
-              <% if project.user.first_name && project.user.last_name %>
-                <%= link_to user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil" do %>
-                  <%= project.user.first_name + ' ' + project.user.last_name  %>
-                <%end%>
-              <%else%>
-                <%=link_to "Voir le développeur", user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil"%>
-              <% end %>
+              <div>
+                <% if project.user.first_name && project.user.last_name %>
+                  <%= link_to user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil" do %>
+                  <h6><%= project.user.first_name + ' ' + project.user.last_name  %></h6>
+                  <%end%>
+                <%else%>
+                  <h6><%=link_to "Voir le développeur", user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil"%></h6>
+                <% end %>
+              </div>
 
               <!-- Date -->
-              <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-                <%= project.created_at.strftime('%d/%m/%Y')  %>
-              </p>
-
+              <div class="ml-8">
+                <p class="h6 text-uppercase text-muted mb-0 ml-auto">
+                  <%= project.created_at.strftime('%d/%m/%Y')  %>
+                </p>
+              </div>
             </div>
+          </div>
 
-          <%end%>
-        </div>
+        <%end%>
       </div>
-    <%end%>
+    </div>
   <%end%>
+</div>
+<div class="d-flex justify-content-center pagination">
+  <%= will_paginate @projects %>
 </div>
