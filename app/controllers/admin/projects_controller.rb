@@ -25,11 +25,10 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def destroy
-    @project.delete
-    if @project.delete
+    if @project.destroy
       flash[:success] = "Le projet a bien été supprimé"
       Donation.where(project_id: @project.id).each do |donation|
-      donation.delete
+      donation.destroy
       end
       redirect_to root_path
     else
