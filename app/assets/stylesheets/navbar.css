@@ -6,3 +6,8 @@
   text-decoration: none;
   color: #1B2A4D;
 }
+
+.img-logo {
+  max-width: 30%;
+  height: auto
+}
