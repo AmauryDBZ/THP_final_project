@@ -8,8 +8,8 @@ class ImagesController < ApplicationController
   def show
     @project = Project.find_by(id: params[:id])
     respond_to do |format|
-      format.js{
-      }
+      format.html{}
+      format.js{}
     end
   end
 end
