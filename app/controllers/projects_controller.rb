@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     @month_total = 0
     @donations.each { |d| @month_total += d.amount }
     @total = ((@project.daily_time_spent_on_project_per_developer)*(@project.number_of_developers_on_project))*5
-    # The result is multiplied by 5 since there is 5 worked day in a week --^*
+    # The result is multiplied by 5 since there is 5 worked days in a week --^
     @project_id = Project.friendly.find_by_slug(params[:slug])
   end
 
