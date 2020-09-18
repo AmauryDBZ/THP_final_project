@@ -78,3 +78,5 @@ gem 'mini_magick', '>= 4.3.5'
 gem 'dotenv-rails'
 gem 'aws-sdk-s3'
 gem 'toastr-rails'
+gem 'social-share-button'
+gem "will_paginate" 

@@ -12,12 +12,21 @@
 
 ## The first crowdfunding plateform dedicated to open sources and free softwares
 
-Go check it: __[GoOpenSource](https://go-open-source.herokuapp.com/)__
+Go check it: __[GoOpenSource](https://go-open-source.herokuapp.com/)__  
+[Presentation video (in french)](https://www.youtube.com/watch?v=F0IGXNUja6o)
 <details>
 <summary>Example</summary>
 
 moussaillon @ yopmail.com || Azerty
 </details>
+
+#### Installation instructions
+This application uses Ruby 2.5.1 and Rails 5.2.4
+1. Install dependencies: `sudo apt install imagemagick postgresql-12`
+2. Install gems: `bundle install`
+3. Create pg database: `rails db:create`
+4. Migrate: `rails db:migrate`
+5. Run the seed to fill database: `rails db:seed`
 
 ## 1. Presentation
 We propore to teams of developers to publish their project on our plateform so they can both earn money and highlight all the work that developing a free or open sources software. The website is currently developed in french.  
@@ -45,15 +54,15 @@ We use six tables (excluding active storage tables):
 * __friendly_id_slugs__: links items id from various tables to a slug (human readable text id).
 
 ### 3.2 Frontend :
-We use Bootstrap theme [landkit](https://themes.getbootstrap.com/product/landkit/).  
+We use Bootstrap theme [landkit](https://themes.getbootstrap.com/product/landkit/). Pictures are hosted on our server using a Raspberry Pi.
 
 ### 3.3 Backend :
 API: we based our payment system on Stripe
 
-## 4. Le MVP :
+## 4. The MVP :
 A fully operational DB, a complete user stories as described above, an admin dashboard.
 
-## 5. La version que l'on présentera aux jury
+## 5. Final version :
 Who knows what surprises will we bring to you?
 
 ## 6. Mentor

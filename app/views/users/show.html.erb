@@ -1,4 +1,4 @@
-<% if current_user == @user %>
+<% if current_user && current_user == @user %>
   <% if !current_user.bank_details.last %>
     <%= render "bank_informations_reminder" %>
   <% end %>

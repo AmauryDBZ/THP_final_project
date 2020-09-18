@@ -7,13 +7,19 @@
 
         <!-- Heading -->
         <h1 class="font-weight-bold text-white mb-2">
-          Mon profil
+          Mon profil <%=link_to edit_user_registration_fr_path(@user), class:"ml-5 btn btn-sm btn-secondary btn-rounded-circle lift text-gray-900", title:"Editer mes informations" do%><i class="fas fa-user-edit fa-1x"></i><%end%>
         </h1>
 
         <!-- Text -->
         <p class="font-size-lg text-white-75 mb-0">
           Parmètres de <%=@user.email%>
         </p>
+
+        <!-- Link -->
+        <%= link_to :back, :class => "font-weight-bold font-size-sm text-decoration-none" do %>
+          <i class="fas fa-arrow-left mr-3"></i>
+          Page précédente
+        <% end %>
 
       </div>
       <div class="col-auto">
@@ -70,7 +76,7 @@
           <div class="card-header" id="basic_informations">
             <!-- Heading -->
             <h4 class="mb-0">
-              Mes informations <%=link_to edit_user_registration_fr_path(@user), class:"ml-5 text-gray-700", title:"Editer mes informations" do%><i class="fas fa-user-edit"></i><%end%>
+              Mes informations
             </h4>
 
           </div>
@@ -217,29 +223,29 @@
 
           <div class="col-12 col-md-4 d-flex">
 
-            <!-- Card -->
-            <div class="card card-border card-border-lg mb-6 shadow-light-lg lift lift-lg">
-              <!-- Badge -->
-              <% if project.validated %>
-                <span class="badge badge-success badge-pill badge-float badge-float-outside">
-                  Validé
-                </span>
-              <% elsif project.validated == nil %>
-                <span class="badge badge-warning badge-pill badge-float badge-float-outside">
-                  En attente de validation
-                </span>
-              <% else %>
-                <span class="badge badge-danger badge-pill badge-float badge-float-outside">
-                  Refusé par l'administration
-                </span>
-              <% end %>
+            <%= link_to project_path(project), style: "text-decoration: none" do %>
+              <!-- Card -->
+              <div class="card card-border card-border-lg mb-6 shadow-light-lg lift lift-lg">
+                <!-- Badge -->
+                <% if project.validated %>
+                  <span class="badge badge-success badge-pill badge-float badge-float-outside">
+                    Validé
+                  </span>
+                <% elsif project.validated == nil %>
+                  <span class="badge badge-warning badge-pill badge-float badge-float-outside">
+                    En attente de validation
+                  </span>
+                <% else %>
+                  <span class="badge badge-danger badge-pill badge-float badge-float-outside">
+                    Refusé par l'administration
+                  </span>
+                <% end %>
 
-              <%= link_to project_path(project), style: "text-decoration: none" do %>
                 <!-- Image -->
                 <% if project.cover.attached? %>
                   <%= image_tag project.cover.variant(resize: '480x320').processed, class: "card-img-top", alt: "image de couverture de #{project.name}" %>
                 <% else %>
-                  <%= image_tag "https://image.freepik.com/free-vector/business-team-discussing-ideas-startup_74855-4380.jpg", class: "card-img-top", alt: "image de couverture de #{project.name}" %>
+                  <%= image_tag "https://pictures.kitties.netlib.re/storage/business-team-discussing-ideas-startup.svg", class: "card-img-top", alt: "image de couverture de #{project.name}" %>
                 <% end %>
 
                 <!-- Shape -->
@@ -255,7 +261,7 @@
                 <div class="card-body">
 
                   <!-- Heading -->
-                  <h3>
+                  <h3 class="text-gray-800">
                     <%= project.name %> <%=link_to edit_project_fr_path(project), class:"ml-5 text-gray-700", title:"Editer le projet" do %><i class="fas fa-edit"></i> <% end %>
                   </h3>
 
@@ -266,7 +272,7 @@
                 </div>
                 <% if project.validated%>
                   <br>
-                  <div class="progress">
+                  <div class="progress mx-5" title="<%=project.money_earned%> € récoltés grâce aux dons ce mois-ci, pour un coût mensuel estimé à <%=project.value_of_project%> €">
                     <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: <%=project.money_earned * 100 / project.value_of_project%>%" aria-valuenow="<%=project.money_earned * 100 / project.value_of_project%>" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 <%end%>
@@ -277,24 +283,38 @@
                   <!-- Divider -->
                   <hr class="card-meta-divider">
 
-                  <!-- Author -->
-                  <% if project.user.first_name && project.user.last_name %>
-                  <h6 class="text-uppercase text-muted mr-2 mb-0">
-                    <%= project.user.first_name + ' ' + project.user.last_name  %>
-                  </h6>
-                  <% end %>
+                  <div class="d-flex justify-content-center">
+                    <!-- Author -->
+                    <div>
+                      <% if project.user.first_name && project.user.last_name %>
+                        <%= link_to user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil" do %>
+                          <h6><%= project.user.first_name + ' ' + project.user.last_name  %></h6>
+                        <%end%>
+                      <%else%>
+                        <h6><%=link_to "Voir le développeur", user_fr_path(project.user), class: "text-uppercase text-muted mr-2 mb-0", title:"Voir le profil"%></h6>
+                      <% end %>
+                    </div>
 
-                  <!-- Date -->
-                  <p class="h6 text-uppercase text-muted mb-0 ml-auto">
-                    <%= project.created_at.strftime('%d/%m/%Y')  %>
-                  </p>
-
+                    <!-- Date -->
+                    <div class="ml-8">
+                      <p class="h6 text-uppercase text-muted mb-0 ml-auto">
+                        <%= project.created_at.strftime('%d/%m/%Y')  %>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              <% end %>
-            </div>  <!-- card -->
+              </div>  <!-- card -->
+            <% end %>
           </div> <!-- col-12 -->
-        <% end %> <!-- what -->
+        <% end %> <!-- each -->
       </div> <!-- row -->
     </div> <!-- container -->
   </section>
-<% end %>
+  <%else%>
+    <div class="container">
+      <h4 class=" col-md-12 text-center ml-10 m-3"><strong> Oh oh! On dirait que tu n'as pas encore proposé de projet... </strong></h4>
+      <div class=" svg-project">
+        <%= image_tag "https://pictures.kitties.netlib.re/jirafeau/f.php?h=0LkAtTRh&p=1", class: "m-10"%>
+      </div>
+    </div>
+  <% end %>

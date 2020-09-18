@@ -2,16 +2,24 @@
 ================================================== -->
 <section class="section-border border-primary">
   <div class="container d-flex flex-column">
-    <div class="row mt-5">
+    <div class="row mt-5 mb-5">
       <div class="col-md-1">
         <i class="fas fa-exclamation fa-2x mt-5 text-muted text-center"></i>
       </div>
       <div class="col-md-11">
         <small class="text-muted mt-3 mx-2">
           Attention, si ce projet a été déjà validé par l'administration, l'édition du projet nécessitera une nouvelle validation avant de pouvoir être de nouveau accessible au public. La réception de dons est close jusqu'à l'admission des modifications par un administrateur.
-        </small>
+        </small><br>
       </div>
     </div>
+    <div class="row  ml-10 mt-5">
+      <!-- Link -->
+      <%= link_to :back, :class => "font-weight-bold font-size-sm text-decoration-none" do %>
+        <i class="fas fa-arrow-left mr-3"></i>
+        Page précédente
+      <% end %>
+    </div>
+
     <div class="row align-items-center justify-content-center no-gutters min-vh-100">
 
       <div class="col-12 col-md-5 col-lg-8 py-8 py-md-11 pt-0 mt-0 text-center">
@@ -25,13 +33,14 @@
           <%end%>
         </h1>
 
+
         <!-- Text -->
         <p class="mb-6 text-center text-muted">
           Remplissez les informations suivantes afin qu'un administrateur valide vos modifications.
         </p>
 
         <!-- Form -->
-        <%= form_with model: @project, local: true, url: project_fr_path, method: :patch  do |form| %>
+        <%= form_with model: @project, local: true, url: project_fr_path, class: "text-left", method: :patch  do |form| %>
 
           <!-- Name -->
           <div class="form-group mb-5">
@@ -50,6 +59,18 @@
           <div class="form-group mb-5">
             <%= form.label :functionalities, 'Les fonctionnalités de votre projet.' %>
             <%= form.text_area :functionalities, class: "form-control", placeholder: "Les caractéristiques techniques de votre projet, et ses fonctionnalités." %>
+          </div>
+
+          <!-- Categories -->
+          <div class="row my-5">
+            <div class="form_row">
+                <label for="category_ids[]">Catégories liées au projet:</label>
+                <% for category in Category.all do %>
+                  <br><%= check_box_tag 'category_ids[]', category.id,
+                          @project.category_ids.include?(category.id) %>
+                  <%= category.name.humanize %>
+                <% end %>
+            </div>
           </div>
 
           <!-- Value of project  -->
@@ -73,14 +94,21 @@
           <!-- licence used for the project  -->
           <div class="form-group mb-5">
             <%= form.label :licence, "Type de licence utilisée pour votre projet" %><br>
-            <%= form.text_field :licence, class: "form-control" %>
+            <%= form.select :licence, ['Aucune', 'Apache License 2.0', 'BSD 3-Clause "New" or "Revised" license', 'BSD 2-Clause "Simplified" or "FreeBSD" license', 'GNU General Public License (GPL)', 'GNU Library or "Lesser" General Public License (LGPL)', 'MIT license', 'Mozilla Public License 2.0', '
+            Common Development and Distribution License', 'Eclipse Public License version 2.0', 'Autre']%>
           </div>
 
           <!-- Cover on project -->
           <div class="form-group mb-5">
-            <%= form.label  "Ajouter une photo à votre projet" %><br>
+            <%= form.label  "Changer la photo de couverture de votre projet" %><br>
             <%= form.file_field :cover %>
           </div>
+
+          <!-- Images on project -->
+          <div class="form-group mb-5">
+          <%= form.label  "Ajouter des photos de présentations à votre projet" %><br>
+          <%= form.file_field :images, multiple: true, direct_upload: true %>
+          </div>          
 
           <!-- Submit -->
           <div class="form-group mb-5">

@@ -7,7 +7,7 @@
     <!-- Brand -->
     <%= link_to root_path, :class => "navbar-brand" do%>
       <h2 class="ml-5 mt-2">
-          <%= image_tag "https://pictures.kitties.netlib.re/storage/logo_white.png", class: "img-logo",alt:"index"%>
+        <%= image_tag "https://pictures.kitties.netlib.re/storage/logo_white.png", class: "img-logo",alt:"index"%>
       </h2>
     <%end%>
 
@@ -21,31 +21,45 @@
       <!-- Navigation -->
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown mr-2">
-          <%=link_to "#", class: "nav-link dropdown-toggle text-gray-700", id: "navbarLandings", data:{ toggle: 'dropdown' }, aria:{haspopup: "true", expanded: "false"} do %>
-            <i class="fas fa-user-plus"></i>
+          <%=link_to "#", class: "nav-link dropdown-toggle text-gray-700 mt-2", id: "navbarLandings", data:{ toggle: 'dropdown' }, aria:{haspopup: "true", expanded: "false"} do %>
+            <% if current_user%>
+              <i class="fas fa-user-cog"></i>
+            <%else%>
+              <i class="fas fa-user"></i>
+            <%end%>
           <%end%>
           <div class="dropdown-menu dropdown-menu-xl p-0" aria-labelledby="navbarLandings">
             <div class="row no-gutters">
               <div class="col-12 col-lg-6">
-                <div class="dropdown-img-left" style="background-image: url(https://images.unsplash.com/photo-1492551557933-34265f7af79e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+                <div class="dropdown-img-left" style="background-image: url(https://pictures.kitties.netlib.re/storage/menu_login.jpeg);">
                   <!-- Heading -->
-                  <h4 class="font-weight-bold text-white mb-0">
-                    Vous voulez proposer un projet?
-                  </h4>
+                  <% if !user_signed_in? %>
+                    <h4 class="font-weight-bold text-white mb-2">
+                      Vous voulez proposer un projet?
+                    </h4>
+                    <!-- Text -->
+                    <p class="font-size-sm text-white">
+                      Créez un compte et trouvez des financements auprès de particuliers.
+                    </p>
+                  <% else %>
+                    <h4 class="font-weight-bold text-white mb-2">
+                      Proposez votre projet !
+                    </h4>
 
-                  <!-- Text -->
-                  <p class="font-size-sm text-white">
-                    Créez un compte et trouvez des financements auprès de particuliers.
-                  </p>
+                    <!-- Text -->
+                    <p class="font-size-sm text-white">
+                      Trouvez des financements auprès de particuliers.
+                    </p>
+                  <% end %>
                 </div>
               </div>
               <div class="col-12 col-lg-6">
-                <div class="dropdown-body mr-5">
+                <div class="dropdown-body mr-2 ">
                   <div class="row no-gutters">
                     <div class="col-6">
                       <!-- Heading -->
                       <h6 class="dropdown-header">
-                        Utilisateurs
+                        Utilisateur
                       </h6>
 
                       <!-- List -->
@@ -64,35 +78,26 @@
             </div> <!-- / .row -->
           </div>
         </li>
-        <li class="nav-item dropdown mr-5">
-          <span class="badge badge-pill badge-primary-soft badge-lg nav-link dropdown-toggle mr-5 mt-1 text-gray-700" id="navbarDocumentation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            À propos   <i class="far fa-question-circle"></i>
-          </span>
-          <div class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDocumentation">
-            <div class="list-group list-group-flush">
-              <%=link_to static_pages_fr_path, class:"list-group-item" do%>
-                <!-- Icon -->
-                <div class="icon icon-sm text-primary">
-                  <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" fill-rule="evenodd">
-                      <path d="M0 0h24v24H0z"/>
-                      <rect fill="#335EEA" x="4" y="4" width="7" height="7" rx="1.5"/>
-                      <path d="M5.5 13h4a1.5 1.5 0 011.5 1.5v4A1.5 1.5 0 019.5 20h-4A1.5 1.5 0 014 18.5v-4A1.5 1.5 0 015.5 13zm9-9h4A1.5 1.5 0 0120 5.5v4a1.5 1.5 0 01-1.5 1.5h-4A1.5 1.5 0 0113 9.5v-4A1.5 1.5 0 0114.5 4zm0 9h4a1.5 1.5 0 011.5 1.5v4a1.5 1.5 0 01-1.5 1.5h-4a1.5 1.5 0 01-1.5-1.5v-4a1.5 1.5 0 011.5-1.5z" fill="#335EEA" opacity=".3"/>
-                    </g>
-                  </svg>
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-
-                  <!-- Heading -->
-                  <p class="font-weight-bold text-uppercase text-primary mb-0">Notre équipe</p>
-
-                  <!-- Text -->
-                  <p class="font-size-sm text-gray-700 mb-0">+ sur le projet</p>
-                </div>
+        <li class="nav-item dropdown mr-2 ">
+          <%if current_user%>
+            <%= link_to "Proposez un projet", new_project_fr_path, class: "btn btn-xs btn-pill btn-outline-primary mr-5 mt-2"%>
+          <%else%>
+            <%= link_to "Voir tous les projets", projects_fr_path, class: "btn btn-xs btn-pill btn-outline-primary mr-5 mt-2"%>
+          <%end%>
+        </li>
+        <% if user_signed_in? && current_user.is_admin %>
+          <li class="nav-item dropdown mr-2 d-flex align-items-center">
+            <div class="d-flex align-items-center mr-3">
+              <%=link_to admin_index_path , class:"badge badge-pill badge-primary-soft text-gray-700", title: "Accéder à l'espace administrateur" do%>
+                Administrateur
+                <i class="fas fa-unlock-alt"></i>
               <%end%>
             </div>
+          </li>
+        <% end %>
+        <li class="nav-item dropdown mr-0 d-flex align-items-center">
+          <div class="d-flex align-items-center mr-10">
+            <%=link_to "À propos", static_pages_fr_path , class:"badge badge-pill badge-primary-soft text-gray-700"%>
           </div>
         </li>
       </ul>

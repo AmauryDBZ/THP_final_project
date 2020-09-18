@@ -42,6 +42,6 @@ class BankDetailsController < ApplicationController
   private
 
   def bank_details_params
-    params.require(:bank_detail).permit(:bank_name, :iban, :pitch, :branch_code, :bank_code, :account_number, :key)
+    params.require(:bank_detail).permit(:bank_name, :iban, :branch_code, :bank_code, :account_number, :key)
   end
 end
