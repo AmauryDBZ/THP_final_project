@@ -9,7 +9,6 @@ class Admin::ExportsController < ApplicationController
         redirect_to admin_users_fr_path
       }
       format.csv {
-        puts 'export controller csv'
         if table == "donation"
           send_data @donations.to_csv(table), filename: "#{table}-#{Date.today}.csv"
         elsif table == "user"

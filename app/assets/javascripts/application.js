@@ -15,8 +15,6 @@
 //= require jquery.fancybox.min.js
 //= require aos.js
 //= require choices.min.js
-//= require countUp.min.js
-//= require dropzone.min.js
 //= require flickity.pkgd.min.js
 //= require flickity-fade.js
 //= require highlight.pack.min.js

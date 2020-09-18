@@ -79,4 +79,4 @@ gem 'dotenv-rails'
 gem 'aws-sdk-s3'
 gem 'toastr-rails'
 gem 'social-share-button'
-gem "will_paginate" 
+gem "will_paginate"

@@ -12,12 +12,15 @@
 
 ## The first crowdfunding plateform dedicated to open sources and free softwares
 
-Go check it: __[GoOpenSource](https://go-open-source.herokuapp.com/)__
+Go check it: __[GoOpenSource](https://go-open-source.herokuapp.com/)__\
+[Presentation video (in french)](https://www.youtube.com/watch?v=F0IGXNUja6o)  
+
 <details>
 <summary>Example</summary>
 
 moussaillon @ yopmail.com || Azerty
 </details>
+
 
 #### Installation instructions
 This application uses Ruby 2.5.1 and Rails 5.2.4
