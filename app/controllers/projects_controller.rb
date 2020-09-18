@@ -6,19 +6,24 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @projects = Project.all
+    @projects = Project.where(validated: true).paginate(:page => params[:page], :per_page=> 6)
     @categories = Category.all
   end
 
   def show
     @project.update(clicks: @project.clicks += 1)
     @project_holder = User.find(@project.user_id)
-    @donations = Donation.where(project_id: @project.id)
+    @donations = monthly_donation()
+    @month_total = 0
+    @donations.each { |d| @month_total += d.amount }
     @total = ((@project.daily_time_spent_on_project_per_developer)*(@project.number_of_developers_on_project))*5
+    # The result is multiplied by 5 since there is 5 worked days in a week --^
+    @project_id = Project.friendly.find_by_slug(params[:slug])
   end
 
   def new
     @project = Project.new
+    @categories = Category.all
   end
 
   def create
@@ -26,6 +31,11 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     @project.clicks = 0
     @project.money_earned = 0
+    if params[:category_ids] != nil
+      params[:category_ids].each do |category|
+        @project.categories << Category.find(category.to_i)
+      end
+    end
       if @project.save
         flash[:success] = "Merci ! Nous allons vérifier les informations de votre projet"
         redirect_to :controller => 'projects', :action => 'index'
@@ -53,15 +63,21 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update(project_params)
-      @project.update(validated: nil)
-      flash[:success] = "Merci ! Nous allons vérifier les nouvelles informations de votre projet"
-      redirect_to :controller => 'projects', :action => 'index'
-    else
-      flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@project.errors.full_messages.each {|message| message}.join('')}"
-      render :action => 'edit'
+      if @project.update(project_params)
+        if ProjectCategory.where(project: @project).size > 0
+          ProjectCategory.where(project: @project).destroy_all
+        end
+        if params[:category_ids]
+          @project.update(categories: Category.find(params[:category_ids]) )
+        end
+        @project.update(validated: nil)
+        flash[:success] = "Merci ! Nous allons vérifier les nouvelles informations de votre projet"
+        redirect_to :controller => 'projects', :action => 'index'
+      else
+        flash[:danger] = "Erreur(s) à rectifier pour valider votre projet : #{@project.errors.full_messages.each {|message| message}.join('')}"
+        render :action => 'edit'
+      end
     end
-  end
 
   private
 
@@ -70,6 +86,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :daily_time_spent_on_project_per_developer, :pitch, :functionalities, :value_of_project, :number_of_developers_on_project, :licence, :cover, images: [])
+    params.require(:project).permit(:name, :daily_time_spent_on_project_per_developer, :pitch, :functionalities, :url, :value_of_project, :number_of_developers_on_project, :licence, :cover, images: [])
   end
 end

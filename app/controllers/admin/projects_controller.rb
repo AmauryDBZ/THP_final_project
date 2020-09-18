@@ -17,6 +17,7 @@ class Admin::ProjectsController < ApplicationController
   def update
     if params[:status_project] == "true"
       @project.update(validated: true)
+      flash[:success] = "Le projet a bien été validé"
     elsif params[:status_project] == "false"
       @project.update(validated: false)
     end
@@ -24,14 +25,13 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def destroy
-    @project.delete
-    if @project.delete
+    if @project.destroy
       flash[:success] = "Le projet a bien été supprimé"
       Donation.where(project_id: @project.id).each do |donation|
-      donation.delete
+      donation.destroy
       end
       redirect_to root_path
-    else 
+    else
       flash[:danger] = "Le projet n'a pas pu être supprimé, veuillez rééssayer ultérieurement"
       redirect_to root_path
     end

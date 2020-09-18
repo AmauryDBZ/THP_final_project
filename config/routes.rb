@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  root 'projects#index'
+  root 'landing_pages#index' 
 
   localized do
     devise_for :users
+    resources :landing_pages, only: [:index]
     resources :projects, param: :slug do
       resources :cover, only: [:create, :destroy]
-      resources :images, only: [:create, :destroy]
+      resources :images, only: [:create, :destroy, :show]
     end
     resources :categories, only: [:index, :show], param: :slug
     resources :donations, only: [:update]

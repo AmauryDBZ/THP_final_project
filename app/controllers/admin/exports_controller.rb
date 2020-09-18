@@ -15,7 +15,7 @@ class Admin::ExportsController < ApplicationController
         elsif table == "user"
           send_data @users.to_csv(table), filename: "#{table}-#{Date.today}.csv"
         else
-          flash[:warning] = "an error occur during the export process"
+          flash[:danger] = "une erreur est survenue lors de l'export du fichier .csv"
         end
       }
     end
