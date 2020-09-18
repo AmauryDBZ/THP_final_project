@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>GoOpenSource</title>
+    <link rel="shortcut icon" href="https://pictures.kitties.netlib.re/storage/logo_white_min.svg"/>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+
+  <body>
+    <%= javascript_include_tag 'toast' %>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/flash' %>
+
+    <%= yield %>
+
+    <nav class="navbar fixed-bottom">
+      <%=link_to "#navbar", class: "btn btn-sm btn-rounded-circle btn-primary lift ml-auto mx-5 mb-3", title: "Remonter en haut de la page", data:{ toggle: 'smooth-scroll', offset: '0' } do %><i class="fas fa-arrow-up"></i><%end%>
+    </nav>
+
+    <%= render 'layouts/footer' %>
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!-- WELCOME
+================================================== -->
+<section class="position-relative d-block py-0 mb-10">
+
+  <!-- Content -->
+  <div class="d-flex justify-content-center">
+    <div class="row align-items-center">
+
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 order-md-2 mx-auto text-center w-auto p-auto">
+        <!-- Image -->
+        <div class="img" data-aos="fade-up" data-aos-delay="100">
+          <%= image_tag "https://pictures.kitties.netlib.re/storage/business-team-discussing-ideas-startup.svg", class: "img-fluid",alt:"image de couverture"%>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-lg-12 col-md-12 mx-auto mt-4 mt-md-4 mt-sm-4 text-center" data-aos="fade-up">
+        <!-- Heading -->
+        <h1 class="display-3 text-center">
+          Nos projets <br>
+        </h1>
+        <h2>
+          <span class="text-primary">Soutenez le libre et l'Open Source</span>
+        </h2>
+
+        <!-- Text -->
+        <p class="lead text-muted mb-6 text-center">
+          Apportez votre contribution aux projets qui vous tiennent à coeur.
+        </p>
+
+        <!-- Buttons -->
+        <div class="container">
+            <%= link_to "Proposer votre projet", new_project_fr_path, class: "btn btn block btn-primary mr-1 mt-3 lift" %>
+        </div>
+      </div>
+    </div> <!-- / .row -->
+  </div>
+</section>
+
+<section>
+  <div class= "container">
+    <%=render "all_projects"%>
+  </div> <!--/ container -->
+</section>

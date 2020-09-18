@@ -1,0 +1,62 @@
+<!-- CONTENT
+================================================== -->
+<section class="section-border border-primary">
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+      <div class="col-12 col-md-5 col-lg-8 py-8 py-md-11 text-center">
+
+        <!-- Heading -->
+        <h1 class="mb-0 font-weight-bold">
+          Modifier votre RIB :
+        </h1>
+
+        <!-- Text -->
+        <p class="mb-6 text-center text-muted">
+          Renseignez tous les champs pour mettre à jour vos informations.
+        </p>
+
+        <!-- Form -->
+        <%= form_with model: @bankdetail, local: true, url: bank_detail_path, method: :patch do |form| %>
+
+          <!-- Name -->
+          <div class="form-group mb-5">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <%= form.label :bank_name, 'Nom de la banque' %>
+            <%= form.text_field :bank_name, class: "form-control", placeholder: "Banque de France‎" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= form.label :iban, 'IBAN' %>
+            <%= form.text_field :iban, class: "form-control", placeholder: "FR7641199110541234567890180‎" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= form.label :bank_code, 'Code banque' %>
+            <%= form.text_field :bank_code, class: "form-control", placeholder: "30087" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= form.label :branch_code, 'Code guichet' %>
+            <%= form.text_field :branch_code, class: "form-control", placeholder: "46642" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= form.label :account_number, 'Numéro de compte' %>
+            <%= form.text_field :account_number, class: "form-control", placeholder: "12345678901" %>
+          </div>
+
+          <div class="form-group mb-5">
+            <%= form.label :key, 'Clé du rib' %>
+            <%= form.text_field :key, class: "form-control", placeholder: "80" %>
+          </div>
+
+          <!-- Submit -->
+          <div class="form-group mb-5">
+            <%= form.submit "Valider ces informations", class: "btn btn-block btn-primary" %>
+          </div>
+
+        <% end %>
+      </div> <!-- / .col-12 -->
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>

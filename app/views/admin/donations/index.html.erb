@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col">
+      <div class="row justify-content-center align-items-center">
+        <div clas="col-md-10">
+          <h2 class="my-3">Liste des dons reçus (du plus récent au plus ancien)</h2>
+        </div>
+        <div class="col-md-2">
+          <%= link_to new_admin_export_fr_path(format: 'csv', table: 'donation'), :class => "btn btn-xs btn-outline-secondary" do %>
+            Export to <i class="fas fa-file-csv fa-2x"></i>
+          <% end %>
+        </div>
+        <div class="col-md-2">
+          <%= link_to new_admin_transfer_path, :class => "btn btn-xs btn-outline-primary" do %>
+            Tout tranférer
+          <% end %>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Utilisateur</th>
+                  <th scope="col">Projet</th>
+                  <th scope="col">Valeur(€)</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @donations.each do |donation| %>
+                  <tr>
+                  <td>
+                  <%= link_to user_fr_path(donation.project.user), :class => "btn btn-xs btn-outline-secondary" do %>
+                    <% if donation.project.user.first_name && donation.project.user.last_name %>
+                      <%= donation.project.user.first_name %> <%= donation.project.user.last_name %>
+                    <% else %>
+                      <%= donation.project.user.email %>
+                    <% end %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to project_fr_path(donation.project), :class => "btn btn-xs btn-outline-secondary" do %>
+                      <%= donation.project.name %>
+                    <% end %>
+                  </td>
+                      <td><%= donation.amount %> €</td>
+                      <td><%= donation.created_at.strftime('%d/%m/%Y') %></td>
+                    <% if donation.transfered %>
+                      <td>Transféré</td>
+                    <% elsif !donation.project.user.bank_details.last %>
+                      <td>Pas de rib</td>
+                    <% else %>
+                      <td><%= link_to "Régler", donation_path(donation), :method=> :patch, :class => "btn btn-secondary" %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

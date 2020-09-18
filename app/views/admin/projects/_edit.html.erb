@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-status-title">Mettre à jour le statut du projet</h4>
+  <button type="button" class="close" data-dismiss="modal"><i class="far fa-times-circle"></i></button>
+</div>
+<div class="modal-body">
+  <div class="col text-center">
+    <%= link_to "Valider", admin_project_fr_path(@project, :status_project => "true"), class: "btn btn-outline-success", :method => "put" %>
+    <%= link_to "Refuser", new_admin_explanation_fr_path(:project => @project.id, :status_project => "false"), class: "btn btn-outline-danger" %>
+  </div>
+</div>

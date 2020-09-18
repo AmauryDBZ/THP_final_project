@@ -1,0 +1,13 @@
+.navbar {
+  padding: 3px 0 0 0;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  color: #1B2A4D;
+}
+
+.img-logo {
+  max-width: 30%;
+  height: auto
+}
